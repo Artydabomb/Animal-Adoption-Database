@@ -1,12 +1,14 @@
-import logo from './logo.svg';
-import Search from './components/Search'
-import './App.css';
+import Search from './components/Search/Search';
+import Header from './components/Header/HeaderNav';
+import 'bulma/css/bulma.min.css';
+
+// import './components/Search.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <Header />
         <Search />
       </header>
     </div>
