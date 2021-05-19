@@ -5,7 +5,6 @@ function Search() {
     return (
 
         <nav className="level">
-
             <div className="level-left">
                 <div className="level-item">
                     <p className="subtitle is-5">
@@ -35,7 +34,7 @@ function Search() {
                 <p className="level-item"><a href="test">Deleted</a></p>
                 <p className="level-item"><a className="button is-success" href="test">New</a></p>
             </div>
-        </nav>
+        </nav >
 
     );
 
