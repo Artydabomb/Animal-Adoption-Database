@@ -20,6 +20,10 @@ const UserSchema = new Schema({
   signup_date: {
     type: Date,
     default: Date.now
+  },
+
+  saved_animals: {
+    type: Array
   }
 });
 
