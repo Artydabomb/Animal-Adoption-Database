@@ -1,10 +1,10 @@
 import React from "react";
+import 'bulma/css/bulma.min.css';
 
 function Search() {
     return (
 
         <nav className="level">
-
             <div className="level-left">
                 <div className="level-item">
                     <p className="subtitle is-5">
@@ -29,12 +29,12 @@ function Search() {
 
             <div className="level-right">
                 <p className="level-item"><strong>All</strong></p>
-                <p className="level-item"><a>Published</a></p>
-                <p className="level-item"><a>Drafts</a></p>
-                <p className="level-item"><a>Deleted</a></p>
-                <p className="level-item"><a className="button is-success">New</a></p>
+                <p className="level-item"><a href="test">Published</a></p>
+                <p className="level-item"><a href="test">Drafts</a></p>
+                <p className="level-item"><a href="test">Deleted</a></p>
+                <p className="level-item"><a className="button is-success" href="test">New</a></p>
             </div>
-        </nav>
+        </nav >
 
     );
 
