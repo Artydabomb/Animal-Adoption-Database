@@ -9,16 +9,14 @@ import 'bulma/css/bulma.min.css';
 
 function App() {
   return (
-    <div className="container">
-      <div className="App">
-        <header className="App-header">
-          <Header />
-          <Search />
-          <BodyNoLogin />
-          <Footer />
-        </header>
-      </div>
-    </div >
+    <div className="App container">
+      <header className="App-header">
+        <Header />
+        <Search />
+        <BodyNoLogin />
+        <Footer />
+      </header>
+    </div>
   );
 }
 
