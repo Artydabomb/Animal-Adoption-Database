@@ -10,7 +10,6 @@ function CardContent() {
             </div>
             <div className="card-content">
                 <div className="media">
-
                     <div className="media-content">
                         <p className="title is-4">John Smith</p>
                         <p className="subtitle is-6">@johnsmith</p>
