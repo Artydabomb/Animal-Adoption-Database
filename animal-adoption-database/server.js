@@ -9,6 +9,7 @@ const passport = require("passport")
 
 // Define middleware here
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/', routes);
