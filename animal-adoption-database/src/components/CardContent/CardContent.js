@@ -1,7 +1,7 @@
 import React from "react";
 import "./CardContent.css";
 
-function CardContent() {
+function CardContent(props) {
     return (
         <div className="petcard card ">
             <div className="card-image">
@@ -11,8 +11,15 @@ function CardContent() {
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
-                        <p className="title is-4">John Smith</p>
-                        <p className="subtitle is-6">@johnsmith</p>
+                        {/* Make the name dynamic */}
+                        <p className="title is-4">{props.name}</p>
+                        {/* Make the temperatment dynamic */}
+                        <p className="subtitle is-6">{props.age}</p>
+                        {/* Make the age dynamic */}
+                        <p className="subtitle is-6">@{props.breed}</p>
+                        {/* Make the location dynamic */}
+                        <p className="subtitle is-6">@{props.location}</p>
+
                     </div>
                 </div>
 
