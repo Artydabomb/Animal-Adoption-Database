@@ -2,4 +2,6 @@
     background-color: pink;
     display: grid;
   grid-template-columns: repeat(4, 1fr);
+  border-radius: 5px 5px 5px 5px;
+  border: black 2px solid;
 }
