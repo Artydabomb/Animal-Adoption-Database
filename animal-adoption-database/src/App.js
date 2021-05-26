@@ -1,21 +1,13 @@
-import Search from './components/Search/Search';
-import Header from './components/Header/HeaderNav';
-import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
-import Footer from './components/Footer/Footer';
-import "./App.css";
-
-import 'bulma/css/bulma.min.css';
-
-// import './components/Search.css';
+import logo from './logo.svg';
+import Search from './components/Search'
+import './App.css';
 
 function App() {
   return (
-    <div className="App container">
+    <div className="App">
       <header className="App-header">
-        <Header />
+        <img src={logo} className="App-logo" alt="logo" />
         <Search />
-        <BodyNoLogin />
-        <Footer />
       </header>
     </div>
   );
