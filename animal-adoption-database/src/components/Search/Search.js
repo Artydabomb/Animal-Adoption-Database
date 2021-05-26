@@ -13,9 +13,7 @@ function Search() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        API.searchAnimals(
-            formObject.searchField
-        )
+        API.searchAnimals(formObject)
     };
 
     return (

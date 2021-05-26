@@ -5,6 +5,6 @@ import dotenv from "dotenv";
 export default {
     searchAnimals(searchData) {
         // axios.post("/api/animals/", searchData)
-        console.log("Got here " + searchData)
+        console.log("Got here " + searchData.searchField)
     }
 }
