@@ -8,7 +8,6 @@ import 'bulma/css/bulma.min.css';
 
 // import './components/Search.css';
 
-API.sampleData().then(results => console.log(results))
 
 function App() {
   return (
