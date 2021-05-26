@@ -11,8 +11,12 @@ function BodyNoLogin() {
                         <div className="column">
                             <CardContent />
                         </div>
-                    </div>
-                    <div className="columns">
+                        <div className="column">
+                            <CardContent />
+                        </div>
+                        <div className="column">
+                            <CardContent />
+                        </div>
                         <div className="column">
                             <CardContent />
                         </div>
@@ -21,8 +25,12 @@ function BodyNoLogin() {
                         <div className="column">
                             <CardContent />
                         </div>
-                    </div>
-                    <div className="columns">
+                        <div className="column">
+                            <CardContent />
+                        </div>
+                        <div className="column">
+                            <CardContent />
+                        </div>
                         <div className="column">
                             <CardContent />
                         </div>

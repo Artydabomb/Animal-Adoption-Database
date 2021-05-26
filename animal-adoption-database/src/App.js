@@ -1,6 +1,12 @@
 import logo from './logo.svg';
-import Search from './components/Search'
 import './App.css';
+
+import Header from './components/Header/HeaderNav';
+import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
+import Footer from './components/Footer/Footer';
+
+
+// import './components/Search.css';
 
 function App() {
   return (
