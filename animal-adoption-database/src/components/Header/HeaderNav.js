@@ -4,14 +4,8 @@ function HeaderNav() {
     return (
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="https://bulma.io">
-                    <img src="../../images/Animal_Database_Logo.png" width="112" height="28" alt="test" />
-                </a>
-
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" href="test">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+                <a class="navbar-item">
+                    
                 </a>
             </div>
 

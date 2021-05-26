@@ -14,7 +14,7 @@ function Search() {
                 <div className="level-item">
                     <div className="field has-addons">
                         <p className="control">
-                            <input className="input" type="text" placeholder="Find a post">
+                            <input className="input" type="text" placeholder="Find a pet!">
                             </input>
                         </p>
                         <p className="control">
