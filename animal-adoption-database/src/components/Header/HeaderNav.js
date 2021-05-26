@@ -7,6 +7,7 @@ function HeaderNav() {
                 <a class="navbar-item">
                     
                 </a>
+                
             </div>
 
             <div id="navbarBasicExample" class="navbar-menu">
