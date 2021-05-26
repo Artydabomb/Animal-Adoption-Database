@@ -4,7 +4,6 @@ import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
 import Footer from './components/Footer/Footer';
 import API from './utils/API'
 import "./App.css";
-
 import 'bulma/css/bulma.min.css';
 
 // import './components/Search.css';

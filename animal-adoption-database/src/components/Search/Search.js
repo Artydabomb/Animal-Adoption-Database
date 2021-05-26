@@ -28,10 +28,9 @@ function Search() {
 
 
             <div className="level-right">
-                <p className="level-item"><strong>All</strong></p>
-                <p className="level-item"><a href="test">Published</a></p>
-                <p className="level-item"><a href="test">Drafts</a></p>
-                <p className="level-item"><a href="test">Deleted</a></p>
+                <p className="level-item"><strong>Quick Filter By:</strong></p>
+                <p className="level-item"><a href="test">Dogs</a></p>
+                <p className="level-item"><a href="test">Cats</a></p>
                 <p className="level-item"><a className="button is-success" href="test">New</a></p>
             </div>
         </nav >
