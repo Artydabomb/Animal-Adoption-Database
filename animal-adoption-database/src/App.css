@@ -1,4 +1,40 @@
-body{
-    background-color: #FFD670;
-}
-
+html{
+    background-image: url(/src/images/Background_Image.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  .App-header{
+    background-color: transparent;
+    margin-top: 20px;
+  }
+  
+  .navbar{
+    width: auto;
+    background-color: lightcoral;
+    border: black 1px solid;
+    border-radius: 5px 5px 5px 5px;
+  }
+  
+  .navbar-brand{
+              /* Navbar Logo */
+    background-image: url(/src/images/Animal_Database_Logo.jpeg);
+    background-size: 235px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 150px;
+    padding-right: 30px;
+  }
+  
+  .level{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .footer{
+    background: transparent;
+    font-size: larger;
+    font-weight: 500;
+  }
+  
