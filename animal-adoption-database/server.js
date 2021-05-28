@@ -4,6 +4,7 @@ const bodyParser = require("body-parser")
 const routes = require("./routes")
 const app = express();
 const PORT = process.env.PORT || 3001;
+const dotenv = require('dotenv').config();
 // const passport = require("passport")
 
 

@@ -1,11 +1,12 @@
 const router = require("express").Router();
-const userRoutes = require("./user.js");
-const rescueGroupsRoutes = require("./rescuegroups.js")
+const rescueGroupsRoutes = require("./rescuegroups")
+// const userRoutes = require("./user.js");
+
+//router.use("/user", userRoutes);
+router.use("/rescuegroups", rescueGroupsRoutes)
 
 // user routes
 router.route("/")
 
-//router.use("/user", userRoutes);
-router.use("/rescuegroups", rescueGroupsRoutes)
 
 module.exports = router;

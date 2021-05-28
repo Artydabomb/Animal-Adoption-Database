@@ -14,6 +14,7 @@ function Search() {
     function handleFormSubmit(event) {
         event.preventDefault();
         API.searchAnimals(formObject)
+        .then(res => console.log(Object.values(res.data.data).forEach(val => console.log(val))))
     };
 
     return (
