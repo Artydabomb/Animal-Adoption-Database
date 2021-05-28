@@ -50,6 +50,7 @@ class HeaderNav extends Component {
                     <div class="navbar-start">
                         <a class="navbar-item" href="test">
                             Mewsletter
+
                     </a>
 
                         <a class="navbar-item" href="test">
