@@ -9,10 +9,10 @@ router.route("/").post(function(req, res) {
         "objectAction" : "publicSearch",
         "search" : {
             "resultStart" : 0,
-        "resultLimit" : 10,
-        "resultSort" : "animalID",
-        "resultOrder" : "asc",
-        "calcFoundRows" : "Yes",
+            "resultLimit" : 10,
+            "resultSort" : "animalID",
+            "resultOrder" : "asc",
+            "calcFoundRows" : "Yes",
             "filters" : [
                 {
                 "fieldName" : "animalName",
