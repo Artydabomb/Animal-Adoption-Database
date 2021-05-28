@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../server/database/models/user");
 const axios = require("axios");
 
 module.exports = {
@@ -8,8 +8,7 @@ module.exports = {
         .get(
             //`https://....(sku=${req.params.id})?format=json&apiKey=${process.env.REACT_APP_API_KEY_PETAPI}`
             )
-        .then(results => {res.json.data.user[0]);
-        })
+        .then(results => {res.json.data.user[0]})
         .catch(err => console.log(err));
     },
       
@@ -24,8 +23,7 @@ module.exports = {
         .get(
             //`https://....(sku=${req.params.id})?format=json&apiKey=${process.env.REACT_APP_API_KEY_PETAPI}`
             )
-        .then(results => {res.json.data.user[0]);
-        })
+        .then(results => {res.json.data.user[0]})
         .catch(err => console.log(err));
     },
     create: function(req, res) {
