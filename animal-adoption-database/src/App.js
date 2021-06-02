@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import axios from 'axios'
 import { Route, Link, Router, Switch } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom';
@@ -13,44 +13,36 @@ import API from './utils/API'
 import "./App.css";
 import 'bulma/css/bulma.min.css';
 
-
-
 // import './components/Search.css';
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      loggedIn: false,
-      username: null
-    }
+function App() {
+  const [userState, setUserState] = useState({
+    loggedIn: false,
+    username: null
+  });
 
-    this.getUser = this.getUser.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.updateUser = this.updateUser.bind(this)
+  useEffect(() => {
+    getUser()
+  }, []);
+
+  function updateUser(userObject) {
+    setUserState(userObject)
   }
 
-  componentDidMount() {
-    this.getUser()
-  }
-
-  updateUser(userObject) {
-    this.setState(userObject)
-  }
-  getUser() {
-    axios.get('/user/').then(response => {
+  function getUser() {
+    axios.get('api/user/').then(response => {
       console.log('Get user response: ')
       console.log(response.data)
       if (response.data.user) {
         console.log('Get User: There is a user saved in the server session: ')
 
-        this.setState({
+        setUserState({
           loggedIn: true,
           username: response.data.user.username
         })
       } else {
         console.log('Get user: no user');
-        this.setState({
+        setUserState({
           loggedIn: false,
           username: null
         })
@@ -58,19 +50,16 @@ class App extends Component {
     })
   }
 
-  render() {
-    return (
-      <div className="App container">
-        <header className="App-header">
-          <HeaderNav />
-          <Search />
-          <BodyNoLogin />
-          <Footer />
-        </header>
-        
-      </div>
-    );
-  }
+  return (
+    <div className="App container">
+      <header className="App-header">
+        <HeaderNav />
+        <Search />
+        <BodyNoLogin />
+        <Footer />
+      </header>
+    </div>
+  );
 }
 
 
