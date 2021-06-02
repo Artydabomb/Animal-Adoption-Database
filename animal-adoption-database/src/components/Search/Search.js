@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import 'bulma/css/bulma.min.css';
-import API from "../../utils/API"
+import API from "../../utils/API";
+import SearchContext from "../../utils/SearchContext";
 
-function Search() {
-
+function Search(props) {
+    const {searchTerm, searchResults} = useContext(SearchContext);
     const [formObject, setFormObject] = useState({})
 
     function handleInputChange(event) {
@@ -14,8 +15,9 @@ function Search() {
     function handleFormSubmit(event) {
         event.preventDefault();
         API.searchAnimals(formObject)
-        .then(res => console.log(Object.values(res.data.data).forEach(val => console.log(val))))
+        .then(res => props.setResults(res.data.data))
     };
+    // console.log(Object.values(res.data.data).forEach(val => console.log(val)))
 
     return (
 
