@@ -1,11 +1,13 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useContext } from "react";
 import CardContent from "../CardContent/CardContent";
 import "./BodyNoLogin.css";
 import Pup from "../../Pup.json";
+import SearchContext from "../../utils/SearchContext"
 
 
-function BodyNoLogin(prop) {
-    console.log(Pup);
+function BodyNoLogin(props) {
+    const { searchResults } = useContext(SearchContext);
+    console.log(searchResults)
     return (
         <div className="tile is-ancestor parentTile">
             <div className="tile is-parent">

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Route, Link, Router, Switch } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom';
 // compoonents
+import React, { useState, useEffect } from "react";
 import Search from './components/Search/Search';
 import HeaderNav from './components/Header/HeaderNav';
 import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
@@ -12,45 +13,39 @@ import LoginForm from './components/login-form/login-form'
 import API from './utils/API'
 import "./App.css";
 import 'bulma/css/bulma.min.css';
+import SearchContext from './utils/SearchContext';
 
 
 
 // import './components/Search.css';
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
+function App(){ 
+  const [userState, setUserState] = useState ({
       loggedIn: false,
       username: null
-    }
+    })
 
-    this.getUser = this.getUser.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.updateUser = this.updateUser.bind(this)
-  }
+  useEffect(()=>{
+    getUser()
+  },[]);
 
-  componentDidMount() {
-    this.getUser()
+  function updateUser (userObject){
+    setUserState(userObject)
   }
-
-  updateUser(userObject) {
-    this.setState(userObject)
-  }
-  getUser() {
-    axios.get('/user/').then(response => {
+  function getUser() {
+    axios.get('api/user/').then(response => {
       console.log('Get user response: ')
       console.log(response.data)
       if (response.data.user) {
         console.log('Get User: There is a user saved in the server session: ')
 
-        this.setState({
+        setUserState({
           loggedIn: true,
           username: response.data.user.username
         })
       } else {
         console.log('Get user: no user');
-        this.setState({
+        setUserState({
           loggedIn: false,
           username: null
         })
@@ -58,7 +53,7 @@ class App extends Component {
     })
   }
 
-  render() {
+render() {
     return (
       <div className="App container">
         <header className="App-header">
@@ -71,6 +66,35 @@ class App extends Component {
       </div>
     );
   }
+function App() {
+
+  const [searchState, setSearchState] = useState({
+    searchTerm: "",
+    dogSearch: true,
+    zipCode: "",
+    searchResults: []
+  });
+
+  function setResults(data) {
+    setSearchState({
+      ...searchState,
+      searchResults: Object.entries(data).map((e) => ( { [e[0]]: e[1] } ))
+    })
+    console.log(searchState.searchResults)
+  }
+
+  return (
+    <SearchContext.Provider value={searchState}>
+      <div className="App container">
+        <header className="App-header">
+          <Header />
+          <Search setResults={setResults}/>
+          <BodyNoLogin />
+          <Footer />
+        </header>
+      </div>
+    </SearchContext.Provider>
+  );
 }
 
 
