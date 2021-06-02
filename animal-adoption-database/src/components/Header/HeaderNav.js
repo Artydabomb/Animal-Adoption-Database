@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { BrowserRouter, Redirect } from 'react-router-dom'
 import { Route, Link } from 'react-router-dom'
 import '../../App.css';
 import axios from 'axios'
-import { BrowserRouter } from 'react-router-dom'
+
 
 class HeaderNav extends Component {
     constructor() {
@@ -35,9 +35,7 @@ class HeaderNav extends Component {
         return (
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bulma.io">
-                        <img src="../../images/Animal_Database_Logo.png" width="112" height="28" alt="Bulma.io" />
-                    </a>
+
 
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" href="test">
                         <span aria-hidden="true"></span>
