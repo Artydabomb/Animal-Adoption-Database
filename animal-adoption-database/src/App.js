@@ -12,10 +12,26 @@ import LoginForm from './components/login-form/login-form'
 import API from './utils/API'
 import "./App.css";
 import 'bulma/css/bulma.min.css';
+import SearchContext from './utils/SearchContext';
 
 // import './components/Search.css';
 
 function App() {
+  const [searchState, setSearchState] = useState({
+    searchTerm: "",
+    dogSearch: true,
+    zipCode: "",
+    searchResults: []
+  });
+
+  function setResults(data) {
+    setSearchState({
+      ...searchState,
+      searchResults: Object.entries(data).map((e) => ( { [e[0]]: e[1] } ))
+    })
+    console.log(searchState.searchResults)
+  }
+
   const [userState, setUserState] = useState({
     loggedIn: false,
     username: null
@@ -51,14 +67,16 @@ function App() {
   }
 
   return (
-    <div className="App container">
-      <header className="App-header">
-        <HeaderNav />
-        <Search />
-        <BodyNoLogin />
-        <Footer />
-      </header>
-    </div>
+    <SearchContext.Provider value={searchState}>
+      <div className="App container">
+        <header className="App-header">
+          <Header />
+          <Search setResults={setResults}/>
+          <BodyNoLogin />
+          <Footer />
+        </header>
+      </div>
+    </SearchContext.Provider>
   );
 }
 
