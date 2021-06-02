@@ -7,6 +7,7 @@ import API from './utils/API'
 import "./App.css";
 import 'bulma/css/bulma.min.css';
 import SearchContext from './utils/SearchContext';
+import SavedSearches from "./components/SavedSearches/SavedSearches";
 
 // import './components/Search.css';
 
@@ -33,6 +34,7 @@ function App() {
         <header className="App-header">
           <Header />
           <Search setResults={setResults}/>
+          <SavedSearches />
           <BodyNoLogin />
           <Footer />
         </header>

@@ -1,5 +1,5 @@
 html{
-    background-image: url(/src/images/Background_Image.jpg);
+    background-image: url(./images/Background_Image.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -19,7 +19,7 @@ html{
   
   .navbar-brand{
               /* Navbar Logo */
-    background-image: url(/src/images/Animal_Database_Logo.jpeg);
+    background-image: url(./images/Animal_Database_Logo.jpeg);
     background-size: 235px;
     background-position: center;
     background-repeat: no-repeat;
