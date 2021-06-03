@@ -7,7 +7,8 @@ function Button() {
     return (
         <div>
             <h1>{noLogin}</h1>
-            <button onClick={() => setMessage('Saved!')}>Add to favorites!</button>
+            <button onClick={() => loggedIn('Saved!')}>Add to favorites!</button>
+            <button onClick={() => loggedIn('Unsaved')}>Removed from favorites</button>
         </div>
     );
 }
