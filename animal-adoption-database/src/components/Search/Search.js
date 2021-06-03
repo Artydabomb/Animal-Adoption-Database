@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import 'bulma/css/bulma.min.css';
+import API from "../../utils/API";
+import SearchContext from "../../utils/SearchContext";
 
-function Search() {
+function Search(props) {
+    const {searchTerm, searchResults} = useContext(SearchContext);
+    const [formObject, setFormObject] = useState({})
+
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+      };
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        API.searchAnimals(formObject)
+        .then(res => props.setResults(res.data.data))
+    };
+    // console.log(Object.values(res.data.data).forEach(val => console.log(val)))
+
     return (
 
         <nav className="level">
@@ -12,17 +29,17 @@ function Search() {
                     </p>
                 </div>
                 <div className="level-item">
-                    <div className="field has-addons">
+                    <form className="field has-addons">
                         <p className="control">
-                            <input className="input" type="text" placeholder="Find a pet!">
+                            <input className="input" type="text" placeholder="Find a post" onChange={handleInputChange} name="searchField">
                             </input>
                         </p>
                         <p className="control">
-                            <button className="button">
+                            <button className="button" onClick={handleFormSubmit}>
                                 Search
                             </button>
                         </p>
-                    </div>
+                    </form>
                 </div>
             </div>
 

@@ -4,13 +4,14 @@ const morgan = require('morgan')
 const session = require('express-session')
 const passport = require('./passport');
 const app = express()
-const PORT = 8080
+const PORT = process.env.PORT || 8080;
 const mongoose = require('mongoose')
+const dotenv = require('dotenv').config();
 // Route requires
-const user = require('./routes/user')
+const routes = require('./routes');
 const MongoStore = require('connect-mongo')
 
-mongoose.connect ("mongodb://localhost:27017/animal-db" || process.env.mongodb_uri)
+mongoose.connect("mongodb://localhost:27017/animal-db" || process.env.mongodb_uri)
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -20,6 +21,9 @@ app.use(
 	})
 )
 app.use(bodyParser.json())
+// We don't know what this does lol
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Sessions
 app.use(
@@ -39,9 +43,9 @@ app.use(passport.session()) // calls the deserializeUser
 
 
 // Routes
-app.use('/user', user)
+app.use('/', routes)
 
 // Starting Server 
 app.listen(PORT, () => {
-	console.log(`App listening on PORT: ${PORT}`)
+	console.log(`Server listening on PORT: ${PORT}`)
 })
