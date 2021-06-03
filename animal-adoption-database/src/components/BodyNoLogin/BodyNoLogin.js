@@ -19,7 +19,7 @@ function BodyNoLogin(props) {
                                     age={animal.animalAgeString}
                                     breed={animal.animalBreed}
                                     location={animal.animalLocationCitystate}
-                                    img={animal.animalThumbnailUrl}
+                                    img={animal.animalThumbnailUrl ? animal.animalThumbnailUrl : "https://image.freepik.com/free-vector/cute-little-dog-cartoon-isolated-white_143596-3.jpg"}
                                     description={animal.animalDescription.replace("<div class=\"rgDescription\">", "").replace("</div>", "")}
                                 />
                             </div>
