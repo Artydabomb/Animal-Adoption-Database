@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import 'bulma/css/bulma.min.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
-  <BrowserRouter>
+  <React.StrictMode>
     <App />
-  </BrowserRouter>,
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
