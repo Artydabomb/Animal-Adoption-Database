@@ -2,6 +2,7 @@ import React from "react";
 import "./CardContent.css";
 
 function CardContent(props) {
+    const innerHTML = {__html: props.description}
     return (
         <div className="petcard card ">
             <div className="card-image">
@@ -19,12 +20,11 @@ function CardContent(props) {
                         <p className="subtitle is-6">@{props.breed}</p>
                         {/* Make the location dynamic */}
                         <p className="subtitle is-6">@{props.location}</p>
-
                     </div>
                 </div>
 
                 <div className="content">
-                    {props.description}
+                    <div dangerouslySetInnerHTML={innerHTML} />
                 </div>
             </div>
         </div>
