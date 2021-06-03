@@ -1,8 +1,9 @@
 import React from "react";
 import "./CardContent.css";
+import Button from "../SaveButton/SaveButton";
 
 function CardContent(props) {
-    const innerHTML = {__html: props.description}
+    const innerHTML = { __html: props.description }
     return (
         <div className="petcard card ">
             <div className="card-image">
@@ -20,6 +21,7 @@ function CardContent(props) {
                         <p className="subtitle is-6">@{props.breed}</p>
                         {/* Make the location dynamic */}
                         <p className="subtitle is-6">@{props.location}</p>
+                        <SaveButton />
                     </div>
                 </div>
 
