@@ -14,13 +14,12 @@ function Search(props) {
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        console.log(speciesSearch)
         setFormObject({...formObject, [name]: value});
       };
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: formObject.speciesSearch})
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch})
         .then(res => props.setResults(res.data.data))
     };
 

@@ -8,7 +8,7 @@ function CardContent(props) {
         <div className="petcard card ">
             <div className="card-image">
                 <figure className="image"></figure>
-                <img className="petimage" src={props.img} alt="test" />
+                <img className="petimage" src={props.highresimg} alt="test" />
             </div>
             <div className="card-content">
                 <div className="media">
