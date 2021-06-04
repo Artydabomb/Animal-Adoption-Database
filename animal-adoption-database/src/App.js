@@ -14,7 +14,7 @@ function App() {
 
   const [searchState, setSearchState] = useState({
     searchTerm: "",
-    dogSearch: true,
+    speciesSearch: "dog",
     zipCode: "",
     searchResults: []
   });
