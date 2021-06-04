@@ -24,6 +24,7 @@ function App() {
       ...searchState,
       searchResults: Object.values(data)
     })
+    console.log(data)
   }
 
   function setSearchSpeciesCat() {
