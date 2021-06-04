@@ -3,6 +3,7 @@ import { BrowserRouter, Redirect } from 'react-router-dom'
 import { Route, Link } from 'react-router-dom'
 import '../../App.css';
 import axios from 'axios'
+import "./Navbar.css"
 
 
 class HeaderNav extends Component {
@@ -34,15 +35,10 @@ class HeaderNav extends Component {
 
         return (
             <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
 
+                <a class="navbar-brand" href="/">
+                </a>
 
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" href="test">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
 
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
@@ -86,23 +82,23 @@ class HeaderNav extends Component {
 
                                     {loggedIn ? (
                                         <section className="navbar-section">
-                                            <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
-                                                <span className="text-secondary">Logout</span></Link>
+                                            <Link to="#" class="btn btn-link text-secondary" onClick={this.logout}>
+                                                <span class="text-secondary">Logout</span></Link>
 
                                         </section>
                                     ) : (
-                                        <section className="navbar-section">
-                                            <Link to="/login" className="btn btn-link text-secondary">
-                                                <span className="text-secondary">Login   </span>
+                                        <section className="navbar-item">
+                                            <Link to="/login" class="btn btn-link text-secondary">
+                                                <a class="navbar-item is hoverable">Login</a>
                                             </Link>
-
-                                            <Link to="/signup" className="btn btn-link">
-                                                <span className="text-secondary"> Sign up</span>
+                                            
+                                            <Link to="/signup" class="btn btn-link is-hoverable">
+                                                <a class="navbar-item is-hoverable">Sign up</a>
                                             </Link>
 
                                         </section>
                                     )}
-                                </BrowserRouter>,
+                                </BrowserRouter>
                             </div>
                         </div>
                     </div>

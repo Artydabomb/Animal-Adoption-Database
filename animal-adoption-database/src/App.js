@@ -1,7 +1,7 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import axios from 'axios'
-import { Route, Link, Router, Switch } from 'react-router-dom'
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Link, Switch, Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 // compoonents
 import Search from './components/Search/Search';
 import HeaderNav from './components/Header/HeaderNav';
@@ -27,7 +27,7 @@ function App() {
   function setResults(data) {
     setSearchState({
       ...searchState,
-      searchResults: Object.entries(data).map((e) => ( { [e[0]]: e[1] } ))
+      searchResults: Object.entries(data).map((e) => ({ [e[0]]: e[1] }))
     })
     console.log(searchState.searchResults)
   }
@@ -67,16 +67,38 @@ function App() {
   }
 
   return (
-    <SearchContext.Provider value={searchState}>
-      <div className="App container">
-        <header className="App-header">
-          <Header />
-          <Search setResults={setResults}/>
-          <BodyNoLogin />
-          <Footer />
-        </header>
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <SearchContext.Provider value={searchState}>
+              <div className="App container">
+                <header className="App-header">
+                  <HeaderNav />
+                  <Search setResults={setResults} />
+                  <BodyNoLogin />
+                  <Footer />
+                </header>
+              </div>
+            </SearchContext.Provider>
+          </Route>
+          <Route path="/signup">
+            <div>
+              <HeaderNav />
+              <Signup />
+              <Footer />
+            </div>
+          </Route>
+          <Route path="/login">
+            <div>
+              <HeaderNav />
+              <LoginForm />
+              <Footer />
+            </div>
+          </Route>
+        </Switch>
       </div>
-    </SearchContext.Provider>
+    </BrowserRouter>
   );
 }
 
