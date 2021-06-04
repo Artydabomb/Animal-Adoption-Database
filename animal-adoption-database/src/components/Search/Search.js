@@ -1,23 +1,32 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import 'bulma/css/bulma.min.css';
 import API from "../../utils/API";
 import SearchContext from "../../utils/SearchContext";
 
 function Search(props) {
-    const {searchTerm, searchResults} = useContext(SearchContext);
+    const {searchTerm, searchResults, speciesSearch} = useContext(SearchContext);
     const [formObject, setFormObject] = useState({})
+
+    useEffect(() => {
+        API.searchAnimals({searchField: "dog", speciesSearch: "dog"})
+        .then(res=> props.setResults(res.data.data))
+    }, [])
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+        console.log(speciesSearch)
+        setFormObject({...formObject, [name]: value});
       };
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        API.searchAnimals(formObject)
-        .then(res => props.setResults(res.data.data))
+        search();
     };
-    // console.log(Object.values(res.data.data).forEach(val => console.log(val)))
+
+    function search() {
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch})
+        .then(res => props.setResults(res.data.data))
+    }
 
     return (
 
@@ -46,8 +55,14 @@ function Search(props) {
 
             <div className="level-right">
                 <p className="level-item"><strong>Quick Filter By:</strong></p>
-                <p className="level-item"><a href="test">Dogs</a></p>
-                <p className="level-item"><a href="test">Cats</a></p>
+                <p className="level-item"><button onClick={() => {
+                    props.setSearchSpeciesDog;
+                    search();
+                }}>Dogs</button></p>
+                <p className="level-item"><button onClick={() => {
+                    props.setSearchSpeciesCat;
+                    search();
+                }}>Cats</button></p>
                 <p className="level-item"><a className="button is-success" href="test">New</a></p>
             </div>
         </nav >

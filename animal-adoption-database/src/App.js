@@ -20,7 +20,7 @@ import SavedSearches from "./components/SavedSearches/SavedSearches";
 function App() {
   const [searchState, setSearchState] = useState({
     searchTerm: "",
-    dogSearch: true,
+    speciesSearch: "dog",
     zipCode: "",
     searchResults: []
   });
@@ -64,6 +64,20 @@ function App() {
           username: null
         })
       }
+    })
+  }
+
+  function setSearchSpeciesCat() {
+    setSearchState({
+      ...searchState,
+      speciesSearch: "cat"
+    })
+  }
+
+  function setSearchSpeciesDog() {
+    setSearchState({
+      ...searchState,
+      speciesSearch: "dog"
     })
   }
 

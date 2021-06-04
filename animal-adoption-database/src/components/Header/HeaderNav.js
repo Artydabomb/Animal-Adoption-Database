@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react'
 import { BrowserRouter, Redirect } from 'react-router-dom'
 import { Route, Link } from 'react-router-dom'
@@ -37,8 +38,19 @@ class HeaderNav extends Component {
             <nav class="navbar" role="navigation" aria-label="main navigation">
 
                 <a class="navbar-brand" href="/">
+=======
+import React from "react";
+
+function HeaderNav() {
+    return (
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+            <div className="navbar-brand">
+                <a className="navbar-item">
+                    
+>>>>>>> 506c72b49ec9668c2e5bbb515fe6030e577623af
                 </a>
 
+<<<<<<< HEAD
 
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
@@ -69,11 +81,42 @@ class HeaderNav extends Component {
                                 <hr class="navbar-divider" />
                                 <a class="navbar-item" href="test">
                                     Report an issue
+=======
+            <div id="navbarBasicExample" className="navbar-menu">
+                <div className="navbar-start">
+                    <a className="navbar-item" href="test">
+                        Mewsletter
+                    </a>
+
+                    <a className="navbar-item" href="test">
+                        Animal Tips
+                    </a>
+
+                    <div className="navbar-item has-dropdown is-hoverable">
+                        <a className="navbar-link" href="test">
+                            More
+                        </a>
+
+                        <div className="navbar-dropdown">
+                            <a className="navbar-item" href="test">
+                                About
+                            </a>
+                            <a className="navbar-item" href="test">
+                                Jobs & Volunteering
+                            </a>
+                            <a className="navbar-item" href="test">
+                                Contact Us
+                            </a>
+                            <hr className="navbar-divider" />
+                            <a className="navbar-item" href="test">
+                                Report an issue
+>>>>>>> 506c72b49ec9668c2e5bbb515fe6030e577623af
                             </a>
                             </div>
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
@@ -100,6 +143,17 @@ class HeaderNav extends Component {
                                     )}
                                 </BrowserRouter>
                             </div>
+=======
+                <div className="navbar-end">
+                    <div className="navbar-item">
+                        <div className="buttons">
+                            <a className="button is-primary" href="test">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a className="button is-light" href="test">
+                                Log in
+                            </a>
+>>>>>>> 506c72b49ec9668c2e5bbb515fe6030e577623af
                         </div>
                     </div>
                 </div>
