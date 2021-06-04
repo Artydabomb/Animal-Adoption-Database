@@ -1,10 +1,6 @@
-input{
-    border-radius: 5px 5px 5px 5px;
-    border: black 2px solid;
-
+.level-item{
+  background-color: palevioletred;
+  color: aqua;
+  
 }
 
-button{
-    border-radius: 5px 5px 5px 5px;
-  border: black 2px solid;
-}

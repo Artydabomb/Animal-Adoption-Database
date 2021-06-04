@@ -1,16 +1,104 @@
 .navbar{
-    width: auto;
-    background-color: lightcoral;
-    border: black 1px solid;
-    border-radius: 5px 5px 5px 5px;
-  }
+  width: auto;
+  background-color: lightcoral;
+  border: black 2px solid;
+  border-radius: 5px 5px 5px 5px;
+  margin-top: 20px;
+}
   
-  .navbar-brand{
-              /* Navbar Logo */
-    background-image: url(/src/images/Animal_Database_Logo.jpeg);
-    background-size: 235px;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding-left: 150px;
-    padding-right: 50px;
+.navbar-brand{
+    /* Navbar Logo */
+  background-color: transparent;
+  background-image: url(../../images/Animal_Database_Logo.jpeg);
+  background-size: 235px;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-left: 155px;
+  padding-right: 35px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+
+  /* Searchbar */
+.input{
+  background-color: whitesmoke;
+  border: lightcoral solid 1px;
+  border-radius: 10px;
+}
+  .input:hover{
+    background-color: lightgrey;
+    border: black 2px solid;
+  }
+  .input::placeholder{
+    color: lightcoral;
+  }
+
+
+  /* Search btn */
+.button{
+  margin-left: 8px;
+  color: lightcoral;
+  font-weight: 620;
+  background-color: black;
+  border: lightcoral solid 1px;
+  border-radius: 10px;
+}
+  .button:hover{
+    color: black;
+    border: black solid 2px;
+    background-color: lightcoral;
+  }
+  .button:active{
+    color: white;
+    background-color: lightcoral;
+    border:white 2px solid;
+  }
+
+
+  /* Login btn */
+.loginbtn{
+  font-weight: 700;
+  border: black 2px solid;
+  border-radius: 10px;
+  margin-right: 10px;
+  color: black;
+  background-color: transparent;
+}
+
+  .loginbtn:hover{
+    color: lightcoral;
+    background-color: black;
+    border: white 2px solid;
+    border-radius: 10px;
+  }
+  .loginbtn:active{
+    color: white;
+    background-color: lightcoral;
+    border: white 2px solid;
+    border-radius: 10px;
+  }
+
+
+  /* Signup btn */
+.signupbtn{
+  font-weight: 700;
+  border: black 2px solid;
+  border-radius: 10px;
+  margin-right: 10px;
+  color: black;
+  background-color: transparent;
+}
+
+  .signupbtn:hover{
+    color: lightcoral;
+    background-color: black;
+    border: white 2px solid;
+    border-radius: 10px;
+  }
+  .signupbtn:active{
+    color: white;
+    background-color: lightcoral;
+    border: white 2px solid;
+    border-radius: 10px;
   }

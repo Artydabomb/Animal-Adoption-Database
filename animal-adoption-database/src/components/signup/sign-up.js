@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import 'bulma/css/bulma.min.css';
+import "./signup.css";
 
 
 class Signup extends Component {
@@ -51,12 +53,12 @@ class Signup extends Component {
 
 render() {
 	return (
-		<div className="SignupForm">
+		<div className="signup-form">
 			<h4>Sign up</h4>
 			<form className="form-horizontal">
 				<div className="form-group">
 					<div className="col-1 col-ml-auto">
-						<label className="form-label" htmlFor="username">Username</label>
+						<label className="form-label" htmlFor="username">Username:</label>
 					</div>
 					<div className="col-3 col-mr-auto">
 						<input className="form-input"
@@ -106,7 +108,6 @@ render() {
 				</div>
 			</form>
 		</div>
-
 	)
 }
 }

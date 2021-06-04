@@ -39,11 +39,11 @@ function Search(props) {
                 </div>
                 <div className="level-item">
                     <form className="field has-addons">
-                        <p className="control">
+                        <p className="control search-bar">
                             <input className="input" type="text" placeholder="Find a post" onChange={handleInputChange} name="searchField">
                             </input>
                         </p>
-                        <p className="control">
+                        <p className="control search-button">
                             <button className="button" onClick={handleFormSubmit}>
                                 Search
                             </button>

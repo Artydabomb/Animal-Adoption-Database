@@ -28,16 +28,7 @@ function App() {
   function setResults(data) {
     setSearchState({
       ...searchState,
-<<<<<<< HEAD
-      searchResults: Object.values(data)
       searchResults: Object.entries(data).map((e) => ({ [e[0]]: e[1] }))
-=======
-<<<<<<< HEAD
-      searchResults: Object.entries(data).map((e) => ({ [e[0]]: e[1] }))
-=======
-      searchResults: Object.values(data)
->>>>>>> ae07b3ec20e4c99348af207a930c0637437ecf88
->>>>>>> 21b2f21bb2cce9f4eb6c9e4404ad3555022e279f
     })
   }
 
@@ -105,18 +96,24 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
+
           <Route path="/signup">
-            <div>
-              <HeaderNav />
-              <Signup />
-              <Footer />
+            <div className="App container">
+              <header className="App-header">
+                  <HeaderNav />
+                  <Signup />
+                  <Footer />
+              </header>
             </div>
           </Route>
+
           <Route path="/login">
-            <div>
-              <HeaderNav />
-              <LoginForm />
-              <Footer />
+            <div className="App container">
+              <header className="App-header">
+                <HeaderNav />
+                <LoginForm />
+                <Footer />
+              </header>   
             </div>
           </Route>
         </Switch>
