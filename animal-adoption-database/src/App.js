@@ -23,9 +23,8 @@ function App() {
   function setResults(data) {
     setSearchState({
       ...searchState,
-      searchResults: Object.entries(data).map((e) => ( { [e[0]]: e[1] } ))
+      searchResults: Object.values(data)
     })
-    console.log(searchState.searchResults)
   }
 
   return (

@@ -9,15 +9,30 @@ router.route("/").post(function(req, res) {
         "objectAction" : "publicSearch",
         "search" : {
             "resultStart" : 0,
-            "resultLimit" : 10,
+            "resultLimit" : 12,
             "resultSort" : "animalID",
             "resultOrder" : "asc",
             "calcFoundRows" : "Yes",
             "filters" : [
                 {
-                "fieldName" : "animalName",
-                "operation" : "equals",
+                "fieldName" : "animalDescription",
+                "operation" : "contains",
                 "criteria" : req.body.searchField
+                },
+                {
+                "fieldName" : "animalSpecies",
+                "operation" : "equals",
+                "criteria" : "dog"
+                },
+                {
+                "fieldName" : "animalLocationDistance",
+                "operation" : "radius",
+                "criteria" : "50"
+                },
+                {
+                "fieldName" : "animalLocation",
+                "operation" : "equals",
+                "criteria" : "95618"
                 }
             ],
             "fields": ["animalID","animalOrgID","animalActivityLevel","animalAdoptedDate","animalAdoptionFee","animalAgeString","animalAltered","animalAvailableDate","animalBirthdate","animalBreed","animalCoatLength","animalColor","animalColorDetails","animalDescription","animalEnergyLevel","animalEyeColor","animalHouseTrained","animalLocation","animalLocationCitystate","animalMixedBreed","animalName","animalSpecialNeedsDescription","animalNeedsFoster","animalOKWithAdults","animalOKWithCats","animalOKWithDogs","animalOKWithKids","animalPattern","animalPrimaryBreed","animalSecondaryBreed","animalRescueID","animalSex","animalSpecies","animalThumbnailUrl","animalUrl","locationAddress","locationPostalCode","animalPictures","animalVideos","animalVideoUrls"]
