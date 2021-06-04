@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+
 class Signup extends Component {
 	constructor() {
 		super()
 		this.state = {
 			username: '',
+			email: '',
 			password: '',
 			confirmPassword: '',
 
@@ -23,9 +25,10 @@ class Signup extends Component {
 		console.log(this.state.username)
 		event.preventDefault()
 
-		//request to server to add a new username/password
-		axios.post('/user/', {
+		//request to server to add a new username/password/email
+		axios.post('/api/user/', {
 			username: this.state.username,
+			email: this.state.email,
 			password: this.state.password
 		})
 			.then(response => {
@@ -66,6 +69,19 @@ render() {
 						/>
 					</div>
 				</div>
+				<div className="form-group">
+					<div className="col-1 col-ml-auto">
+						<label className="form-label" htmlFor="email">Email: </label>
+					</div>
+					<div className="col-3 col-mr-auto">
+						<input className="form-input"
+							type="email"
+							name="email"
+							value={this.state.email}
+							onChange={this.handleChange}
+						/>
+					</div>
+					</div>
 				<div className="form-group">
 					<div className="col-1 col-ml-auto">
 						<label className="form-label" htmlFor="password">Password: </label>
