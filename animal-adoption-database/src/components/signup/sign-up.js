@@ -26,7 +26,7 @@ class Signup extends Component {
 		event.preventDefault()
 
 		//request to server to add a new username/password/email
-		axios.post('/user/', {
+		axios.post('/api/user/', {
 			username: this.state.username,
 			email: this.state.email,
 			password: this.state.password

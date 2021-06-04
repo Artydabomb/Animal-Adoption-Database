@@ -27,11 +27,7 @@ function App() {
   function setResults(data) {
     setSearchState({
       ...searchState,
-<<<<<<< HEAD
-      searchResults: Object.entries(data).map((e) => ({ [e[0]]: e[1] }))
-=======
       searchResults: Object.values(data)
->>>>>>> ae07b3ec20e4c99348af207a930c0637437ecf88
     })
   }
 
@@ -87,8 +83,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <div>
-              <HeaderNav />
-              <Signup />
+              <HeaderNav  />
+              <Signup 
+              />
               <Footer />
             </div>
           </Route>

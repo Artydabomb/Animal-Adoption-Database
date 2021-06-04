@@ -77,9 +77,6 @@ class HeaderNav extends Component {
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
-
-                                <BrowserRouter>
-
                                     {loggedIn ? (
                                         <section className="navbar-section">
                                             <Link to="#" class="btn btn-link text-secondary" onClick={this.logout}>
@@ -97,8 +94,7 @@ class HeaderNav extends Component {
                                             </Link>
 
                                         </section>
-                                    )}
-                                </BrowserRouter>
+                                    )}                      
                             </div>
                         </div>
                     </div>

@@ -11,7 +11,7 @@ router
   .get(animalsController.findById)
   .put(animalsController.update)
   .delete(animalsController.remove)
-  .push(animalsController.updateArray);
+  .put(animalsController.updateArray);
 
 
 module.exports = router;
