@@ -20,11 +20,19 @@ function Search(props) {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        search();
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: formObject.speciesSearch})
+        .then(res => props.setResults(res.data.data))
     };
 
-    function search() {
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch})
+    function setSearchSpeciesCat() {
+        setFormObject({...formObject, speciesSearch: "cat"})
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "cat"})
+        .then(res => props.setResults(res.data.data))
+    }
+
+    function setSearchSpeciesDog() {
+        setFormObject({...formObject, speciesSearch: "dog"})
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "dog"})
         .then(res => props.setResults(res.data.data))
     }
 
@@ -55,14 +63,8 @@ function Search(props) {
 
             <div className="level-right">
                 <p className="level-item"><strong>Quick Filter By:</strong></p>
-                <p className="level-item"><button onClick={() => {
-                    props.setSearchSpeciesDog;
-                    search();
-                }}>Dogs</button></p>
-                <p className="level-item"><button onClick={() => {
-                    props.setSearchSpeciesCat;
-                    search();
-                }}>Cats</button></p>
+                <p className="level-item"><button className="button" onClick={setSearchSpeciesDog}>Dogs</button></p>
+                <p className="level-item"><button className="button" onClick={setSearchSpeciesCat}>Cats</button></p>
                 <p className="level-item"><a className="button is-success" href="test">New</a></p>
             </div>
         </nav >
