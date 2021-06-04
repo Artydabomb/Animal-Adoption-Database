@@ -68,17 +68,6 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
-    <SearchContext.Provider value={searchState}>
-      <div className="App container">
-        <header className="App-header">
-          <Header />
-          <Search setResults={setResults}/>
-          <SavedSearches />
-          <BodyNoLogin />
-          <Footer />
-        </header>
-=======
     <BrowserRouter>
       <div>
         <Switch>
@@ -109,7 +98,6 @@ function App() {
             </div>
           </Route>
         </Switch>
->>>>>>> 438d65cc229907c5b5d2c13c48c24b2c7d87f9a7
       </div>
     </BrowserRouter>
   );
