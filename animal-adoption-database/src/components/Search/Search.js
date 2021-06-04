@@ -15,14 +15,18 @@ function Search(props) {
     function handleInputChange(event) {
         const { name, value } = event.target;
         console.log(speciesSearch)
-        setFormObject({...formObject, [name]: value, speciesSearch: speciesSearch});
+        setFormObject({...formObject, [name]: value});
       };
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        API.searchAnimals(formObject)
-        .then(res => props.setResults(res.data.data))
+        search();
     };
+
+    function search() {
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch})
+        .then(res => props.setResults(res.data.data))
+    }
 
     return (
 
@@ -51,8 +55,14 @@ function Search(props) {
 
             <div className="level-right">
                 <p className="level-item"><strong>Quick Filter By:</strong></p>
-                <p className="level-item"><a href="test">Dogs</a></p>
-                <p className="level-item"><a href="test">Cats</a></p>
+                <p className="level-item"><button onClick={() => {
+                    props.setSearchSpeciesDog;
+                    search();
+                }}>Dogs</button></p>
+                <p className="level-item"><button onClick={() => {
+                    props.setSearchSpeciesCat;
+                    search();
+                }}>Cats</button></p>
                 <p className="level-item"><a className="button is-success" href="test">New</a></p>
             </div>
         </nav >
