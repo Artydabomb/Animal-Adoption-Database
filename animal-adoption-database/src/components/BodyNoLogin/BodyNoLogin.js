@@ -5,16 +5,17 @@ import Pup from "../../Pup.json";
 import SearchContext from "../../utils/SearchContext"
 
 function BodyNoLogin(props) {
-    const { searchResults } = useContext(SearchContext);
-    console.log(searchResults)
+    const { searchTerm, searchResults } = useContext(SearchContext);
     return (
         <div className="tile is-ancestor parentTile">
             <div className="tile is-parent">
                 <div className="tile is-child box ">
                     <div className="columns is-multiline">
+                        {searchResults.length ? (<div></div>):(<div className="column">No Results Found</div>)}
                         {searchResults.map(animal => (
-                            <div className="column is-one-quarter">
+                            <div key={animal.animalID} className="column is-one-quarter">
                                 <CardContent 
+                                    highresimg={animal.animalPictures[0].large.url}
                                     name={animal.animalName}
                                     age={animal.animalAgeString}
                                     breed={animal.animalBreed}
