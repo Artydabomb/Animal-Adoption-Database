@@ -1,7 +1,6 @@
 import React, { PureComponent, useContext } from "react";
 import CardContent from "../CardContent/CardContent";
 import "./BodyNoLogin.css";
-import Pup from "../../Pup.json";
 import SearchContext from "../../utils/SearchContext"
 
 function BodyNoLogin(props) {
@@ -15,12 +14,12 @@ function BodyNoLogin(props) {
                         {searchResults.map(animal => (
                             <div key={animal.animalID} className="column is-one-quarter">
                                 <CardContent 
-                                    highresimg={animal.animalPictures[0].large.url}
+                                    highresimg={animal.animalPictures[0] ? animal.animalPictures[0].large.url : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
                                     name={animal.animalName}
                                     age={animal.animalAgeString}
                                     breed={animal.animalBreed}
                                     location={animal.animalLocationCitystate}
-                                    img={animal.animalThumbnailUrl ? animal.animalThumbnailUrl : "https://image.freepik.com/free-vector/cute-little-dog-cartoon-isolated-white_143596-3.jpg"}
+                                    img={animal.animalThumbnailUrl ? animal.animalThumbnailUrl : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
                                     description={animal.animalDescription.replace("<div class=\"rgDescription\">", "").replace("</div>", "")}
                                 />
                             </div>

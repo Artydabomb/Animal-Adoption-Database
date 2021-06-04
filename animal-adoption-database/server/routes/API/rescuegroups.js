@@ -4,6 +4,12 @@ const axios = require('axios');
 router.route("/").post(function(req, res) {
     console.log("Search term in back-end API: " + req.body.searchField);
     console.log("Species to search in back-end API: " + req.body.speciesSearch)
+    let zip;
+    if (req.body.zipCode) {
+        zip = req.body.zipCode
+    } else {
+        zip = "95616"
+    }
     return axios.post("https://api.rescuegroups.org/http/v2.json", {
         "apikey" : process.env.API_KEY,
         "objectType" : "animals",
@@ -28,12 +34,12 @@ router.route("/").post(function(req, res) {
                 {
                 "fieldName" : "animalLocationDistance",
                 "operation" : "radius",
-                "criteria" : "50"
+                "criteria" : "30"
                 },
                 {
                 "fieldName" : "animalLocation",
                 "operation" : "equals",
-                "criteria" : "95618"
+                "criteria" : zip
                 },
                 {
                 "fieldName" : "animalStatus",

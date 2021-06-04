@@ -81,7 +81,6 @@ function App() {
   }
 
   return (
-<<<<<<< HEAD
     <BrowserRouter>
       <div>
         <Switch>
@@ -90,7 +89,7 @@ function App() {
               <div className="App container">
                 <header className="App-header">
                   <HeaderNav />
-                  <Search setResults={setResults} />
+                  <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog}/>
                   <BodyNoLogin />
                   <Footer />
                 </header>
@@ -113,16 +112,6 @@ function App() {
             </div>
           </Route>
         </Switch>
-=======
-    <SearchContext.Provider value={searchState}>
-      <div className="App container">
-        <header className="App-header">
-          <Header />
-          <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog}/>
-          <BodyNoLogin />
-          <Footer />
-        </header>
->>>>>>> c61f1e1b5df88ef5cd55c03c898907ea0a40c262
       </div>
     </BrowserRouter>
   );
