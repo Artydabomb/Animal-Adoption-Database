@@ -26,12 +26,26 @@ function App() {
     })
   }
 
+  function setSearchSpeciesCat() {
+    setSearchState({
+      ...searchState,
+      speciesSearch: "cat"
+    })
+  }
+
+  function setSearchSpeciesDog() {
+    setSearchState({
+      ...searchState,
+      speciesSearch: "dog"
+    })
+  }
+
   return (
     <SearchContext.Provider value={searchState}>
       <div className="App container">
         <header className="App-header">
           <Header />
-          <Search setResults={setResults}/>
+          <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog}/>
           <BodyNoLogin />
           <Footer />
         </header>
