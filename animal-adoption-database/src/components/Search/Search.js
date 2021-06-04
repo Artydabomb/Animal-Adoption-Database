@@ -1,15 +1,21 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import 'bulma/css/bulma.min.css';
 import API from "../../utils/API";
 import SearchContext from "../../utils/SearchContext";
 
 function Search(props) {
-    const {searchTerm, searchResults} = useContext(SearchContext);
+    const {searchTerm, searchResults, speciesSearch} = useContext(SearchContext);
     const [formObject, setFormObject] = useState({})
+
+    useEffect(() => {
+        API.searchAnimals({searchField: "dog", speciesSearch: "dog"})
+        .then(res=> props.setResults(res.data.data))
+    }, [])
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+        console.log(speciesSearch)
+        setFormObject({...formObject, [name]: value, speciesSearch: speciesSearch});
       };
 
     function handleFormSubmit(event) {
@@ -17,7 +23,6 @@ function Search(props) {
         API.searchAnimals(formObject)
         .then(res => props.setResults(res.data.data))
     };
-    // console.log(Object.values(res.data.data).forEach(val => console.log(val)))
 
     return (
 
