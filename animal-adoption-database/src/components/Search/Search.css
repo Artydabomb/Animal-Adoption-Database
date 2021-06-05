@@ -11,11 +11,10 @@
   .search-box::placeholder{
     color: lightcoral;
   }
-
+/* zip searchbar */
   .zip-box{
     background-color: whitesmoke;
     border: lightcoral solid 1px;
-    border-radius: 10px;
   }
     .zip-box:hover{
       background-color: lightgrey;
@@ -27,7 +26,7 @@
 
   /* Search btn */
 .button{
-  margin-left: 5px;
+  
   color: black;
   font-weight: 620;
   background-color: lightcoral;
@@ -42,10 +41,7 @@
   .button:active{
     color: white;
     background-color: lightcoral;
-    border:white 2px solid;
-  }
-  .button:visited{
-    color: teal;
+    border:black 2px solid;
   }
 
 .filtertxt{
