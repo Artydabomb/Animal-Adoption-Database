@@ -22,20 +22,6 @@ function CardContent(props) {
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
-<<<<<<< HEAD
-                        {/* Make the name dynamic */}
-                        <p className="title is-4">{props.name}</p>
-                        {/* Make the temperatment dynamic */}
-                        <p className="subtitle is-6">{props.age}</p>
-                        {/* Make the age dynamic */}
-                        <p className="subtitle is-6">@{props.breed}</p>
-                        {/* Make the location dynamic */}
-                        <p className="subtitle is-6">@{props.location}</p>
-                        <Button
-                            id={props.id}
-                            age={props.age}
-                        />
-=======
                         <p className="title is-4 has-text-centered pb-3">{props.name}</p>
                         <p className="subtitle is-6">{props.rescue}</p>
                         <div className="divider is-danger">about</div>
@@ -47,7 +33,6 @@ function CardContent(props) {
                         ):
                         ( <div></div> )
                         }   
->>>>>>> 4377a7278a34b158ac354072d33c999f14c69982
                     </div>
                 </div>
                 <div className="content">

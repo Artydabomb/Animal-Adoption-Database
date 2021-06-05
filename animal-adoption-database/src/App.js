@@ -15,6 +15,7 @@ import "./App.css";
 import 'bulma/css/bulma.min.css';
 import SearchContext from './utils/SearchContext';
 import Mewsletter from './components/Mewsletter/Mewsletter';
+import AnimalTips from './components/AnimalTips/AnimalTips';
 //import {Passport} from '../server/passport/index';
 
 function App() {
@@ -131,6 +132,12 @@ function App() {
               path="/mewsletter"
               render={() =>
                 <Mewsletter           
+                />}
+            />
+            <Route
+              path="/animaltips"
+              render={() =>
+                <AnimalTips          
                 />}
             />
           </div>

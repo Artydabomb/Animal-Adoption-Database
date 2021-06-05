@@ -53,7 +53,7 @@ class HeaderNav extends Component {
 
                     </a>
 
-                        <a class="navbar-item main-button" href="test">
+                        <a class="navbar-item main-button" href="/animaltips">
                             Animal Tips
                     </a>
 
