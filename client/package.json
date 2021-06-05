@@ -1,5 +1,6 @@
 {
   "name": "cosmopawlitan",
+  "proxy": "http://localhost:8080",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,26 +35,10 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "node ./server.js",
-    "client": "cd client && npm run start",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "connect-mongo": "^4.4.1",
-    "express": "^4.16.2",
-    "express-session": "^1.15.6",
-    "mongoose": "^5.12.11",
-    "morgan": "^1.9.0",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "^4.0.3",
-    "spectre.css": "^0.5.0",
-    "dev": "concurrently \"cd client && react-scripts start\" \"nodemon server.js\"",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "api": "nodemon ./server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",

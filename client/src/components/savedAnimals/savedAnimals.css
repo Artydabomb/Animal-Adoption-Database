@@ -1,0 +1,16 @@
+
+
+.savedanimals{ 
+  background-image: url(../../images/savedanimals.png);
+  height: 860px;
+  width: 550px;
+  box-sizing: content-box;
+  border: black 3px solid;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 85px;
+  margin-bottom: 18rem;
+  margin-left: 50px;
+  margin-right: 50px;
+  transition-duration: 1.2s;
+}
