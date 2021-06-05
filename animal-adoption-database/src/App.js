@@ -95,7 +95,7 @@ function App() {
                   <HeaderNav updateUser={updateUser}
                   username={userState.username}
                   loggedIn={userState.loggedIn}/>
-                  <Search setResults={setResults} />
+                  <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog}/>
                   <BodyNoLogin />
                   <Footer />
                 </header>

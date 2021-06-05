@@ -5,22 +5,19 @@ import Button from "../SaveButton/SaveButton";
 function CardContent(props) {
     const innerHTML = { __html: props.description }
     return (
-        <div className="petcard card ">
+        <div className="petcard card">
             <div className="card-image">
-                <figure className="image"></figure>
-                <img className="petimage" src={props.highresimg} alt="test" />
+                <img className="petimage" src={props.highresimg} alt={props.name}/>
             </div>
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
-                        {/* Make the name dynamic */}
-                        <p className="title is-4">{props.name}</p>
-                        {/* Make the temperatment dynamic */}
-                        <p className="subtitle is-6">{props.age}</p>
-                        {/* Make the age dynamic */}
-                        <p className="subtitle is-6">@{props.breed}</p>
-                        {/* Make the location dynamic */}
-                        <p className="subtitle is-6">@{props.location}</p>
+                        <p className="title is-4 has-text-centered pb-3">{props.name}</p>
+                        <p className="subtitle is-6">{props.rescue}</p>
+                        <div className="divider is-danger">about</div>
+                        <p className="subtitle is-6">- {props.age} old</p>
+                        <p className="subtitle is-6">- {props.breed}</p>
+                        <p className="subtitle is-6">- {props.location}</p>
                         <Button />
                     </div>
                 </div>
