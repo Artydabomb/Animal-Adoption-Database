@@ -9,7 +9,6 @@ router
 router
   .route("/:id")
   .get(animalsController.findById)
-  .put(animalsController.update)
   .delete(animalsController.remove)
   .put(animalsController.updateArray);
 

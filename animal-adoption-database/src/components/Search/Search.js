@@ -6,7 +6,7 @@ import "./Search.css";
 
 function Search(props) {
     const {searchTerm, searchResults, speciesSearch} = useContext(SearchContext);
-    const [formObject, setFormObject] = useState({})
+    const [formObject, setFormObject] = useState({searchField: "is"})
 
     useEffect(() => {
         API.searchAnimals({searchField: "dog", speciesSearch: "dog"})
@@ -20,19 +20,22 @@ function Search(props) {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch})
+        console.log(formObject)
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch, zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     };
 
     function setSearchSpeciesCat() {
         setFormObject({...formObject, speciesSearch: "cat"})
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "cat"})
+        props.setSearchSpeciesCat();
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "cat", zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     }
 
     function setSearchSpeciesDog() {
         setFormObject({...formObject, speciesSearch: "dog"})
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "dog"})
+        props.setSearchSpeciesDog();
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "dog", zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     }
 
@@ -46,7 +49,11 @@ function Search(props) {
                             <input className="input" type="text" placeholder="Search for animals" onChange={handleInputChange} name="searchField">
                             </input>
                         </p>
-                        <p className="control search-button">
+                        <p className="control">
+                            <input className="input" type="text" placeholder="ZIP" onChange={handleInputChange} name="zipCode">
+                            </input>
+                        </p>
+                        <p className="control">
                             <button className="button" onClick={handleFormSubmit}>
                                 Search
                             </button>
