@@ -15,7 +15,7 @@ class HeaderNav extends Component {
     logout(event) {
         event.preventDefault()
         console.log('logging out')
-        axios.post('/user/logout').then(response => {
+        axios.post('api/user/logout').then(response => {
             console.log(response.data)
             if (response.status === 200) {
                 this.props.updateUser({
@@ -81,7 +81,7 @@ class HeaderNav extends Component {
                                     {loggedIn ? (
                                         <section className="navbar-section">
                                             <Link to="#" class="btn btn-link text-secondary" onClick={this.logout}>
-                                                <span class="text-secondary">Logout</span></Link>
+                                                <button class="text-secondary">Logout</button></Link>
 
                                         </section>
                                     ) : (

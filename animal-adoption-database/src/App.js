@@ -106,7 +106,9 @@ function App() {
             path="/signup"
             render={() =>
               <Signup
-                updateUser={updateUser}
+              updateUser={updateUser}
+              username={userState.username}
+              loggedIn={userState.loggedIn}
               />}
           />
           <Route
@@ -116,13 +118,13 @@ function App() {
                 updateUser={updateUser}
               />}
           />
-          <Route
+          {/* <Route
             path="/loggedin"
             render={() =>
               <BodyLoggedIn
                 updateUser={updateUser}
               />}
-          />
+          /> */}
         </Switch>
       </div>
     </BrowserRouter>
