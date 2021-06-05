@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function Button() {
     const [noLogin, loggedIn] = useState('Unsaved');
-   
     if (loggedIn) {
         return (
             <div className="has-text-centered">
@@ -12,6 +11,7 @@ function Button() {
                 <button className="button border is-danger is-light m-1" onClick={() => loggedIn('Unsaved')}>💔</button>
             </div>
         );
-}}
+    }
+}
 
 export default Button;
