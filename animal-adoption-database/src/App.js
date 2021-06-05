@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Search from './components/Search/Search';
 import HeaderNav from './components/Header/HeaderNav';
 import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
+import BodyLoggedIn from './components/BodyLoggedIn/BodyLoggedIn';
 import Footer from './components/Footer/Footer';
 import Signup from './components/signup/sign-up'
 import LoginForm from './components/login-form/login-form'
@@ -13,9 +14,7 @@ import API from './utils/API'
 import "./App.css";
 import 'bulma/css/bulma.min.css';
 import SearchContext from './utils/SearchContext';
-import SavedSearches from "./components/SavedSearches/SavedSearches";
-
-// import './components/Search.css';
+//import {Passport} from '../server/passport/index';
 
 function App() {
   const [searchState, setSearchState] = useState({
@@ -28,21 +27,40 @@ function App() {
   function setResults(data) {
     setSearchState({
       ...searchState,
-      searchResults: Object.entries(data).map((e) => ({ [e[0]]: e[1] }))
+      searchResults: Object.values(data)
+    })
+    console.log(data)
+  }
+
+  function setSearchSpeciesCat() {
+    setSearchState({
+      ...searchState,
+      speciesSearch: "cat"
+    })
+  }
+
+  function setSearchSpeciesDog() {
+    setSearchState({
+      ...searchState,
+      speciesSearch: "dog"
     })
   }
 
   const [userState, setUserState] = useState({
     loggedIn: false,
-    username: null
+    username: "test"
   });
 
   useEffect(() => {
     getUser()
   }, []);
 
-  function updateUser(userObject) {
-    setUserState(userObject)
+  function updateUser(userObject) {   
+    console.log(userObject);
+    setUserState({
+      loggedIn: false,
+      username: ""
+    })
   }
 
   function getUser() {
@@ -66,20 +84,6 @@ function App() {
     })
   }
 
-  function setSearchSpeciesCat() {
-    setSearchState({
-      ...searchState,
-      speciesSearch: "cat"
-    })
-  }
-
-  function setSearchSpeciesDog() {
-    setSearchState({
-      ...searchState,
-      speciesSearch: "dog"
-    })
-  }
-
   return (
     <BrowserRouter>
       <div>
@@ -88,7 +92,9 @@ function App() {
             <SearchContext.Provider value={searchState}>
               <div className="App container">
                 <header className="App-header">
-                  <HeaderNav />
+                  <HeaderNav updateUser={updateUser}
+                  username={userState.username}
+                  loggedIn={userState.loggedIn}/>
                   <Search setResults={setResults} />
                   <BodyNoLogin />
                   <Footer />
@@ -96,26 +102,27 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
-
-          <Route path="/signup">
-            <div className="App container">
-              <header className="App-header">
-                  <HeaderNav />
-                  <Signup />
-                  <Footer />
-              </header>
-            </div>
-          </Route>
-
-          <Route path="/login">
-            <div className="App container">
-              <header className="App-header">
-                <HeaderNav />
-                <LoginForm />
-                <Footer />
-              </header>   
-            </div>
-          </Route>
+          <Route
+            path="/signup"
+            render={() =>
+              <Signup
+                updateUser={updateUser}
+              />}
+          />
+          <Route
+            path="/login"
+            render={() =>
+              <LoginForm
+                updateUser={updateUser}
+              />}
+          />
+          <Route
+            path="/loggedin"
+            render={() =>
+              <BodyLoggedIn
+                updateUser={updateUser}
+              />}
+          />
         </Switch>
       </div>
     </BrowserRouter>
