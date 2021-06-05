@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Search from './components/Search/Search';
 import HeaderNav from './components/Header/HeaderNav';
 import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
-import savedAnimals from './components/savedAnimals/savedAnimals';
+import SavedAnimals from './components/savedAnimals/savedAnimals';
 import Footer from './components/Footer/Footer';
 import Signup from './components/signup/sign-up'
 import LoginForm from './components/login-form/login-form'
@@ -138,6 +138,12 @@ function App() {
               path="/animaltips"
               render={() =>
                 <AnimalTips          
+                />}
+            />
+            <Route
+              path="/savedanimals"
+              render={() =>
+                <SavedAnimals          
                 />}
             />
           </div>
