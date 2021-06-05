@@ -1,20 +1,21 @@
 import React from "react";
 import HeaderNav from "../Header/HeaderNav";
 import Footer from "../Footer/Footer"
-import "./savedAnimals.css"
+import "./AnimalTips.css"
 
 
 
-function SavedAnimals() {
+function AnimalTips() {
     return (
 
         <div className="tile-is-ancestor">
             <HeaderNav />
-            <div className = "savedanimals">              
+            <div className = "animaltips">
+                
             </div>
             <Footer />
         </div >
     );
 }
 
-export default SavedAnimals
+export default AnimalTips

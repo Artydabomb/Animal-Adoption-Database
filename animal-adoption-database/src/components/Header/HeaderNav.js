@@ -45,7 +45,7 @@ class HeaderNav extends Component {
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
 
-                        <a class="navbar-item main-button" href="test">
+                        <a class="navbar-item main-button" href="/savedanimals">
                             Your ❤ Animals
                     </a>
                         <a class="navbar-item main-button" href="/mewsletter">
@@ -53,7 +53,7 @@ class HeaderNav extends Component {
 
                     </a>
 
-                        <a class="navbar-item main-button" href="test">
+                        <a class="navbar-item main-button" href="/animaltips">
                             Animal Tips
                     </a>
 

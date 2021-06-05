@@ -10,8 +10,7 @@ function Mewsletter() {
 
         <div className="tile-is-ancestor">
             <HeaderNav />
-            <div className = "mewsletter">
-                
+            <div className = "mewsletter">              
             </div>
             <Footer />
         </div >
