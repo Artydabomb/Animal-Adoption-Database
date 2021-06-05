@@ -21,7 +21,10 @@ function CardContent(props) {
                         <p className="subtitle is-6">@{props.breed}</p>
                         {/* Make the location dynamic */}
                         <p className="subtitle is-6">@{props.location}</p>
-                        <Button />
+                        <Button
+                            id={props.id}
+                            age={props.age}
+                        />
                     </div>
                 </div>
 
