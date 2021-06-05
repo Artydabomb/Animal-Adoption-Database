@@ -53,7 +53,8 @@
     "dev": "concurrently \"cd client && react-scripts start\" \"nodemon server.js\"",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "api": "nodemon ./server.js"
+    "api": "nodemon ./server.js",
+    "seed": "node scripts/seedDB.js"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
