@@ -1,67 +1,51 @@
-# Getting Started with Create React App
+# Animal-Adoption-Database
+A web application that allows the user to view animals up for adoption. This app incorporates the use of React.js, mongoDB and API routes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+For this project, we created an animal rescue adoption database. This application manages a table of users through MongoDB which contains their login information as well as rescue animals stored to their profile. The front end of our application serves as an interface for any user to view the available animals. If logged in, users have the opportunity to 'save' or 'favorite' specific animals to their profile.  The back end of our application utilizes the Rescuegroups.org HTTP/JSON API to perform `GET`, `POST`, `DELETE`, and `PUT` requests on the information, as requested by front end input. Our folder structure was built around the MVC paradigm, to ensure smooth development between the four collaborators on this project. Additionally, we practiced agile project management to help ensure that we kept pace with our development timeline.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+- [License](#license)
+- [Screenshots](#screenshots)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To use our project, you can create an account at our deployed link above and view our example gym page as a member. For access to the full application using your own data, contact us on GitHub.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Our application can be accessed through Heroku by visiting the following link: {INSERT LINK}
 
-### `npm run build`
+## Contributing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To learn how to contribute to this project, contact us on GitHub.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## License
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This application is covered under the MIT License.
 
-### `npm run eject`
+## Questions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For questions, reach us via GitHub.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Github: [ItsMEChacon](https://github.com/ItsMEChacon), [acombs801](https://github.com/acombs801), [maria-lara](https://github.com/maria-lara),[Artydabomb](https://github.com/Artydabomb), [Billy-MK](https://github.com/Billy-MK)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Screenshots
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Home Page
+![Home Page](https://github.com/Artydabomb/Animal-Adoption-Database/blob/main/animal-adoption-database/public/homepage.png)
 
-## Learn More
+Login & Sign Up Page
+![Login Page](https://github.com/Artydabomb/Animal-Adoption-Database/blob/main/animal-adoption-database/public/login.png)
+![Sign Up Page](https://github.com/Artydabomb/Animal-Adoption-Database/blob/main/animal-adoption-database/public/signup.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
