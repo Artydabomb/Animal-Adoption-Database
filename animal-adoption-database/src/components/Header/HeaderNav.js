@@ -28,10 +28,11 @@ class HeaderNav extends Component {
         })
     }
 
+
     render() {
         const loggedIn = this.props.loggedIn;
         console.log('navbar render, props: ')
-        console.log(this.props);
+        console.log(this.props.loggedIn);
 
         return (
             <nav class="navbar" role="navigation" aria-label="main navigation">

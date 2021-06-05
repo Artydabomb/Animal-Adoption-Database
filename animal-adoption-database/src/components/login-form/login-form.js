@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import HeaderNav from '../Header/HeaderNav'
+import Footer from '../Footer/Footer'
 
 class LoginForm extends Component {
     constructor() {
         super()
         this.state = {
             username: '',
-            email:'',
+            email: '',
             password: '',
             redirectTo: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-  
+
     }
 
     handleChange(event) {
@@ -22,8 +24,8 @@ class LoginForm extends Component {
         })
     }
 
-    handleSubmit(event) 
-    {event.preventDefault()
+    handleSubmit(event) {
+        event.preventDefault()
         console.log('handleSubmit')
 
         axios
@@ -48,7 +50,7 @@ class LoginForm extends Component {
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);
-                
+
             })
     }
 
@@ -58,6 +60,7 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
+                    <HeaderNav />
                     <h4>Login</h4>
                     <form className="form-horizontal">
                         <div className="form-group">
@@ -93,11 +96,12 @@ class LoginForm extends Component {
                             <div className="col-7"></div>
                             <button
                                 className="btn btn-primary col-1 col-mr-auto"
-                               
+
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>
                         </div>
                     </form>
+                    <Footer />
                 </div>
             )
         }
