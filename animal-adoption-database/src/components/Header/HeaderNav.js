@@ -45,7 +45,7 @@ class HeaderNav extends Component {
                     <div class="navbar-start">
 
 
-                        <a class="navbar-item" href="/savedAnimals">
+                        <a class="navbar-item" href="test">
                            Your ❤ Animals 
                     </a>
                         <a class="navbar-item" href="test">
