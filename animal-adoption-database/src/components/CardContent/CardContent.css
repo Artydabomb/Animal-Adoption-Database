@@ -15,3 +15,22 @@
 .card-image{
   min-height: 300px;
 }
+
+.infobutton{
+  color: black;
+  font-weight: 620;
+  background-color: lightcoral;
+  border: black solid 2px;
+  border-radius: 10px;
+}
+  .infobutton:hover{
+    color: lightcoral;
+    border: lightcoral solid 2px;
+    background-color: black;
+  }
+  
+  .infobutton:active{
+    color: white;
+    background-color: lightcoral;
+    border:black 2px solid;
+  }

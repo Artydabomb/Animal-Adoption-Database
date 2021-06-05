@@ -1,3 +1,10 @@
+html, body{
+  height: 100vh;
+  background-image: url(./images/Main_BG.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 body {
   margin: 0;

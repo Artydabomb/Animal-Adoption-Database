@@ -37,7 +37,7 @@ function CardContent(props) {
                 </div>
                 <div className="content">
                     <div className="has-text-centered">
-                        <button className="button" onClick={changeStatus}>{hiddenDescription.button}</button>
+                        <button className="button infobutton" onClick={changeStatus}>{hiddenDescription.button}</button>
                     </div>
                     <div className={hiddenDescription.hidden} dangerouslySetInnerHTML={innerHTML} />
                 </div>
