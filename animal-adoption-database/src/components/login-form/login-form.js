@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import HeaderNav from '../Header/HeaderNav'
+import Footer from '../Footer/Footer'
 
 class LoginForm extends Component {
     constructor() {
@@ -58,6 +60,7 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
+                    <HeaderNav />
                     <h4>Login</h4>
                     <form className="form-horizontal">
                         <div className="form-group">
@@ -98,6 +101,7 @@ class LoginForm extends Component {
                                 type="submit">Login</button>
                         </div>
                     </form>
+                    <Footer />
                 </div>
             )
         }
