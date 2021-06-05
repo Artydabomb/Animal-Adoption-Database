@@ -7,5 +7,11 @@
 }
 
 .petimage{
-    width: 100%;
+    width: 310px;
+    overflow: hidden;
+    height: 300px;
+}
+
+.card-image{
+  min-height: 300px;
 }

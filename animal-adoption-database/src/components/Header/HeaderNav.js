@@ -15,7 +15,7 @@ class HeaderNav extends Component {
     logout(event) {
         event.preventDefault()
         console.log('logging out')
-        axios.post('api/user/logout').then(response => {
+        axios.post('/api/user/logout').then(response => {
             console.log(response.data)
             if (response.status === 200) {
                 this.props.updateUser({
