@@ -20,18 +20,20 @@ function Search(props) {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log(formObject)
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: formObject.speciesSearch, zipCode: formObject.zipCode})
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch, zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     };
 
     function setSearchSpeciesCat() {
         setFormObject({...formObject, speciesSearch: "cat"})
+        props.setSearchSpeciesCat();
         API.searchAnimals({searchField:formObject.searchField, speciesSearch: "cat", zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     }
 
     function setSearchSpeciesDog() {
         setFormObject({...formObject, speciesSearch: "dog"})
+        props.setSearchSpeciesDog();
         API.searchAnimals({searchField:formObject.searchField, speciesSearch: "dog", zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     }

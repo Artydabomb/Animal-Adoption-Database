@@ -5,10 +5,10 @@ function Button() {
     const [noLogin, loggedIn] = useState('Unsaved');
 
     return (
-        <div>
+        <div className="has-text-centered">
             <h1>{noLogin}</h1>
-            <button onClick={() => loggedIn('Saved!')}>Add to favorites!</button>
-            <button onClick={() => loggedIn('Unsaved')}>Removed from favorites</button>
+            <button className="button is-info is-light m-1" onClick={() => loggedIn('Saved!')}>Save</button>
+            <button className="button border is-danger is-light m-1" onClick={() => loggedIn('Unsaved')}>Unsave</button>
         </div>
     );
 }

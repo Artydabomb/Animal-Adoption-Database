@@ -5,10 +5,16 @@ router.route("/").post(function(req, res) {
     console.log("Search term in back-end API: " + req.body.searchField);
     console.log("Species to search in back-end API: " + req.body.speciesSearch)
     let zip;
+    let species;
     if (req.body.zipCode) {
         zip = req.body.zipCode
     } else {
         zip = "95616"
+    }
+    if (req.body.speciesSearch) {
+        species = req.body.speciesSearch
+    } else {
+        species = "dog"
     }
     return axios.post("https://api.rescuegroups.org/http/v2.json", {
         "apikey" : process.env.API_KEY,
@@ -22,14 +28,14 @@ router.route("/").post(function(req, res) {
             "calcFoundRows" : "Yes",
             "filters" : [
                 {
-                "fieldName" : "animalDescription",
+                "fieldName" : "animalBreed",
                 "operation" : "contains",
                 "criteria" : req.body.searchField
                 },
                 {
                 "fieldName" : "animalSpecies",
                 "operation" : "equals",
-                "criteria" : req.body.speciesSearch
+                "criteria" : species
                 },
                 {
                 "fieldName" : "animalLocationDistance",
