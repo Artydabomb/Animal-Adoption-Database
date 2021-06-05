@@ -11,7 +11,16 @@ const dotenv = require('dotenv').config();
 const routes = require('./routes');
 const MongoStore = require('connect-mongo')
 
-mongoose.connect("mongodb://localhost:27017/animal-db" || process.env.mongodb_uri)
+
+mongoose.connect(
+	process.env.MONGODB_URI || 'mongodb://localhost:27017/animal-db',
+	{
+	  useNewUrlParser: true,
+	  useUnifiedTopology: true,
+	  useCreateIndex: true,
+	  useFindAndModify: false
+	}
+  );
 
 // MIDDLEWARE
 app.use(morgan('dev'))
