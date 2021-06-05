@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import 'bulma/css/bulma.min.css';
+import "./signup.css";
 import HeaderNav from '../Header/HeaderNav'
 import Footer from '../Footer/Footer'
 import { Redirect } from 'react-router-dom'
@@ -58,60 +60,64 @@ class Signup extends Component {
 			return (
 				<div>
 					<HeaderNav />
-					<div className="SignupForm">
-						<h4>Sign up</h4>
-						<form className="form-horizontal">
-							<div className="form-group">
-								<div className="col-1 col-ml-auto">
-									<label className="form-label" htmlFor="username">Username</label>
-								</div>
-								<div className="col-3 col-mr-auto">
-									<input className="form-input"
-										type="text"
-										id="username"
-										name="username"
-										placeholder="Username"
-										value={this.state.username}
-										onChange={this.handleChange}
-									/>
-								</div>
+					<div className="signup-form">
+						<div className="signup-body">
+							<div class="signup-title">
+								<h4>Sign up</h4>
 							</div>
-							<div className="form-group">
-								<div className="col-1 col-ml-auto">
-									<label className="form-label" htmlFor="email">Email: </label>
+							<form className="form-horizontal">
+								<div className="form-group">
+									<div className="col-1 col-ml-auto">
+										<label className="form-label" htmlFor="username">Username</label>
+									</div>
+									<div className="col-3 col-mr-auto">
+										<input className="form-input"
+											type="text"
+											id="username"
+											name="username"
+											placeholder="Username"
+											value={this.state.username}
+											onChange={this.handleChange}
+										/>
+									</div>
 								</div>
-								<div className="col-3 col-mr-auto">
-									<input className="form-input"
-										type="email"
-										name="email"
-										value={this.state.email}
-										onChange={this.handleChange}
-									/>
+								<div className="form-group">
+									<div className="col-1 col-ml-auto">
+										<label className="form-label" htmlFor="email">Email: </label>
+									</div>
+									<div className="col-3 col-mr-auto">
+										<input className="form-input"
+											type="email"
+											name="email"
+											value={this.state.email}
+											onChange={this.handleChange}
+										/>
+									</div>
 								</div>
-							</div>
-							<div className="form-group">
-								<div className="col-1 col-ml-auto">
-									<label className="form-label" htmlFor="password">Password: </label>
+								<div className="form-group">
+									<div className="col-1 col-ml-auto">
+										<label className="form-label" htmlFor="password">Password: </label>
+									</div>
+									<div className="col-3 col-mr-auto">
+										<input className="form-input"
+											placeholder="password"
+											type="password"
+											name="password"
+											value={this.state.password}
+											onChange={this.handleChange}
+										/>
+									</div>
 								</div>
-								<div className="col-3 col-mr-auto">
-									<input className="form-input"
-										placeholder="password"
-										type="password"
-										name="password"
-										value={this.state.password}
-										onChange={this.handleChange}
-									/>
+								<div className="form-group ">
+									<div className="col-7"></div>
+									<button
+										className="btn btn-primary col-1 col-mr-auto signup-btn"
+										onClick={this.handleSubmit}
+										type="submit"
+									>Sign up</button>
 								</div>
-							</div>
-							<div className="form-group ">
-								<div className="col-7"></div>
-								<button
-									className="btn btn-primary col-1 col-mr-auto"
-									onClick={this.handleSubmit}
-									type="submit"
-								>Sign up</button>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 					<Footer />
 				</div>
@@ -120,4 +126,4 @@ class Signup extends Component {
 	}
 }
 
-	export default Signup
+export default Signup
