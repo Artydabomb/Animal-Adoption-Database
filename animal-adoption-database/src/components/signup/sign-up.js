@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import 'bulma/css/bulma.min.css';
 import "./signup.css";
-
 import HeaderNav from '../Header/HeaderNav'
 import Footer from '../Footer/Footer'
 
@@ -55,21 +54,23 @@ class Signup extends Component {
 
 	render() {
 		return (
-			<div>
+			<div class="form-box">
 				<HeaderNav />
-				<div className="SignupForm">
-					<h4>Sign up</h4>
+				<div className="signup-form">
+					<div class="signup-title">
+						<h4>Sign up</h4>	
+					</div>
 					<form className="form-horizontal">
 						<div className="form-group">
 							<div className="col-1 col-ml-auto">
-								<label className="form-label" htmlFor="username">Username</label>
+								<label className="form-label" htmlFor="username">Username:</label>
 							</div>
 							<div className="col-3 col-mr-auto">
 								<input className="form-input"
 									type="text"
 									id="username"
 									name="username"
-									placeholder="Username"
+									placeholder="username"
 									value={this.state.username}
 									onChange={this.handleChange}
 								/>
@@ -83,6 +84,7 @@ class Signup extends Component {
 								<input className="form-input"
 									type="email"
 									name="email"
+									placeholder="email"
 									value={this.state.email}
 									onChange={this.handleChange}
 								/>
@@ -105,7 +107,7 @@ class Signup extends Component {
 						<div className="form-group ">
 							<div className="col-7"></div>
 							<button
-								className="btn btn-primary col-1 col-mr-auto"
+								className="btn btn-primary col-1 col-mr-auto signup-btn"
 								onClick={this.handleSubmit}
 								type="submit"
 							>Sign up</button>

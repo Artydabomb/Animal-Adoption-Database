@@ -1,15 +1,87 @@
-.signup-form{
-    padding-top: 25px;
-    border: 2px black solid;
-    height: 50%;
-    width: 75%;
-    text-align: center;
-    margin-left:auto;
-    margin-right: auto;
-    margin-top: 10%;
-  }
+.signup-form{ 
+  height: 400px;
+  box-sizing: content-box;
+  padding-top: 50px;
+  border: white 5px groove;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 85px;
+  margin-bottom: 18rem;
+  margin-left: 50px;
+  margin-right: 50px;
+  /*setting alpha = 0.6*/
+  background: rgba(240, 128, 128, 0.7);
+}
 
-  h4{
-    font-size: xx-large;
-    font-weight: bolder;
-  }
+.signup-form:hover{
+  color: white;
+  background: repeat ;
+  background-image: url(../../images/LoginBox_BG.jpg);
+  border: 3px black solid;
+  height: 700px;
+  padding-top: 80px;
+}
+
+.signup-title{
+  padding-bottom: 8px;
+  color: black;
+  font-weight: 700;
+}
+
+h4{
+  font-size: xx-large;
+  font-weight: 500;
+}
+
+
+.form-group{
+  font-size: larger;
+  color: black;
+  font-weight: 300;
+}
+
+.form-group{
+  font-weight: 400;
+}
+
+.form-input{
+  background: whitesmoke;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: black 2px solid;
+}
+
+.form-input:hover{
+  border: black 3px solid;
+  background: white;
+}
+
+.form-label{
+  font-weight: 500;
+}
+
+
+.signup-btn{
+  font-weight: 400;
+  text-shadow: black .5px .5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-top: 12px;
+  background: transparent;
+  border: 2px black solid;
+  border-radius: 10px;
+}
+
+.signup-btn:hover {
+
+  font-weight: 600;
+  text-shadow: black 2px 2px;
+  color: white;
+  margin-top: 12px;
+  background: transparent;
+  border: 2px white solid;
+  border-radius: 10px;
+}

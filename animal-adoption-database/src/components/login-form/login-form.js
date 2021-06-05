@@ -63,7 +63,10 @@ class LoginForm extends Component {
             return (
                 <div>
                     <HeaderNav />
-                    <h4>Login</h4>
+                    <div class="login-form">
+                        <div class="login-title">
+                            <h4>Login</h4>
+                        </div>
                     <form className="form-horizontal">
                         <div className="form-group">
                             <div className="col-1 col-ml-auto">
@@ -97,11 +100,12 @@ class LoginForm extends Component {
                         <div className="form-group ">
                             <div className="col-7"></div>
                             <button
-                                className="btn btn-primary col-1 col-mr-auto"
+                                className="btn btn-primary col-1 col-mr-auto login-btn"
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>
                         </div>
                     </form>
+                    </div>
                     <Footer />
                 </div>
             )
