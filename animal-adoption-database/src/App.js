@@ -55,7 +55,7 @@ function App() {
     getUser()
   }, []);
 
-  function updateUser(userObject) {   
+  function updateUser(userObject) {
     console.log(userObject);
     setUserState({
       loggedIn: false,
@@ -93,38 +93,40 @@ function App() {
               <div className="App container">
                 <header className="App-header">
                   <HeaderNav updateUser={updateUser}
-                  username={userState.username}
-                  loggedIn={userState.loggedIn}/>
-                  <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog}/>
-                  <BodyNoLogin loggedIn={userState.loggedIn}/>
+                    username={userState.username}
+                    loggedIn={userState.loggedIn} />
+                  <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog} />
+                  <BodyNoLogin loggedIn={userState.loggedIn} />
                   <Footer />
                 </header>
               </div>
             </SearchContext.Provider>
           </Route>
-          <Route
-            path="/signup"
-            render={() =>
-              <Signup
-              updateUser={updateUser}
-              username={userState.username}
-              loggedIn={userState.loggedIn}
-              />}
-          />
-          <Route
-            path="/login"
-            render={() =>
-              <LoginForm
-                updateUser={updateUser}
-              />}
-          />
-          <Route
-            path="/savedAnimals"
-            render={() =>
-              <savedAnimals
-                loggedIn= {userState.loggedIn}
-              />}
-          />
+          <div class="container">
+            <Route
+              path="/signup"
+              render={() =>
+                <Signup
+                  updateUser={updateUser}
+                  username={userState.username}
+                  loggedIn={userState.loggedIn}
+                />}
+            />
+            <Route
+              path="/login"
+              render={() =>
+                <LoginForm
+                  updateUser={updateUser}
+                />}
+            />
+            <Route
+              path="/savedAnimals"
+              render={() =>
+                <savedAnimals
+                  loggedIn={userState.loggedIn}
+                />}
+            />
+          </div>
         </Switch>
       </div>
     </BrowserRouter>
