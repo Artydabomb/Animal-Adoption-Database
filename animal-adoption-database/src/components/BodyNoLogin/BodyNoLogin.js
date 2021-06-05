@@ -15,6 +15,7 @@ function BodyNoLogin(props) {
                         {searchResults.map(animal => (
                             <div key={animal.animalID} className="column is-one-quarter">
                                 <CardContent 
+                                    loggedIn={props.loggedIn}
                                     highresimg={animal.animalPictures[0] ? animal.animalPictures[0].large.url : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
                                     name={animal.animalName}
                                     age={animal.animalAgeString}

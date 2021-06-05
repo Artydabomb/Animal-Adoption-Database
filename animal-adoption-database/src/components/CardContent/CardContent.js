@@ -28,7 +28,11 @@ function CardContent(props) {
                         <p className="subtitle is-6">- {props.age} old</p>
                         <p className="subtitle is-6">- {props.breed}</p>
                         <p className="subtitle is-6">- {props.location}</p>
-                        <Button />
+                        {props.loggedIn ? (
+                            <Button/>
+                        ):
+                        ( <div></div> )
+                        }   
                     </div>
                 </div>
                 <div className="content">
