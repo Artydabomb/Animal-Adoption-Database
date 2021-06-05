@@ -3,7 +3,10 @@ import "./CardContent.css";
 import Button from "../SaveButton/SaveButton";
 
 function CardContent(props) {
+    
     const innerHTML = { __html: props.description }
+
+
     return (
         <div className="petcard card">
             <div className="card-image">
@@ -18,7 +21,11 @@ function CardContent(props) {
                         <p className="subtitle is-6">- {props.age} old</p>
                         <p className="subtitle is-6">- {props.breed}</p>
                         <p className="subtitle is-6">- {props.location}</p>
-                        <Button />
+                        {props.loggedIn ? (
+                            <Button/>
+                        ):
+                        ( <div></div> )
+                        }   
                     </div>
                 </div>
 
