@@ -1,6 +1,71 @@
-.level-item{
-  background-color: palevioletred;
-  color: aqua;
-  
+  /* Searchbar */
+ .input{
+  background-color: whitesmoke;
+  border: lightcoral solid 1px;
+  border-radius: 10px;
 }
+  .input:hover{
+    background-color: lightgrey;
+    border: black 1px solid;
+  }
+  .input::placeholder{
+    color: lightcoral;
+  }
 
+
+  /* Search btn */
+.button{
+  margin-left: 5px;
+  color: lightcoral;
+  font-weight: 620;
+  background-color: black;
+  border: lightcoral solid 1px;
+  border-radius: 10px;
+}
+  .button:hover{
+    color: black;
+    border: black solid 2px;
+    background-color: lightcoral;
+  }
+  .button:active{
+    color: white;
+    background-color: lightcoral;
+    border:white 2px solid;
+  }
+  .button:visited{
+    color: teal;
+  }
+
+
+.dogsearch{
+  font-weight: 600;
+  height: 25px;
+  width: 50px;
+  color: black;
+  background-color: lightcoral;
+  border: black 2px solid;
+  border-radius: 10px;
+}
+  .dogsearch:hover{
+    color: lightcoral;
+    background-color: black;
+    border: white 2px solid;
+    
+  }
+
+.catsearch{
+  font-weight: 600;
+  height: 25px;
+  width: 50px;
+  color: black;
+  background-color: lightcoral;
+  border: black 2px solid;
+  border-radius: 10px;
+}
+  .catsearch:hover{
+    color: lightcoral;
+    background-color: black;
+    border: white 2px solid;
+    
+  }
+  

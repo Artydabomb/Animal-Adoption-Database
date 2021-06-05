@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import 'bulma/css/bulma.min.css';
 import API from "../../utils/API";
 import SearchContext from "../../utils/SearchContext";
+import "./Search.css";
 
 function Search(props) {
     const {searchTerm, searchResults, speciesSearch} = useContext(SearchContext);
@@ -55,11 +56,11 @@ function Search(props) {
 
             <div className="level-right">
                 <p className="level-item"><strong>Quick Filter By:</strong></p>
-                <p className="level-item"><button onClick={() => {
+                <p className="level-item"><button class="dogsearch" onClick={() => {
                     props.setSearchSpeciesDog;
                     search();
                 }}>Dogs</button></p>
-                <p className="level-item"><button onClick={() => {
+                <p className="level-item"><button class="catsearch" onClick={() => {
                     props.setSearchSpeciesCat;
                     search();
                 }}>Cats</button></p>

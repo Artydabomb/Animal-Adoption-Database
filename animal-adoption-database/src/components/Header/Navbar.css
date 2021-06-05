@@ -1,8 +1,9 @@
 .navbar{
+  height: 70px;
   width: auto;
   background-color: lightcoral;
   border: black 2px solid;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 10px;
   margin-top: 20px;
 }
   
@@ -20,42 +21,6 @@
 }
 
 
-  /* Searchbar */
-.input{
-  background-color: whitesmoke;
-  border: lightcoral solid 1px;
-  border-radius: 10px;
-}
-  .input:hover{
-    background-color: lightgrey;
-    border: black 2px solid;
-  }
-  .input::placeholder{
-    color: lightcoral;
-  }
-
-
-  /* Search btn */
-.button{
-  margin-left: 8px;
-  color: lightcoral;
-  font-weight: 620;
-  background-color: black;
-  border: lightcoral solid 1px;
-  border-radius: 10px;
-}
-  .button:hover{
-    color: black;
-    border: black solid 2px;
-    background-color: lightcoral;
-  }
-  .button:active{
-    color: white;
-    background-color: lightcoral;
-    border:white 2px solid;
-  }
-
-
   /* Login btn */
 .loginbtn{
   font-weight: 700;
@@ -70,13 +35,13 @@
     color: lightcoral;
     background-color: black;
     border: white 2px solid;
-    border-radius: 10px;
+    
   }
   .loginbtn:active{
     color: white;
     background-color: lightcoral;
     border: white 2px solid;
-    border-radius: 10px;
+    
   }
 
 
