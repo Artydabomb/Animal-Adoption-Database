@@ -12,8 +12,10 @@ const routes = require('./routes');
 const MongoStore = require('connect-mongo')
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/animal-db", {
-  useNewUrlParser: true,
-  useFindAndModify: false
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true,
+	useFindAndModify: false
 });
 
 // MIDDLEWARE
