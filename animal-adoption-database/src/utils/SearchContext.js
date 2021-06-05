@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchContext = React.createContext({
   searchTerm: "",
-  dogSearch: true,
+  speciesSearch: "dog",
   zipCode: "",
   searchResults: []
 });

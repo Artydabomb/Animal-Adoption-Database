@@ -1,37 +1,55 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import 'bulma/css/bulma.min.css';
 import API from "../../utils/API";
 import SearchContext from "../../utils/SearchContext";
 
 function Search(props) {
-    const {searchTerm, searchResults} = useContext(SearchContext);
-    const [formObject, setFormObject] = useState({})
+    const {searchTerm, searchResults, speciesSearch} = useContext(SearchContext);
+    const [formObject, setFormObject] = useState({searchField: ""})
+
+    useEffect(() => {
+        API.searchAnimals({searchField: "dog", speciesSearch: "dog"})
+        .then(res=> props.setResults(res.data.data))
+    }, [])
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+        setFormObject({...formObject, [name]: value});
       };
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        API.searchAnimals(formObject)
+        console.log(formObject)
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch, zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     };
-    // console.log(Object.values(res.data.data).forEach(val => console.log(val)))
+
+    function setSearchSpeciesCat() {
+        setFormObject({...formObject, speciesSearch: "cat"})
+        props.setSearchSpeciesCat();
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "cat", zipCode: formObject.zipCode})
+        .then(res => props.setResults(res.data.data))
+    }
+
+    function setSearchSpeciesDog() {
+        setFormObject({...formObject, speciesSearch: "dog"})
+        props.setSearchSpeciesDog();
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "dog", zipCode: formObject.zipCode})
+        .then(res => props.setResults(res.data.data))
+    }
 
     return (
 
         <nav className="level">
             <div className="level-left">
                 <div className="level-item">
-                    <p className="subtitle is-5">
-                        <strong>123</strong> posts
-                    </p>
-                </div>
-                <div className="level-item">
                     <form className="field has-addons">
                         <p className="control">
-                            <input className="input" type="text" placeholder="Find a post" onChange={handleInputChange} name="searchField">
+                            <input className="input" type="text" placeholder="Search by breed" onChange={handleInputChange} name="searchField">
+                            </input>
+                        </p>
+                        <p className="control">
+                            <input className="input" type="text" placeholder="ZIP" onChange={handleInputChange} name="zipCode">
                             </input>
                         </p>
                         <p className="control">
@@ -46,9 +64,8 @@ function Search(props) {
 
             <div className="level-right">
                 <p className="level-item"><strong>Quick Filter By:</strong></p>
-                <p className="level-item"><a href="test">Dogs</a></p>
-                <p className="level-item"><a href="test">Cats</a></p>
-                <p className="level-item"><a className="button is-success" href="test">New</a></p>
+                <p className="level-item"><button className="button" onClick={setSearchSpeciesDog}>Dogs</button></p>
+                <p className="level-item"><button className="button" onClick={setSearchSpeciesCat}>Cats</button></p>
             </div>
         </nav >
 
