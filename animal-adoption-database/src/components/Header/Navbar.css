@@ -20,7 +20,53 @@
   margin-left: 15px;
 }
 
+.main-button{
+  font-size: medium;
+  font-weight: 600;
+  color: black;
+  background: transparent;
+}
+  .main-button:hover{
+    color: black;
+    background-color: black;
+    border: black 2px solid;
+  }
 
+.dropdown-item{
+  font-size: medium;
+  font-weight: 600;
+  color: black;
+}
+  .dropdown-item:hover{
+    color: lightcoral;
+    border: black 2px solid;
+  }
+
+.navbar-link{ 
+  font-size: medium;
+  color: black;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+}
+.navbar-link:hover {
+    color: lightcoral;
+    border: black 2px solid;
+  }
+
+.navbar-dropdown{
+  text-align: center;
+  background-color: lightcoral;
+  border-radius: 5px;
+  border: black solid 2px;
+} 
+
+.report-button:hover{
+  text-decoration: underline 2px solid red;
+  border: black 2px solid;
+}
+
+  
   /* Login btn */
 .loginbtn{
   font-weight: 700;
@@ -35,13 +81,12 @@
     color: lightcoral;
     background-color: black;
     border: white 2px solid;
-    
+    text-decoration: underline 2px solid white;
   }
   .loginbtn:active{
     color: white;
     background-color: lightcoral;
     border: white 2px solid;
-    
   }
 
 
@@ -59,7 +104,7 @@
     color: lightcoral;
     background-color: black;
     border: white 2px solid;
-    
+    text-decoration: underline 2px solid white;
   }
   .signupbtn:active{
     color: white;

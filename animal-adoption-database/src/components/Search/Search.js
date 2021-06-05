@@ -50,7 +50,7 @@ function Search(props) {
                             </input>
                         </p>
                         <p className="control">
-                            <input className="input zip-box" type="text" placeholder="ZIP" onChange={handleInputChange} name="zipCode">
+                            <input className="input zip-box" type="text" placeholder="Zipcode" onChange={handleInputChange} name="zipCode">
                             </input>
                         </p>
                         <p className="control">
