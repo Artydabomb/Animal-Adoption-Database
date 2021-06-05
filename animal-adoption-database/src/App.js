@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Search from './components/Search/Search';
 import HeaderNav from './components/Header/HeaderNav';
 import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
-import BodyLoggedIn from './components/BodyLoggedIn/BodyLoggedIn';
+import savedAnimals from './components/savedAnimals/savedAnimals';
 import Footer from './components/Footer/Footer';
 import Signup from './components/signup/sign-up'
 import LoginForm from './components/login-form/login-form'
@@ -96,18 +96,20 @@ function App() {
                     username={userState.username}
                     loggedIn={userState.loggedIn} />
                   <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog} />
-                  <BodyNoLogin />
+                  <BodyNoLogin loggedIn={userState.loggedIn} />
                   <Footer />
                 </header>
               </div>
             </SearchContext.Provider>
           </Route>
-          <div className="container">
+          <div class="container">
             <Route
               path="/signup"
               render={() =>
                 <Signup
                   updateUser={updateUser}
+                  username={userState.username}
+                  loggedIn={userState.loggedIn}
                 />}
             />
             <Route
@@ -118,10 +120,10 @@ function App() {
                 />}
             />
             <Route
-              path="/loggedin"
+              path="/savedAnimals"
               render={() =>
-                <BodyLoggedIn
-                  updateUser={updateUser}
+                <savedAnimals
+                  loggedIn={userState.loggedIn}
                 />}
             />
           </div>

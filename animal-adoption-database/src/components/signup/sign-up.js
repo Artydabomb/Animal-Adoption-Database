@@ -4,6 +4,7 @@ import 'bulma/css/bulma.min.css';
 import "./signup.css";
 import HeaderNav from '../Header/HeaderNav'
 import Footer from '../Footer/Footer'
+import { Redirect } from 'react-router-dom'
 
 class Signup extends Component {
 	constructor() {
@@ -53,32 +54,58 @@ class Signup extends Component {
 
 
 	render() {
-		return (
-			<div class="form-box">
-				<HeaderNav />
-				<div className="signup-form">
-					<div class="signup-title">
-						<h4>Sign up</h4>	
-					</div>
-					<form className="form-horizontal">
-						<div className="form-group">
-							<div className="col-1 col-ml-auto">
-								<label className="form-label" htmlFor="username">Username:</label>
-							</div>
-							<div className="col-3 col-mr-auto">
-								<input className="form-input"
-									type="text"
-									id="username"
-									name="username"
-									placeholder="username"
-									value={this.state.username}
-									onChange={this.handleChange}
-								/>
-							</div>
+		if (this.state.redirectTo) {
+			return <Redirect to={{ pathname: this.state.redirectTo }} />
+		} else {
+			return (
+				<div>
+					<HeaderNav />
+					<div className="signup-form">
+						<div class="signup-title">
+							<h4>Sign up</h4>	
 						</div>
-						<div className="form-group">
-							<div className="col-1 col-ml-auto">
-								<label className="form-label" htmlFor="email">Email: </label>
+						<form className="form-horizontal">
+							<div className="form-group">
+								<div className="col-1 col-ml-auto">
+									<label className="form-label" htmlFor="username">Username</label>
+								</div>
+								<div className="col-3 col-mr-auto">
+									<input className="form-input"
+										type="text"
+										id="username"
+										name="username"
+										placeholder="Username"
+										value={this.state.username}
+										onChange={this.handleChange}
+									/>
+								</div>
+							</div>
+							<div className="form-group">
+								<div className="col-1 col-ml-auto">
+									<label className="form-label" htmlFor="email">Email: </label>
+								</div>
+								<div className="col-3 col-mr-auto">
+									<input className="form-input"
+										type="email"
+										name="email"
+										value={this.state.email}
+										onChange={this.handleChange}
+									/>
+								</div>
+							</div>
+							<div className="form-group">
+								<div className="col-1 col-ml-auto">
+									<label className="form-label" htmlFor="password">Password: </label>
+								</div>
+								<div className="col-3 col-mr-auto">
+									<input className="form-input"
+										placeholder="password"
+										type="password"
+										name="password"
+										value={this.state.password}
+										onChange={this.handleChange}
+									/>
+								</div>
 							</div>
 							<div className="col-3 col-mr-auto">
 								<input className="form-input"
@@ -113,11 +140,11 @@ class Signup extends Component {
 							>Sign up</button>
 						</div>
 					</form>
+					<Footer />
 				</div>
-				<Footer />
-			</div>
-		)
+			)
+		}
 	}
 }
 
-export default Signup
+	export default Signup

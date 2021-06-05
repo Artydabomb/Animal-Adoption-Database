@@ -20,11 +20,17 @@ class LoginForm extends Component {
 
     }
 
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
+
+    onButtonClick = () => {
+        console.log("Button Clicked")
+        this.props.reloadChild();
+      }
 
     handleSubmit(event) {
         event.preventDefault()
@@ -46,6 +52,7 @@ class LoginForm extends Component {
                     })
                     // update the state to redirect to home
                     this.setState({
+                        
                         redirectTo: '/'
                     })
                 }
@@ -102,6 +109,7 @@ class LoginForm extends Component {
                             <button
                                 className="btn btn-primary col-1 col-mr-auto login-btn"
                                 onClick={this.handleSubmit}
+                                
                                 type="submit">Login</button>
                         </div>
                     </form>

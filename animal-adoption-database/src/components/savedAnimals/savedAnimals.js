@@ -1,11 +1,11 @@
 import React, { PureComponent } from "react";
+
 import CardContent from "../CardContent/CardContent";
-import "./BodyLoggedIn.css";
 import Pup from "../../Pup.json";
 import HeaderNav from "../Header/HeaderNav";
 
 
-function BodyLoggedIn(prop) {
+function savedAnimals(prop) {
     console.log(Pup);
     return (
         <div>
@@ -61,4 +61,4 @@ function BodyLoggedIn(prop) {
     );
 }
 
-export default BodyLoggedIn
+export default savedAnimals

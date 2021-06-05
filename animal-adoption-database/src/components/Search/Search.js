@@ -6,7 +6,7 @@ import "./Search.css";
 
 function Search(props) {
     const {searchTerm, searchResults, speciesSearch} = useContext(SearchContext);
-    const [formObject, setFormObject] = useState({searchField: "is"})
+    const [formObject, setFormObject] = useState({searchField: ""})
 
     useEffect(() => {
         API.searchAnimals({searchField: "dog", speciesSearch: "dog"})
@@ -46,7 +46,7 @@ function Search(props) {
                 <div className="level-item">
                     <form className="field has-addons">
                         <p className="control">
-                            <input className="input" type="text" placeholder="Search for animals" onChange={handleInputChange} name="searchField">
+                            <input className="input" type="text" placeholder="Search by breed" onChange={handleInputChange} name="searchField">
                             </input>
                         </p>
                         <p className="control">

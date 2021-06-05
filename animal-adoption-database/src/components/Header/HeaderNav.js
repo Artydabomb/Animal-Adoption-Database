@@ -16,7 +16,7 @@ class HeaderNav extends Component {
     logout(event) {
         event.preventDefault()
         console.log('logging out')
-        axios.post('/user/logout').then(response => {
+        axios.post('/api/user/logout').then(response => {
             console.log(response.data)
             if (response.status === 200) {
                 this.props.updateUser({
@@ -44,7 +44,12 @@ class HeaderNav extends Component {
 
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
-                        <a class="navbar-item" href="https://www.fotas.org/newsletters/">
+
+
+                        <a class="navbar-item" href="test">
+                           Your ❤ Animals 
+                    </a>
+                        <a class="navbar-item" href="test">
                             Mewsletter
 
                     </a>

@@ -1,9 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import "./CardContent.css";
 import Button from "../SaveButton/SaveButton";
 
 function CardContent(props) {
+    const [hiddenDescription, setHiddenDescription] = useState({hidden: "is-hidden", button: "More Info"})
     const innerHTML = { __html: props.description }
+
+    function changeStatus() {
+        if (hiddenDescription.hidden === "is-hidden") {
+            setHiddenDescription({hidden:"", button: "Hide"})
+        } else {
+            setHiddenDescription({hidden:"is-hidden", button: "More Info"})
+        }
+    }
+
     return (
         <div className="petcard card">
             <div className="card-image">
@@ -18,12 +28,18 @@ function CardContent(props) {
                         <p className="subtitle is-6">- {props.age} old</p>
                         <p className="subtitle is-6">- {props.breed}</p>
                         <p className="subtitle is-6">- {props.location}</p>
-                        <Button />
+                        {props.loggedIn ? (
+                            <Button/>
+                        ):
+                        ( <div></div> )
+                        }   
                     </div>
                 </div>
-
                 <div className="content">
-                    <div dangerouslySetInnerHTML={innerHTML} />
+                    <div className="has-text-centered">
+                        <button className="button" onClick={changeStatus}>{hiddenDescription.button}</button> 
+                    </div>
+                    <div className={hiddenDescription.hidden} dangerouslySetInnerHTML={innerHTML} />
                 </div>
             </div>
         </div>
