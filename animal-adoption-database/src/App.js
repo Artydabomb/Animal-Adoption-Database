@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Search from './components/Search/Search';
 import HeaderNav from './components/Header/HeaderNav';
 import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
-import BodyLoggedIn from './components/BodyLoggedIn/BodyLoggedIn';
+import savedAnimals from './components/savedAnimals/savedAnimals';
 import Footer from './components/Footer/Footer';
 import Signup from './components/signup/sign-up'
 import LoginForm from './components/login-form/login-form'
@@ -118,13 +118,13 @@ function App() {
                 updateUser={updateUser}
               />}
           />
-          {/* <Route
-            path="/loggedin"
+          <Route
+            path="/savedAnimals"
             render={() =>
-              <BodyLoggedIn
-                updateUser={updateUser}
+              <savedAnimals
+                loggedIn= {userState.loggedIn}
               />}
-          /> */}
+          />
         </Switch>
       </div>
     </BrowserRouter>
