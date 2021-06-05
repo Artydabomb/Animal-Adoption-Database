@@ -1,25 +1,27 @@
 .signup-form{ 
   height: 400px;
   box-sizing: content-box;
-  padding-top: 50px;
-  border: white 5px groove;
+  border: black 3px solid;
   border-radius: 10px;
   text-align: center;
   margin-top: 85px;
   margin-bottom: 18rem;
   margin-left: 50px;
   margin-right: 50px;
-  /*setting alpha = 0.6*/
   background: rgba(240, 128, 128, 0.7);
+  display: block;
+  transition-duration: 1.2s;
 }
 
 .signup-form:hover{
-  color: white;
-  background: repeat ;
-  background-image: url(../../images/LoginBox_BG.jpg);
-  border: 3px black solid;
-  height: 700px;
-  padding-top: 80px;
+  padding-top: 40px;
+  border: 3px white solid;
+  height: 500px;
+  transition-duration: .8s;
+}
+
+.signup-body{
+padding-top: 50px;
 }
 
 .signup-title{
