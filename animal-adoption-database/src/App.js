@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Search from './components/Search/Search';
 import HeaderNav from './components/Header/HeaderNav';
 import BodyNoLogin from './components/BodyNoLogin/BodyNoLogin';
+import BodyLoggedIn from './components/BodyLoggedIn/BodyLoggedIn';
 import Footer from './components/Footer/Footer';
 import Signup from './components/signup/sign-up'
 import LoginForm from './components/login-form/login-form'
@@ -13,8 +14,7 @@ import API from './utils/API'
 import "./App.css";
 import 'bulma/css/bulma.min.css';
 import SearchContext from './utils/SearchContext';
-
-// import './components/Search.css';
+//import {Passport} from '../server/passport/index';
 
 function App() {
   const [searchState, setSearchState] = useState({
@@ -48,15 +48,19 @@ function App() {
 
   const [userState, setUserState] = useState({
     loggedIn: false,
-    username: null
+    username: "test"
   });
 
   useEffect(() => {
     getUser()
   }, []);
 
-  function updateUser(userObject) {
-    setUserState(userObject)
+  function updateUser(userObject) {   
+    console.log(userObject);
+    setUserState({
+      loggedIn: false,
+      username: ""
+    })
   }
 
   function getUser() {
@@ -88,7 +92,9 @@ function App() {
             <SearchContext.Provider value={searchState}>
               <div className="App container">
                 <header className="App-header">
-                  <HeaderNav />
+                  <HeaderNav updateUser={updateUser}
+                  username={userState.username}
+                  loggedIn={userState.loggedIn}/>
                   <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog}/>
                   <BodyNoLogin />
                   <Footer />
@@ -96,21 +102,27 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
-          <Route path="/signup">
-            <div>
-              <HeaderNav  />
-              <Signup 
-              />
-              <Footer />
-            </div>
-          </Route>
-          <Route path="/login">
-            <div>
-              <HeaderNav />
-              <LoginForm />
-              <Footer />
-            </div>
-          </Route>
+          <Route
+            path="/signup"
+            render={() =>
+              <Signup
+                updateUser={updateUser}
+              />}
+          />
+          <Route
+            path="/login"
+            render={() =>
+              <LoginForm
+                updateUser={updateUser}
+              />}
+          />
+          <Route
+            path="/loggedin"
+            render={() =>
+              <BodyLoggedIn
+                updateUser={updateUser}
+              />}
+          />
         </Switch>
       </div>
     </BrowserRouter>

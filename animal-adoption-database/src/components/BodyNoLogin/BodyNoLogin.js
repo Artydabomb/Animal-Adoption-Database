@@ -2,6 +2,7 @@ import React, { PureComponent, useContext } from "react";
 import CardContent from "../CardContent/CardContent";
 import "./BodyNoLogin.css";
 import SearchContext from "../../utils/SearchContext"
+import HeaderNav from "../Header/HeaderNav";
 
 function BodyNoLogin(props) {
     const { searchTerm, searchResults } = useContext(SearchContext);
@@ -26,8 +27,8 @@ function BodyNoLogin(props) {
                         ))}
                     </div>
                 </div>
-            </div>
-        </div >
+            </div >
+        </div>
     );
 }
 

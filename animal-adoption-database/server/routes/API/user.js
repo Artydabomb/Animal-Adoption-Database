@@ -44,6 +44,7 @@ router.post(
             username: req.user.username
         };
         res.send(userInfo);
+        
     }
 )
 
