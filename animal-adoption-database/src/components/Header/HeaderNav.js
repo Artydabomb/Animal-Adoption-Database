@@ -43,6 +43,11 @@ class HeaderNav extends Component {
 
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
+
+
+                        <a class="navbar-item" href="/savedAnimals">
+                           Your ❤ Animals 
+                    </a>
                         <a class="navbar-item" href="test">
                             Mewsletter
 
@@ -78,24 +83,24 @@ class HeaderNav extends Component {
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
-                                    {loggedIn ? (
-                                        <section className="navbar-section">
-                                            <Link to="#" class="btn btn-link text-secondary" onClick={this.logout}>
-                                                <button class="text-secondary">Logout</button></Link>
+                                {loggedIn ? (
+                                    <section className="navbar-section">
+                                        <Link to="#" class="btn btn-link text-secondary" onClick={this.logout}>
+                                            <button class="text-secondary">Logout</button></Link>
 
-                                        </section>
-                                    ) : (
-                                        <section className="navbar-item">
-                                            <Link to="/login" class="btn btn-link text-secondary">
-                                                <a class="navbar-item is hoverable">Login</a>
-                                            </Link>
-                                            
-                                            <Link to="/signup" class="btn btn-link is-hoverable">
-                                                <a class="navbar-item is-hoverable">Sign up</a>
-                                            </Link>
+                                    </section>
+                                ) : (
+                                    <section className="navbar-item">
+                                        <Link to="/login" class="btn btn-link text-secondary">
+                                            <a class="navbar-item is hoverable">Login</a>
+                                        </Link>
 
-                                        </section>
-                                    )}                      
+                                        <Link to="/signup" class="btn btn-link is-hoverable">
+                                            <a class="navbar-item is-hoverable">Sign up</a>
+                                        </Link>
+
+                                    </section>
+                                )}
                             </div>
                         </div>
                     </div>
