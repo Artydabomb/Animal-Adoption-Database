@@ -853,7 +853,7 @@ Connection.prototype.openUri = function(uri, options, callback) {
       }
 
       if (this.listeners('error').length > 0) {
-        process.nextTick(() => this.emit('error', err));
+        immediate(() => this.emit('error', err));
       }
       throw err;
     });
@@ -1496,6 +1496,7 @@ Connection.prototype.setClient = function setClient(client) {
  * @param {String} name The database name
  * @param {Object} [options]
  * @param {Boolean} [options.useCache=false] If true, cache results so calling `useDb()` multiple times with the same name only creates 1 connection object.
+ * @param {Boolean} [options.noListener=false] If true, the connection object will not make the db listen to events on the original connection. See [issue #9961](https://github.com/Automattic/mongoose/issues/9961).
  * @return {Connection} New Connection Object
  * @api public
  */
