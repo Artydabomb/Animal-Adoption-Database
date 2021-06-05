@@ -46,11 +46,11 @@ function Search(props) {
                 <div className="level-item">
                     <form className="field has-addons">
                         <p className="control">
-                            <input className="input" type="text" placeholder="Search by breed" onChange={handleInputChange} name="searchField">
+                            <input className="input search-box" type="text" placeholder="Search by breed" onChange={handleInputChange} name="searchField">
                             </input>
                         </p>
                         <p className="control">
-                            <input className="input" type="text" placeholder="ZIP" onChange={handleInputChange} name="zipCode">
+                            <input className="input zip-box" type="text" placeholder="ZIP" onChange={handleInputChange} name="zipCode">
                             </input>
                         </p>
                         <p className="control">
@@ -64,7 +64,7 @@ function Search(props) {
 
 
             <div className="level-right">
-                <p className="level-item"><strong>Quick Filter By:</strong></p>
+                <p className="level-item filtertxt"><strong>Quick Filter By:</strong></p>
                 <p className="level-item"><button className="dogsearch" onClick={setSearchSpeciesDog}>Dogs</button></p>
                 <p className="level-item"><button className="catsearch" onClick={setSearchSpeciesCat}>Cats</button></p>
             </div>

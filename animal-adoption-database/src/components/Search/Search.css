@@ -1,31 +1,43 @@
   /* Searchbar */
- .input{
+ .search-box{
   background-color: whitesmoke;
   border: lightcoral solid 1px;
   border-radius: 10px;
 }
-  .input:hover{
+  .search-box:hover{
     background-color: lightgrey;
     border: black 1px solid;
   }
-  .input::placeholder{
+  .search-box::placeholder{
     color: lightcoral;
   }
 
+  .zip-box{
+    background-color: whitesmoke;
+    border: lightcoral solid 1px;
+    border-radius: 10px;
+  }
+    .zip-box:hover{
+      background-color: lightgrey;
+      border: black 1px solid;
+    }
+    .zip-box::placeholder{
+      color: lightcoral;
+    }
 
   /* Search btn */
 .button{
   margin-left: 5px;
-  color: lightcoral;
+  color: black;
   font-weight: 620;
-  background-color: black;
-  border: lightcoral solid 1px;
+  background-color: lightcoral;
+  border: black solid 2px;
   border-radius: 10px;
 }
   .button:hover{
-    color: black;
-    border: black solid 2px;
-    background-color: lightcoral;
+    color: lightcoral;
+    border: lightcoral solid 2px;
+    background-color: black;
   }
   .button:active{
     color: white;
@@ -36,6 +48,9 @@
     color: teal;
   }
 
+.filtertxt{
+  text-shadow: black .5px .5px;
+}
 
 .dogsearch{
   font-weight: 600;
@@ -44,7 +59,7 @@
   color: black;
   background-color: lightcoral;
   border: black 2px solid;
-  border-radius: 10px;
+  border-radius: 5px;
 }
   .dogsearch:hover{
     color: lightcoral;
@@ -60,7 +75,7 @@
   color: black;
   background-color: lightcoral;
   border: black 2px solid;
-  border-radius: 10px;
+  border-radius: 5px;
 }
   .catsearch:hover{
     color: lightcoral;

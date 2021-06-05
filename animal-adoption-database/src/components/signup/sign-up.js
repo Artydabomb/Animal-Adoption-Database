@@ -107,39 +107,16 @@ class Signup extends Component {
 									/>
 								</div>
 							</div>
-							<div className="col-3 col-mr-auto">
-								<input className="form-input"
-									type="email"
-									name="email"
-									placeholder="email"
-									value={this.state.email}
-									onChange={this.handleChange}
-								/>
+							<div className="form-group ">
+								<div className="col-7"></div>
+								<button
+									className="btn btn-primary col-1 col-mr-auto"
+									onClick={this.handleSubmit}
+									type="submit"
+								>Sign up</button>
 							</div>
-						</div>
-						<div className="form-group">
-							<div className="col-1 col-ml-auto">
-								<label className="form-label" htmlFor="password">Password: </label>
-							</div>
-							<div className="col-3 col-mr-auto">
-								<input className="form-input"
-									placeholder="password"
-									type="password"
-									name="password"
-									value={this.state.password}
-									onChange={this.handleChange}
-								/>
-							</div>
-						</div>
-						<div className="form-group ">
-							<div className="col-7"></div>
-							<button
-								className="btn btn-primary col-1 col-mr-auto signup-btn"
-								onClick={this.handleSubmit}
-								type="submit"
-							>Sign up</button>
-						</div>
-					</form>
+						</form>
+					</div>
 					<Footer />
 				</div>
 			)
