@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function Button() {
     const [noLogin, loggedIn] = useState('Unsaved');
-
     if (loggedIn) {
         return (
             <div className="has-text-centered">
