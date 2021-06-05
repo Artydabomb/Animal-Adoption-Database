@@ -96,7 +96,7 @@ function App() {
                   username={userState.username}
                   loggedIn={userState.loggedIn}/>
                   <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog}/>
-                  <BodyNoLogin />
+                  <BodyNoLogin loggedIn={userState.loggedIn}/>
                   <Footer />
                 </header>
               </div>
