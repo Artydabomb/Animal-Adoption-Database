@@ -1,6 +1,5 @@
 {
   "name": "cosmopawlitan",
-  "proxy": "http://localhost:8080",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -51,10 +50,11 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "^4.0.3",
     "spectre.css": "^0.5.0",
-    "dev": "concurrently \"react-scripts start\" \"nodemon server/server.js\"",
+    "dev": "concurrently \"cd client && react-scripts start\" \"nodemon server.js\"",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "api": "nodemon ./server/server.js"
+    "api": "nodemon ./server.js",
+    "seed": "node scripts/seedDB.js"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",

@@ -2,16 +2,21 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const session = require('express-session')
-const passport = require('./passport');
+const passport = require('./server/passport');
 const app = express()
 const PORT = process.env.PORT || 8080;
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config();
 // Route requires
-const routes = require('./routes');
+const routes = require('./server/routes');
 const MongoStore = require('connect-mongo')
 
-mongoose.connect("mongodb://localhost:27017/animal-db" || process.env.mongodb_uri)
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/animal-db", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true,
+	useFindAndModify: false
+});
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -41,6 +46,9 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("client/build"));
+  }
 
 // Routes
 app.use('/', routes)
