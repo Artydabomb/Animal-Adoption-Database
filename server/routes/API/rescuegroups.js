@@ -4,19 +4,8 @@ const axios = require('axios');
 router.route("/").post(function(req, res) {
     console.log("Search term in back-end API :" + req.body.searchField);
     console.log("Species to search in back-end API: " + req.body.speciesSearch)
-    let zip;
     let species;
     let breed;
-    if (req.body.zipCode) {
-        zip = req.body.zipCode
-    } else {
-        zip = "95616"
-    }
-    if (req.body.speciesSearch) {
-        species = req.body.speciesSearch
-    } else {
-        species = "dog"
-    }
     if (!req.body.searchField) {
         if (species === "dog") {
             breed="dog"
@@ -44,9 +33,14 @@ router.route("/").post(function(req, res) {
                 "criteria" : breed
                 },
                 {
+                "fieldName" : "animalLocationDistance",
+                "operation" : "radius",
+                "criteria" : "90"
+                },
+                {
                 "fieldName" : "animalSpecies",
                 "operation" : "equals",
-                "criteria" : species
+                "criteria" : req.body.speciesSearch || "dog"
                 },
                 {
                 "fieldName" : "animalLocationDistance",
@@ -56,7 +50,7 @@ router.route("/").post(function(req, res) {
                 {
                 "fieldName" : "animalLocation",
                 "operation" : "equals",
-                "criteria" : zip
+                "criteria" : req.body.zipCode || "95616"
                 },
                 {
                 "fieldName" : "animalStatus",
