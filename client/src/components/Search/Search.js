@@ -3,6 +3,8 @@ import 'bulma/css/bulma.min.css';
 import API from "../../utils/API";
 import SearchContext from "../../utils/SearchContext";
 import "./Search.css";
+import SwitchSelector from "react-switch-selector";
+
 
 function Search(props) {
     const {searchTerm, searchResults, speciesSearch} = useContext(SearchContext);
@@ -39,6 +41,25 @@ function Search(props) {
         .then(res => props.setResults(res.data.data))
     }
 
+    const options = [
+        {
+            label: <span>Dogs</span>,
+            value: "dogs",
+            selectedBackgroundColor: "#0097e6",
+        },
+        {
+            label: "Cats",
+            value: "cats",
+            selectedBackgroundColor: "#fbc531"
+        }
+     ];
+      
+     const onChange = (newValue) => {
+         console.log(newValue);
+     };
+      
+     const initialSelectedIndex = options.findIndex(({value}) => value === "dogs");
+
     return (
 
         <nav className="level">
@@ -65,8 +86,17 @@ function Search(props) {
 
             <div className="level-right">
                 <p className="level-item filtertxt"><strong>Quick Filter By:</strong></p>
-                <p className="level-item"><button className="dogsearch" onClick={setSearchSpeciesDog}>Dogs</button></p>
-                <p className="level-item"><button className="catsearch" onClick={setSearchSpeciesCat}>Cats</button></p>
+                <div style={{width: 130, height: 40}}>
+                    <SwitchSelector
+                        onChange={onChange}
+                        options={options}
+                        initialSelectedIndex={initialSelectedIndex}
+                        backgroundColor={"#353b48"}
+                        fontColor={"#f5f6fa"}
+                    />
+                </div>
+                {/* <p className="level-item"><button className="dogsearch" onClick={setSearchSpeciesDog}>Dogs</button></p>
+                <p className="level-item"><button className="catsearch" onClick={setSearchSpeciesCat}>Cats</button></p> */}
             </div>
         </nav >
 
