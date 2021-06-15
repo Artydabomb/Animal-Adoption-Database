@@ -43,22 +43,27 @@ function Search(props) {
 
     const options = [
         {
-            label: <span>Dogs</span>,
-            value: "dogs",
-            selectedBackgroundColor: "#0097e6",
+            label: "Dogs",
+            value: "dog",
+            selectedBackgroundColor: "#f08080",
+            fontColor: "white",
+            selectedFontColor: "black"
         },
         {
             label: "Cats",
-            value: "cats",
-            selectedBackgroundColor: "#fbc531"
+            value: "cat",
+            selectedBackgroundColor: "#f08080",
+            fontColor: "white",
+            selectedFontColor: "black"
         }
      ];
       
      const onChange = (newValue) => {
-         console.log(newValue);
+        API.searchAnimals({searchField:formObject.searchField, speciesSearch: newValue, zipCode: formObject.zipCode})
+        .then(res => props.setResults(res.data.data))
      };
       
-     const initialSelectedIndex = options.findIndex(({value}) => value === "dogs");
+     const initialSelectedIndex = options.findIndex(({value}) => value === "dog");
 
     return (
 
