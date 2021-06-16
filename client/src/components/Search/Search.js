@@ -45,7 +45,7 @@ function Search(props) {
      const onChange = (newValue) => {
         setFormObject({...formObject, species: newValue});
         API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode})
-        .then(res => props.setResults(res.data.data, newValue))
+        .then(res => props.setResults(res.data.data))
      };
       
      const initialSelectedIndex = options.findIndex(({value}) => value === "dog");

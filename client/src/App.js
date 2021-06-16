@@ -26,10 +26,9 @@ function App() {
     searchResults: []
   });
 
-  function setResults(data, species) {
+  function setResults(data) {
     setSearchState({
       ...searchState,
-      species: species,
       searchResults: Object.values(data)
     })
   }
@@ -44,7 +43,7 @@ function App() {
   }, []);
 
   function updateUser(userObject) {
-    console.log(userObject);
+    console.log("user: " + userObject);
     setUserState({
       loggedIn: false,
       username: ""
