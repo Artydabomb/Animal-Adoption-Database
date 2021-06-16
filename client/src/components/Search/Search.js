@@ -1,13 +1,11 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import 'bulma/css/bulma.min.css';
 import API from "../../utils/API";
-import SearchContext from "../../utils/SearchContext";
 import "./Search.css";
 import SwitchSelector from "react-switch-selector";
 
 
 function Search(props) {
-    const {searchTerm, searchResults, species} = useContext(SearchContext);
     const [formObject, setFormObject] = useState({searchField: ""})
 
     useEffect(() => {
@@ -23,23 +21,9 @@ function Search(props) {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log(formObject)
-        API.searchAnimals({searchField:formObject.searchField, species: species, zipCode: formObject.zipCode})
+        API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     };
-
-    // function setSearchSpeciesCat() {
-    //     setFormObject({...formObject, speciesSearch: "cat"})
-    //     props.setSearchSpeciesCat();
-    //     API.searchAnimals({searchField:formObject.searchField, speciesSearch: "cat", zipCode: formObject.zipCode})
-    //     .then(res => props.setResults(res.data.data))
-    // }
-
-    // function setSearchSpeciesDog() {
-    //     setFormObject({...formObject, speciesSearch: "dog"})
-    //     props.setSearchSpeciesDog();
-    //     API.searchAnimals({searchField:formObject.searchField, speciesSearch: "dog", zipCode: formObject.zipCode})
-    //     .then(res => props.setResults(res.data.data))
-    // }
 
     const options = [
         {
@@ -59,6 +43,7 @@ function Search(props) {
      ];
       
      const onChange = (newValue) => {
+        setFormObject({...formObject, species: newValue});
         API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data, newValue))
      };
@@ -100,8 +85,6 @@ function Search(props) {
                         fontColor={"#f5f6fa"}
                     />
                 </div>
-                {/* <p className="level-item"><button className="dogsearch" onClick={setSearchSpeciesDog}>Dogs</button></p>
-                <p className="level-item"><button className="catsearch" onClick={setSearchSpeciesCat}>Cats</button></p> */}
             </div>
         </nav >
 

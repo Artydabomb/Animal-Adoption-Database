@@ -19,7 +19,6 @@ import AnimalTips from './components/AnimalTips/AnimalTips';
 //import {Passport} from '../server/passport/index';
 
 function App() {
-  // This is the source of the problem, every time a search is executed it sets the species to whatever this value is. Why doesn't it do that for the search term as well?
   const [searchState, setSearchState] = useState({
     searchTerm: "",
     species: "",
@@ -33,16 +32,6 @@ function App() {
       species: species,
       searchResults: Object.values(data)
     })
-    console.log(searchState)
-  }
-
-  function setSpecies(species) {
-    console.log("Reached setSpecies() in App.js - species: " + species)
-    setSearchState({
-      ...searchState,
-      species: species
-    })
-    console.log(searchState)
   }
 
   const [userState, setUserState] = useState({
@@ -64,17 +53,14 @@ function App() {
 
   function getUser() {
     axios.get('api/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
+      console.log("user: " + response.data)
       if (response.data.user) {
-        console.log('Get User: There is a user saved in the server session: ')
 
         setUserState({
           loggedIn: true,
           username: response.data.user.username
         })
       } else {
-        console.log('Get user: no user');
         setUserState({
           loggedIn: false,
           username: null
@@ -94,7 +80,7 @@ function App() {
                   <HeaderNav updateUser={updateUser}
                     username={userState.username}
                     loggedIn={userState.loggedIn} />
-                  <Search setResults={setResults} setSpecies={setSpecies} />
+                  <Search setResults={setResults} />
                   <BodyNoLogin loggedIn={userState.loggedIn} />
                   <Footer />
                 </header>
