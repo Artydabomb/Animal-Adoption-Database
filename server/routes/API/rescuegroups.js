@@ -6,7 +6,7 @@ const axios = require('axios');
 // EACH ADDITIONAL FIELD INCREASES SEARCH TIME! Only include the ones we are actually using! 
 router.route("/").post(function(req, res) {
     console.log("Search term in back-end API :" + req.body.searchField);
-    console.log("Species to search in back-end API: " + req.body.speciesSearch)
+    console.log("Species to search in back-end API: " + req.body.species)
     return axios.post("https://api.rescuegroups.org/http/v2.json", {
         "apikey" : process.env.API_KEY,
         "objectType" : "animals",
@@ -31,7 +31,7 @@ router.route("/").post(function(req, res) {
                 {
                 "fieldName" : "animalSpecies",
                 "operation" : "equals",
-                "criteria" : req.body.speciesSearch || "dog"
+                "criteria" : req.body.species || "dog"
                 },
                 {
                 "fieldName" : "animalLocationDistance",

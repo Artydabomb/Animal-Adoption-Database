@@ -19,33 +19,30 @@ import AnimalTips from './components/AnimalTips/AnimalTips';
 //import {Passport} from '../server/passport/index';
 
 function App() {
+  // This is the source of the problem, every time a search is executed it sets the species to whatever this value is. Why doesn't it do that for the search term as well?
   const [searchState, setSearchState] = useState({
     searchTerm: "",
-    speciesSearch: "dog",
+    species: "",
     zipCode: "",
     searchResults: []
   });
 
-  function setResults(data) {
+  function setResults(data, species) {
     setSearchState({
       ...searchState,
+      species: species,
       searchResults: Object.values(data)
     })
-    console.log(data)
+    console.log(searchState)
   }
 
-  function setSearchSpeciesCat() {
+  function setSpecies(species) {
+    console.log("Reached setSpecies() in App.js - species: " + species)
     setSearchState({
       ...searchState,
-      speciesSearch: "cat"
+      species: species
     })
-  }
-
-  function setSearchSpeciesDog() {
-    setSearchState({
-      ...searchState,
-      speciesSearch: "dog"
-    })
+    console.log(searchState)
   }
 
   const [userState, setUserState] = useState({
@@ -97,7 +94,7 @@ function App() {
                   <HeaderNav updateUser={updateUser}
                     username={userState.username}
                     loggedIn={userState.loggedIn} />
-                  <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog} />
+                  <Search setResults={setResults} setSpecies={setSpecies} />
                   <BodyNoLogin loggedIn={userState.loggedIn} />
                   <Footer />
                 </header>

@@ -7,11 +7,11 @@ import SwitchSelector from "react-switch-selector";
 
 
 function Search(props) {
-    const {searchTerm, searchResults, speciesSearch} = useContext(SearchContext);
+    const {searchTerm, searchResults, species} = useContext(SearchContext);
     const [formObject, setFormObject] = useState({searchField: ""})
 
     useEffect(() => {
-        API.searchAnimals({searchField: "dog", speciesSearch: "dog"})
+        API.searchAnimals({searchField: "dog", species: "dog"})
         .then(res=> props.setResults(res.data.data))
     }, [])
 
@@ -23,23 +23,23 @@ function Search(props) {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log(formObject)
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: speciesSearch, zipCode: formObject.zipCode})
+        API.searchAnimals({searchField:formObject.searchField, species: species, zipCode: formObject.zipCode})
         .then(res => props.setResults(res.data.data))
     };
 
-    function setSearchSpeciesCat() {
-        setFormObject({...formObject, speciesSearch: "cat"})
-        props.setSearchSpeciesCat();
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "cat", zipCode: formObject.zipCode})
-        .then(res => props.setResults(res.data.data))
-    }
+    // function setSearchSpeciesCat() {
+    //     setFormObject({...formObject, speciesSearch: "cat"})
+    //     props.setSearchSpeciesCat();
+    //     API.searchAnimals({searchField:formObject.searchField, speciesSearch: "cat", zipCode: formObject.zipCode})
+    //     .then(res => props.setResults(res.data.data))
+    // }
 
-    function setSearchSpeciesDog() {
-        setFormObject({...formObject, speciesSearch: "dog"})
-        props.setSearchSpeciesDog();
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: "dog", zipCode: formObject.zipCode})
-        .then(res => props.setResults(res.data.data))
-    }
+    // function setSearchSpeciesDog() {
+    //     setFormObject({...formObject, speciesSearch: "dog"})
+    //     props.setSearchSpeciesDog();
+    //     API.searchAnimals({searchField:formObject.searchField, speciesSearch: "dog", zipCode: formObject.zipCode})
+    //     .then(res => props.setResults(res.data.data))
+    // }
 
     const options = [
         {
@@ -59,8 +59,8 @@ function Search(props) {
      ];
       
      const onChange = (newValue) => {
-        API.searchAnimals({searchField:formObject.searchField, speciesSearch: newValue, zipCode: formObject.zipCode})
-        .then(res => props.setResults(res.data.data))
+        API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode})
+        .then(res => props.setResults(res.data.data, newValue))
      };
       
      const initialSelectedIndex = options.findIndex(({value}) => value === "dog");
