@@ -21,7 +21,7 @@ import AnimalTips from './components/AnimalTips/AnimalTips';
 function App() {
   const [searchState, setSearchState] = useState({
     searchTerm: "",
-    speciesSearch: "dog",
+    species: "",
     zipCode: "",
     searchResults: []
   });
@@ -30,21 +30,6 @@ function App() {
     setSearchState({
       ...searchState,
       searchResults: Object.values(data)
-    })
-    console.log(data)
-  }
-
-  function setSearchSpeciesCat() {
-    setSearchState({
-      ...searchState,
-      speciesSearch: "cat"
-    })
-  }
-
-  function setSearchSpeciesDog() {
-    setSearchState({
-      ...searchState,
-      speciesSearch: "dog"
     })
   }
 
@@ -58,7 +43,7 @@ function App() {
   }, []);
 
   function updateUser(userObject) {
-    console.log(userObject);
+    console.log("user: " + userObject);
     setUserState({
       loggedIn: false,
       username: ""
@@ -67,17 +52,14 @@ function App() {
 
   function getUser() {
     axios.get('api/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
+      console.log("user: " + response.data)
       if (response.data.user) {
-        console.log('Get User: There is a user saved in the server session: ')
 
         setUserState({
           loggedIn: true,
           username: response.data.user.username
         })
       } else {
-        console.log('Get user: no user');
         setUserState({
           loggedIn: false,
           username: null
@@ -97,7 +79,7 @@ function App() {
                   <HeaderNav updateUser={updateUser}
                     username={userState.username}
                     loggedIn={userState.loggedIn} />
-                  <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog} />
+                  <Search setResults={setResults} />
                   <BodyNoLogin loggedIn={userState.loggedIn} />
                   <Footer />
                 </header>

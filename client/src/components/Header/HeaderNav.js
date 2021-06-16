@@ -25,15 +25,13 @@ class HeaderNav extends Component {
                 })
             }
         }).catch(error => {
-            console.log('Logout error')
+            console.log('Logout error: ' + error)
         })
     }
 
 
     render() {
         const loggedIn = this.props.loggedIn;
-        console.log('navbar render, props: ')
-        console.log(this.props.loggedIn);
 
         return (
             <nav class="navbar" role="navigation" aria-label="main navigation">
