@@ -35,24 +35,22 @@ function App() {
 
   const [userState, setUserState] = useState({
     loggedIn: false,
-    username: "test"
+    username: ""
   });
 
   useEffect(() => {
     getUser()
   }, []);
 
+  // This is the source of the log in button update problem
   function updateUser(userObject) {
-    console.log("user: " + userObject);
-    setUserState({
-      loggedIn: false,
-      username: ""
-    })
+    console.log("user update: " + JSON.stringify(userObject));
+    setUserState(userObject)
   }
 
   function getUser() {
     axios.get('api/user/').then(response => {
-      console.log("user: " + response.data)
+      console.log("user: " + JSON.stringify(response.data))
       if (response.data.user) {
 
         setUserState({

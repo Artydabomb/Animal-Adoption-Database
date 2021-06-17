@@ -31,7 +31,6 @@ class HeaderNav extends Component {
 
 
     render() {
-        const loggedIn = this.props.loggedIn;
 
         return (
             <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -83,7 +82,7 @@ class HeaderNav extends Component {
                         <div class="navbar-item">
                             <div class="buttons">
 
-                                {loggedIn ? (
+                                {this.props.loggedIn ? (
                                     <section className="navbar-section">
                                         <Link to="#" class="btn btn-link text-secondary" onClick={this.logout}>
                                             <button class="text-secondary signupbtn">Logout</button></Link>
