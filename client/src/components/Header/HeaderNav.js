@@ -15,7 +15,6 @@ class HeaderNav extends Component {
 
     logout(event) {
         event.preventDefault()
-        console.log('logging out')
         axios.post('/api/user/logout').then(response => {
             console.log(response.data)
             if (response.status === 200) {
@@ -34,54 +33,42 @@ class HeaderNav extends Component {
 
         return (
             <nav class="navbar" role="navigation" aria-label="main navigation">
-
-                <a class="navbar-brand" href="/">
-                </a>
-
-
+                <a class="navbar-brand" href="/"></a>
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
-
                         <a class="navbar-item main-button" href="/savedanimals">
                             Your ❤ Animals
-                    </a>
+                        </a>
                         <a class="navbar-item main-button" href="/mewsletter">
                             Mewsletter
-
-                    </a>
-
+                        </a>
                         <a class="navbar-item main-button" href="/animaltips">
                             Animal Tips
-                    </a>
-
+                        </a>
                         <div class="navbar-item has-dropdown is-hoverable more-button1">
-                            
-                                <button class="navbar-link">
-                                    More
-                                </button>
-                            
+                            <button class="navbar-link">
+                                More
+                            </button>
                             <div class="navbar-dropdown">
                                 <a class="navbar-item dropdown-item" href="test">
                                     About
-                            </a>
+                                </a>
                                 <a class="navbar-item dropdown-item" href="test">
                                     Jobs & Volunteering
-                            </a>
+                                </a>
                                 <a class="navbar-item dropdown-item" href="https://github.com/Artydabomb/Animal-Adoption-Database">
                                     Contact Us
-                            </a>
+                                </a>
                                 <hr class="navbar-divider" />
                                 <a class="navbar-item dropdown-item report-button" href="https://github.com/Artydabomb/Animal-Adoption-Database/issues">
                                     Report an issue
-                            </a>
+                                </a>
                             </div>
                         </div>
                     </div>
-
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
-
                                 {this.props.loggedIn ? (
                                     <section className="navbar-section">
                                         <Link to="#" class="btn btn-link text-secondary" onClick={this.logout}>

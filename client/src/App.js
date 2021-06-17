@@ -42,15 +42,12 @@ function App() {
     getUser()
   }, []);
 
-  // This is the source of the log in button update problem
   function updateUser(userObject) {
-    console.log("user update: " + JSON.stringify(userObject));
     setUserState(userObject)
   }
 
   function getUser() {
     axios.get('api/user/').then(response => {
-      console.log("user: " + JSON.stringify(response.data))
       if (response.data.user) {
 
         setUserState({
