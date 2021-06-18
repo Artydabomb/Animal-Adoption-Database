@@ -67,4 +67,12 @@ router.post('/logout', (req, res) => {
     }
 })
 
+router.put('/saveAnimal', (req, res) => {
+    console.log("save" + JSON.stringify(req.body))
+})
+
+router.put('/unsaveAnimal', (req, res) => {
+    console.log("unsave" + JSON.stringify(req.body));
+})
+
 module.exports = router
