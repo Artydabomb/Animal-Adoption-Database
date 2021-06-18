@@ -16,6 +16,7 @@ import 'bulma/css/bulma.min.css';
 import SearchContext from './utils/SearchContext';
 import Mewsletter from './components/Mewsletter/Mewsletter';
 import AnimalTips from './components/AnimalTips/AnimalTips';
+import Profile from './components/Profile/Profile';
 //import {Passport} from '../server/passport/index';
 
 function App() {
@@ -67,6 +68,8 @@ function App() {
     <BrowserRouter>
       <div>
         <Switch>
+          
+          {/* Homepage */}
           <Route exact path="/">
             <SearchContext.Provider value={searchState}>
               <div className="App container">
@@ -81,7 +84,18 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
-          <div class="container">
+
+            {/* Profile page */}
+            <Route path="/user">
+              <div class="container">
+                <Profile 
+                  username={userState.username} 
+                  loggedIn={userState.loggedIn} 
+                />
+              </div>
+            </Route>
+
+            {/* Signup page */}
             <Route
               path="/signup"
               render={() =>
@@ -91,6 +105,8 @@ function App() {
                   loggedIn={userState.loggedIn}
                 />}
             />
+
+            {/* Login page */}
             <Route
               path="/login"
               render={() =>
@@ -98,6 +114,8 @@ function App() {
                   updateUser={updateUser}
                 />}
             />
+
+            {/* Saved Animals page (probably going to delete) */}
             <Route
               path="/savedAnimals"
               render={() =>
@@ -105,25 +123,22 @@ function App() {
                   loggedIn={userState.loggedIn}
                 />}
             />
+
+            {/* Mewsletter page */}
             <Route
               path="/mewsletter"
               render={() =>
                 <Mewsletter           
                 />}
             />
+
+            {/* Animal Tips page */}
             <Route
               path="/animaltips"
               render={() =>
                 <AnimalTips          
                 />}
             />
-            <Route
-              path="/savedanimals"
-              render={() =>
-                <SavedAnimals          
-                />}
-            />
-          </div>
         </Switch>
       </div>
     </BrowserRouter>

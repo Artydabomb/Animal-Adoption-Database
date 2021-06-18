@@ -7,14 +7,15 @@ import "./AnimalTips.css"
 
 function AnimalTips() {
     return (
-
-        <div className="tile-is-ancestor">
-            <HeaderNav />
-            <div className = "animaltips">
-                
-            </div>
-            <Footer />
-        </div >
+        <div class="container">
+            <div className="tile-is-ancestor">
+                <HeaderNav />
+                <div className = "animaltips">
+                    
+                </div>
+                <Footer />
+            </div >
+        </div>
     );
 }
 
