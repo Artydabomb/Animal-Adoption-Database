@@ -1,8 +1,7 @@
 import React, { PureComponent, useContext } from "react";
 import CardContent from "../CardContent/CardContent";
 import "./BodyNoLogin.css";
-import SearchContext from "../../utils/SearchContext"
-import HeaderNav from "../Header/HeaderNav";
+import SearchContext from "../../utils/SearchContext";
 
 function BodyNoLogin(props) {
     const { searchTerm, searchResults } = useContext(SearchContext);
@@ -23,6 +22,7 @@ function BodyNoLogin(props) {
                                     location={animal.animalLocationCitystate}
                                     img={animal.animalThumbnailUrl ? animal.animalThumbnailUrl : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
                                     description={animal.animalDescription.replace("<div class=\"rgDescription\">", "").replace("</div>", "")}
+                                    id={animal.animalID}
                                 />
                             </div>
                         ))}
