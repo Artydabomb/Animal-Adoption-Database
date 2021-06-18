@@ -35,7 +35,7 @@ function App() {
 
   const [userState, setUserState] = useState({
     loggedIn: false,
-    username: "test"
+    username: ""
   });
 
   useEffect(() => {
@@ -43,16 +43,11 @@ function App() {
   }, []);
 
   function updateUser(userObject) {
-    console.log("user: " + userObject);
-    setUserState({
-      loggedIn: false,
-      username: ""
-    })
+    setUserState(userObject)
   }
 
   function getUser() {
     axios.get('api/user/').then(response => {
-      console.log("user: " + response.data)
       if (response.data.user) {
 
         setUserState({
@@ -80,7 +75,7 @@ function App() {
                     username={userState.username}
                     loggedIn={userState.loggedIn} />
                   <Search setResults={setResults} />
-                  <BodyNoLogin loggedIn={userState.loggedIn} />
+                  <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} />
                   <Footer />
                 </header>
               </div>

@@ -15,7 +15,6 @@ class HeaderNav extends Component {
 
     logout(event) {
         event.preventDefault()
-        console.log('logging out')
         axios.post('/api/user/logout').then(response => {
             console.log(response.data)
             if (response.status === 200) {
@@ -31,72 +30,59 @@ class HeaderNav extends Component {
 
 
     render() {
-        const loggedIn = this.props.loggedIn;
 
         return (
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-
-                <a class="navbar-brand" href="/">
-                </a>
-
-
-                <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-start">
-
-                        <a class="navbar-item main-button" href="/savedanimals">
+            <nav className="navbar" role="navigation" aria-label="main navigation">
+                <a className="navbar-brand" href="/"></a>
+                <div id="navbarBasicExample" className="navbar-menu">
+                    <div className="navbar-start">
+                        <a className="navbar-item main-button" href="/savedanimals">
                             Your ❤ Animals
-                    </a>
-                        <a class="navbar-item main-button" href="/mewsletter">
+                        </a>
+                        <a className="navbar-item main-button" href="/mewsletter">
                             Mewsletter
-
-                    </a>
-
-                        <a class="navbar-item main-button" href="/animaltips">
+                        </a>
+                        <a className="navbar-item main-button" href="/animaltips">
                             Animal Tips
-                    </a>
-
-                        <div class="navbar-item has-dropdown is-hoverable more-button1">
-                            
-                                <button class="navbar-link">
-                                    More
-                                </button>
-                            
-                            <div class="navbar-dropdown">
-                                <a class="navbar-item dropdown-item" href="test">
+                        </a>
+                        <div className="navbar-item has-dropdown is-hoverable more-button1">
+                            <button className="navbar-link">
+                                More
+                            </button>
+                            <div className="navbar-dropdown">
+                                <a className="navbar-item dropdown-item" href="test">
                                     About
-                            </a>
-                                <a class="navbar-item dropdown-item" href="test">
+                                </a>
+                                <a className="navbar-item dropdown-item" href="test">
                                     Jobs & Volunteering
-                            </a>
-                                <a class="navbar-item dropdown-item" href="https://github.com/Artydabomb/Animal-Adoption-Database">
+                                </a>
+                                <a className="navbar-item dropdown-item" href="https://github.com/Artydabomb/Animal-Adoption-Database">
                                     Contact Us
-                            </a>
-                                <hr class="navbar-divider" />
-                                <a class="navbar-item dropdown-item report-button" href="https://github.com/Artydabomb/Animal-Adoption-Database/issues">
+                                </a>
+                                <hr className="navbar-divider" />
+                                <a className="navbar-item dropdown-item report-button" href="https://github.com/Artydabomb/Animal-Adoption-Database/issues">
                                     Report an issue
-                            </a>
+                                </a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="buttons">
-
-                                {loggedIn ? (
+                    <div className="navbar-end">
+                        <div className="navbar-item">
+                            <div className="buttons">
+                                {this.props.loggedIn ? (
                                     <section className="navbar-section">
-                                        <Link to="#" class="btn btn-link text-secondary" onClick={this.logout}>
-                                            <button class="text-secondary signupbtn">Logout</button></Link>
+                                        <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
+                                            <button className="text-secondary signupbtn">Logout</button></Link>
 
                                     </section>
                                 ) : (
                                     <section className="navbar-item">
-                                        <Link to="/login" class="btn btn-link text-secondary">
-                                            <button class="navbar-item loginbtn">Login</button>
+                                        <Link to="/login" className="btn btn-link text-secondary">
+                                            <button className="navbar-item loginbtn">Login</button>
                                         </Link>
 
-                                        <Link to="/signup" class="btn btn-link is-hoverable">
-                                            <button class="navbar-item is-hoverable signupbtn">Sign up</button>
+                                        <Link to="/signup" className="btn btn-link is-hoverable">
+                                            <button className="navbar-item is-hoverable signupbtn">Sign up</button>
                                         </Link>
 
                                     </section>

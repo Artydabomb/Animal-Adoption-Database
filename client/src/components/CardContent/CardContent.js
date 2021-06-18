@@ -14,6 +14,17 @@ function CardContent(props) {
         }
     }
 
+    let animalInfo = {
+        username: props.username,
+        id: props.id,
+        name: props.name,
+        age: props.age,
+        breed: props.breed,
+        image: props.highresimg,
+        location: props.location,
+        description: props.description
+    }
+
     return (
         <div className="petcard card">
             <div className="card-image">
@@ -29,7 +40,7 @@ function CardContent(props) {
                         <p className="subtitle is-6">- {props.breed}</p>
                         <p className="subtitle is-6">- {props.location}</p>
                         {props.loggedIn ? (
-                            <Button />
+                            <Button animalInfo={animalInfo} />
                         ) :
                             (<div></div>)
                         }
