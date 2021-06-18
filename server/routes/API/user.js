@@ -68,11 +68,45 @@ router.post('/logout', (req, res) => {
 })
 
 router.put('/saveAnimal', (req, res) => {
-    console.log("save" + JSON.stringify(req.body))
+    User.updateOne(
+        { username: req.body.username },
+        { $push: { saved_animals: req.body.name } },
+        function (err, docs) {
+            if (err) {
+                console.log(err)
+            }
+            else {
+                console.log(docs)
+            }
+        }
+    )
+    .then(response => {
+        res.json(response)
+    })
+    .catch(error => {
+        console.log(error)
+    })
 })
 
 router.put('/unsaveAnimal', (req, res) => {
-    console.log("unsave" + JSON.stringify(req.body));
+    User.updateOne(
+        { username: req.body.username },
+        { $pull: { saved_animals: req.body.name } },
+        function (err, docs) {
+            if (err) {
+                console.log(err)
+            }
+            else {
+                console.log(docs)
+            }
+        }
+    )
+    .then(response => {
+        res.json(response)
+    })
+    .catch(error => {
+        console.log(error)
+    })
 })
 
 module.exports = router

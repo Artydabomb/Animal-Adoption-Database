@@ -15,6 +15,7 @@ function CardContent(props) {
     }
 
     let animalInfo = {
+        username: props.username,
         id: props.id,
         name: props.name,
         age: props.age,

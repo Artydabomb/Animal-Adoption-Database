@@ -75,7 +75,7 @@ function App() {
                     username={userState.username}
                     loggedIn={userState.loggedIn} />
                   <Search setResults={setResults} />
-                  <BodyNoLogin loggedIn={userState.loggedIn} />
+                  <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} />
                   <Footer />
                 </header>
               </div>
