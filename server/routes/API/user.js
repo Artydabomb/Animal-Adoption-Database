@@ -4,8 +4,6 @@ const User = require('../../database/models/user')
 const passport = require('../../passport')
 
 router.post('/', (req, res) => {
-    console.log('user signup');
-
     const { username, password, email } = req.body
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
@@ -33,13 +31,11 @@ router.post('/', (req, res) => {
 router.post(
     '/login',
     function (req, res, next) {
-        console.log('routes/user.js, login, req.body: ');
-        console.log(req.body)
         next()
     },
     passport.authenticate('local'),
     (req, res) => {
-        console.log('logged in', req.user);
+        console.log('Login successful, logging in as: ', req.user);
         var userInfo = {
             username: req.user.username
         };
@@ -49,8 +45,7 @@ router.post(
 )
 
 router.get('/', (req, res, next) => {
-    console.log('===== user!!======')
-    console.log(req.user)
+    console.log("User: " + req.user)
     if (req.user) {
         res.json({ user: req.user })
     } else {
@@ -76,7 +71,7 @@ router.put('/saveAnimal', (req, res) => {
                 console.log(err)
             }
             else {
-                console.log(docs)
+                res.json(docs)
             }
         }
     )
@@ -97,7 +92,7 @@ router.put('/unsaveAnimal', (req, res) => {
                 console.log(err)
             }
             else {
-                console.log(docs)
+                res.json(docs)
             }
         }
     )
@@ -111,12 +106,12 @@ router.put('/unsaveAnimal', (req, res) => {
 
 router.get("/getSavedAnimals", (req, res) => {
     User.findOne(
-        {username: req.body.username},
+        {username: req.user.username},
         (err, user) => {
             if (err) {
                 console.log(err)
             } else {
-                res.json(user)
+                res.json(user.saved_animals)
             }
         }
     )
