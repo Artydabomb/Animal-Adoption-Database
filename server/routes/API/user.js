@@ -109,4 +109,17 @@ router.put('/unsaveAnimal', (req, res) => {
     })
 })
 
+router.get("/getSavedAnimals", (req, res) => {
+    User.findOne(
+        {username: req.body.username},
+        (err, user) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.json(user)
+            }
+        }
+    )
+})
+
 module.exports = router

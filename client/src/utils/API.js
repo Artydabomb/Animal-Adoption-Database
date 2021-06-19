@@ -11,5 +11,9 @@ export default {
 
     deleteAnimal(animal) {
         return axios.put("/api/user/unsaveAnimal", animal)
+    },
+
+    getSavedAnimals(user) {
+        return axios.get("/api/user/getSavedAnimals", user)
     }
 }

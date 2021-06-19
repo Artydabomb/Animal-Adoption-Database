@@ -74,9 +74,11 @@ function App() {
             <SearchContext.Provider value={searchState}>
               <div className="App container">
                 <header className="App-header">
-                  <HeaderNav updateUser={updateUser}
+                  <HeaderNav 
+                    updateUser={updateUser}
                     username={userState.username}
-                    loggedIn={userState.loggedIn} />
+                    loggedIn={userState.loggedIn} 
+                  />
                   <Search setResults={setResults} />
                   <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} />
                   <Footer />
@@ -84,16 +86,17 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
+          <div class="container">
 
             {/* Profile page */}
-            <Route path="/user">
-              <div class="container">
+            <Route 
+              path="/user"
+              render={() =>               
                 <Profile 
                   username={userState.username} 
                   loggedIn={userState.loggedIn} 
-                />
-              </div>
-            </Route>
+                />}
+            />
 
             {/* Signup page */}
             <Route
@@ -139,6 +142,7 @@ function App() {
                 <AnimalTips          
                 />}
             />
+          </div>
         </Switch>
       </div>
     </BrowserRouter>
