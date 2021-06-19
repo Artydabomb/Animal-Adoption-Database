@@ -3,14 +3,16 @@ import api from '../../utils/API'
 
 function Profile(props) {
     
-    function getSavedAnimals(user) {
-        api.getSavedAnimals(user)
+
+
+    function getSavedAnimals() {
+        api.getSavedAnimals()
     }
 
     return (
         <>
         <div style={{"backgroundColor": "white"}}>{props.username}Test</div>
-        <button onClick={getSavedAnimals({username: 'billy', id: '80'})} ></button>
+        <button onClick={getSavedAnimals} ></button>
         </>
     );
 }

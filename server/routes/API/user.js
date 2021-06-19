@@ -71,7 +71,7 @@ router.put('/saveAnimal', (req, res) => {
                 console.log(err)
             }
             else {
-                res.json(docs)
+                return docs
             }
         }
     )
@@ -92,7 +92,7 @@ router.put('/unsaveAnimal', (req, res) => {
                 console.log(err)
             }
             else {
-                res.json(docs)
+                return docs
             }
         }
     )

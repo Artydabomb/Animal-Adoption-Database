@@ -86,7 +86,7 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
-          <div class="container">
+          <div className="container">
 
             {/* Profile page */}
             <Route 

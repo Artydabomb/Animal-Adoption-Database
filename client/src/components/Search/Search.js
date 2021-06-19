@@ -9,7 +9,7 @@ function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
 
     useEffect(() => {
-        API.searchAnimals({searchField: "dog", species: "dog"})
+        API.searchAnimals({searchField: "", species: "dog"})
         .then(res=> props.setResults(res.data.data))
     }, [])
 
