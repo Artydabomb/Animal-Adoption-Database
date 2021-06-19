@@ -86,7 +86,9 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
-          <div className="container">
+          <div className="App container">
+            <header className="App-header">
+              <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
 
             {/* Profile page */}
             <Route 
@@ -131,17 +133,16 @@ function App() {
             <Route
               path="/mewsletter"
               render={() =>
-                <Mewsletter           
-                />}
+                <Mewsletter />}
             />
 
             {/* Animal Tips page */}
             <Route
               path="/animaltips"
               render={() =>
-                <AnimalTips          
-                />}
+                <AnimalTips />}
             />
+            </header>
           </div>
         </Switch>
       </div>

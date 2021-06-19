@@ -9,7 +9,6 @@ function SavedAnimals() {
     return (
 
         <div className="tile-is-ancestor">
-            <HeaderNav />
             <div className = "savedanimals">              
             </div>
             <Footer />

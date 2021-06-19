@@ -9,7 +9,6 @@ function AnimalTips() {
     return (
         <div class="container">
             <div className="tile-is-ancestor">
-                <HeaderNav />
                 <div className = "animaltips">
                     
                 </div>

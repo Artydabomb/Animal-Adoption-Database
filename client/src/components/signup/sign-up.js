@@ -59,7 +59,6 @@ class Signup extends Component {
 		} else {
 			return (
 				<div>
-					<HeaderNav />
 					<div className="signup-form">
 						<div className="signup-body">
 							<div class="signup-title">

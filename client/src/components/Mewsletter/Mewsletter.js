@@ -9,7 +9,6 @@ function Mewsletter() {
     return (
 
         <div className="tile-is-ancestor">
-            <HeaderNav />
             <div className = "mewsletter">              
             </div>
             <Footer />
