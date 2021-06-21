@@ -17,6 +17,7 @@ import SearchContext from './utils/SearchContext';
 import Mewsletter from './components/Mewsletter/Mewsletter';
 import AnimalTips from './components/AnimalTips/AnimalTips';
 import Profile from './components/Profile/Profile';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 //import {Passport} from '../server/passport/index';
 
 function App() {
@@ -141,6 +142,13 @@ function App() {
               path="/animaltips"
               render={() =>
                 <AnimalTips />}
+            />
+
+            {/* 404 Not Found page */}
+            <Route 
+              path="*"
+              render={() => 
+              <PageNotFound />}
             />
             </header>
           </div>

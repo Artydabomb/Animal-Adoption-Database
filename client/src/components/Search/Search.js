@@ -75,7 +75,7 @@ function Search(props) {
 
 
             <div className="level-right">
-                <p className="level-item filtertxt"><strong>Quick Filter By:</strong></p>
+                {/* <p className="level-item filtertxt"><strong>Quick Filter By:</strong></p> */}
                 <div style={{width: 130, height: 40}}>
                     <SwitchSelector
                         onChange={onChange}
