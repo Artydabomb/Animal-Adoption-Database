@@ -87,71 +87,90 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
-          <div className="App container">
-            <header className="App-header">
-              <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
-
             {/* Profile page */}
-            <Route 
-              path="/user"
-              render={() =>               
+          <Route 
+            path="/user"
+            render={() =>      
+              <div className="App container">
+              <header className="App-header">
+                <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                 <Profile 
                   username={userState.username} 
                   loggedIn={userState.loggedIn} 
-                />}
-            />
+                />
+              </header>
+            </div>}
+          />
 
             {/* Signup page */}
             <Route
               path="/signup"
               render={() =>
-                <Signup
-                  updateUser={updateUser}
-                  username={userState.username}
-                  loggedIn={userState.loggedIn}
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <Signup
+                    updateUser={updateUser}
+                    username={userState.username}
+                    loggedIn={userState.loggedIn}
+                  />
+                </header>
+              </div>}
             />
 
             {/* Login page */}
             <Route
               path="/login"
               render={() =>
-                <LoginForm
-                  updateUser={updateUser}
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <LoginForm
+                    updateUser={updateUser}
+                  />
+                </header>
+              </div>}
             />
 
             {/* Saved Animals page (probably going to delete) */}
             <Route
               path="/savedAnimals"
               render={() =>
-                <savedAnimals
-                  loggedIn={userState.loggedIn}
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <savedAnimals
+                    loggedIn={userState.loggedIn}
+                  />
+                </header>
+              </div>}
             />
 
             {/* Mewsletter page */}
             <Route
               path="/mewsletter"
               render={() =>
-                <Mewsletter />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <Mewsletter />
+                </header>
+              </div>}
             />
 
             {/* Animal Tips page */}
             <Route
               path="/animaltips"
               render={() =>
-                <AnimalTips />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <AnimalTips />
+                </header>
+              </div>}
             />
-
             {/* 404 Not Found page */}
-            <Route 
-              path="*"
-              render={() => 
-              <PageNotFound />}
-            />
-            </header>
-          </div>
+          <Route path="*" component={PageNotFound}/>
         </Switch>
       </div>
     </BrowserRouter>
