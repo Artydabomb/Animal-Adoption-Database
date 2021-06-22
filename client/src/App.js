@@ -139,7 +139,7 @@ function App() {
                 <div className="App container">
                 <header className="App-header">
                   <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
-                  <savedAnimals
+                  <SavedAnimals
                     loggedIn={userState.loggedIn}
                   />
                 </header>

@@ -13,7 +13,7 @@ export default {
         return axios.put("/api/user/unsaveAnimal", animal)
     },
 
-    getSavedAnimals() {
-        return axios.get("/api/user/getSavedAnimals")
+    async getSavedAnimals() {
+        return await axios.get("/api/user/getSavedAnimals")
     }
 }
