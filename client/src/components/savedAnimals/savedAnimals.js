@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import HeaderNav from "../Header/HeaderNav";
-import Footer from "../Footer/Footer"
 import "./savedAnimals.css"
 import api from "../../utils/API";
 import CardContent from "../CardContent/CardContent";
@@ -17,7 +15,7 @@ function SavedAnimals(props) {
 
     return (
 
-        <div className="tile-is-ancestor">
+        <div className="tile-is-ancestor animals">
             <div className="tile is-parent">
                 <div className="tile is-child box ">
                     <div className="columns is-multiline">
@@ -47,7 +45,6 @@ function SavedAnimals(props) {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div >
     );
 }

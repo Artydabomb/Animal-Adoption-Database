@@ -87,6 +87,22 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
+
+          {/* Saved Animals page */}
+          <Route
+            path="/savedAnimals"
+            render={() =>
+              <div className="App container">
+              <header className="App-header">
+                <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                <SavedAnimals
+                  loggedIn={userState.loggedIn}
+                  username={userState.username}
+                />
+              </header>
+            </div>}
+          />
+          
             {/* Profile page */}
           <Route 
             path="/user"
@@ -127,21 +143,6 @@ function App() {
                   <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                   <LoginForm
                     updateUser={updateUser}
-                  />
-                </header>
-              </div>}
-            />
-
-            {/* Saved Animals page (probably going to delete) */}
-            <Route
-              path="/savedAnimals"
-              render={() =>
-                <div className="App container">
-                <header className="App-header">
-                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
-                  <SavedAnimals
-                    loggedIn={userState.loggedIn}
-                    username={userState.username}
                   />
                 </header>
               </div>}
