@@ -63,6 +63,7 @@ router.post('/logout', (req, res) => {
 })
 
 router.put('/saveAnimal', (req, res) => {
+    console.log(req.body)
     User.updateOne(
         { username: req.body.username },
         { $push: { saved_animals: req.body } }
@@ -88,9 +89,10 @@ router.put('/saveAnimal', (req, res) => {
 })
 
 router.put('/unsaveAnimal', (req, res) => {
+    console.log(req.body)
     User.updateOne(
         { username: req.body.username },
-        { $pull: { saved_animals: req.body.name } },
+        { $pull: { saved_animals: req.body } },
         function (err, docs) {
             if (err) {
                 console.log(err)

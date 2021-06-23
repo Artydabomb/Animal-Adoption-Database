@@ -141,6 +141,7 @@ function App() {
                   <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                   <SavedAnimals
                     loggedIn={userState.loggedIn}
+                    username={userState.username}
                   />
                 </header>
               </div>}
