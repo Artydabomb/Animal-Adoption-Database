@@ -40,7 +40,7 @@ function CardContent(props) {
                         <p className="subtitle is-6">- {props.breed}</p>
                         <p className="subtitle is-6">- {props.location}</p>
                         {props.loggedIn ? (
-                            <Button animalInfo={animalInfo} />
+                            <Button animalInfo={animalInfo} isSavedAnimalsList={props.isSavedAnimalsList}/>
                         ) :
                             (<div></div>)
                         }

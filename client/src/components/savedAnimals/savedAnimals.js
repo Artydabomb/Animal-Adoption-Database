@@ -34,6 +34,7 @@ function SavedAnimals(props) {
                                     // description={animal.description.replace("<div class=\"rgDescription\">", "").replace("</div>", "")}
                                     description={animal.description}
                                     id={animal.id}
+                                    isSavedAnimalsList={true}
                                 />
                             </div>
                         ))
