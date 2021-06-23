@@ -65,15 +65,19 @@ router.post('/logout', (req, res) => {
 router.put('/saveAnimal', (req, res) => {
     User.updateOne(
         { username: req.body.username },
-        { $push: { saved_animals: req.body } },
-        function (err, docs) {
-            if (err) {
-                console.log(err)
-            }
-            else {
-                return docs
-            }
-        }
+        { $push: { saved_animals: req.body } }
+        // I'm removing this callback function for now, since it seems to be executing the query twice. I think this has something to do with the API call being a promise, but I don't know why. 
+        // Another option would be to change the $push modifier to $addToSet, but I would prefer to prevent the query from being executed twice even if the end result looks the same.
+        // I'm leaving these comments and the callback function below in case removing it causes any issues down the line. 
+        
+        // function (err, docs) {
+        //     if (err) {
+        //         console.log(err)
+        //     }
+        //     else {
+        //         return docs
+        //     }
+        // }
     )
     .then(response => {
         res.json(response)
