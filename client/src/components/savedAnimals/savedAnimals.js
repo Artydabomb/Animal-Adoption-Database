@@ -21,7 +21,8 @@ function SavedAnimals(props) {
             <div className="tile is-parent">
                 <div className="tile is-child box ">
                     <div className="columns is-multiline">
-                        {savedAnimals.map(animal => (
+                        {savedAnimals.length ? 
+                        savedAnimals.map(animal => (
                             <div key={animal.animalID} className="column is-one-quarter">
                                 <CardContent 
                                     username={props.username}
@@ -37,7 +38,12 @@ function SavedAnimals(props) {
                                     id={animal.id}
                                 />
                             </div>
-                        ))}
+                        ))
+                        :
+                        <div className="container">
+                            <div style={{"textAlign": "center"}}>No Saved Animals</div>
+                        </div>
+                        }
                     </div>
                 </div>
             </div>
