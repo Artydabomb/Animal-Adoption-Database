@@ -1,9 +1,6 @@
 import React from "react";
-import HeaderNav from "../Header/HeaderNav";
 import Footer from "../Footer/Footer"
 import "./AnimalTips.css"
-
-
 
 function AnimalTips() {
     return (
