@@ -13,35 +13,51 @@ function SavedAnimals(props) {
         .then(res=>setSavedAnimals(res.data))
     }, [])
 
+    // Likely to delete this function (use state in App.js instead to re-render on delete)
+    function removeAnimal(animal) {
+        let newArray = savedAnimals
+        newArray.splice(newArray.indexOf(animal), 1)
+        setSavedAnimals(newArray)
+    }
+
     return (
 
         <div className="tile-is-ancestor animals">
             <div className="tile is-parent">
                 <div className="tile is-child box ">
                     <div className="columns is-multiline">
-                        {savedAnimals.length ? 
-                        savedAnimals.map(animal => (
-                            <div key={animal.animalID} className="column is-one-quarter">
-                                <CardContent 
-                                    username={props.username}
-                                    loggedIn={props.loggedIn}
-                                    highresimg={animal.image ? animal.image : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
-                                    name={animal.name}
-                                    age={animal.age}
-                                    breed={animal.breed}
-                                    location={animal.location}
-                                    img={animal.animalThumbnailUrl ? animal.animalThumbnailUrl : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
-                                    // description={animal.description.replace("<div class=\"rgDescription\">", "").replace("</div>", "")}
-                                    description={animal.description}
-                                    id={animal.id}
-                                    isSavedAnimalsList={true}
-                                />
+                        {props.loggedIn ?
+                             <>
+                                {savedAnimals.length ? 
+                                    savedAnimals.map(animal => (
+                                        <div key={animal.animalID} className="column is-one-quarter">
+                                            <CardContent 
+                                                username={props.username}
+                                                loggedIn={props.loggedIn}
+                                                highresimg={animal.image ? animal.image : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
+                                                name={animal.name}
+                                                age={animal.age}
+                                                breed={animal.breed}
+                                                location={animal.location}
+                                                img={animal.animalThumbnailUrl ? animal.animalThumbnailUrl : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
+                                                // description={animal.description.replace("<div class=\"rgDescription\">", "").replace("</div>", "")}
+                                                description={animal.description}
+                                                id={animal.id}
+                                                isSavedAnimalsList={true}
+                                                removeAnimal={removeAnimal}
+                                            />
+                                        </div>
+                                    ))
+                                    :
+                                    <div className="container">
+                                        <div style={{"textAlign": "center"}}>No Saved Animals</div>
+                                    </div>
+                                }
+                             </>
+                             : 
+                            <div className="has-text-centered" style={{"width": "100%"}}>
+                                <a href="/login">Log in</a> or <a href="/signup">sign up</a> to begin saving your favorite animals!
                             </div>
-                        ))
-                        :
-                        <div className="container">
-                            <div style={{"textAlign": "center"}}>No Saved Animals</div>
-                        </div>
                         }
                     </div>
                 </div>

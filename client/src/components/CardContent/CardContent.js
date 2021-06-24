@@ -26,34 +26,36 @@ function CardContent(props) {
     }
 
     return (
-        <div className="petcard card">
-            <div className="card-image">
-                <img className="petimage" src={props.highresimg} alt={props.name} />
-            </div>
-            <div className="card-content">
-                <div className="media">
-                    <div className="media-content">
-                        <p className="title is-4 has-text-centered pb-3">{props.name}</p>
-                        <p className="subtitle is-6">{props.rescue}</p>
-                        <div className="divider is-danger">about</div>
-                        <p className="subtitle is-6">- {props.age} old</p>
-                        <p className="subtitle is-6">- {props.breed}</p>
-                        <p className="subtitle is-6">- {props.location}</p>
-                        {props.loggedIn ? (
-                            <Button animalInfo={animalInfo} isSavedAnimalsList={props.isSavedAnimalsList}/>
-                        ) :
-                            (<div></div>)
-                        }
+        <>
+            <div className="petcard card">
+                <div className="card-image">
+                    <img className="petimage" src={props.highresimg} alt={props.name} />
+                </div>
+                <div className="card-content">
+                    <div className="media">
+                        <div className="media-content">
+                            <p className="title is-4 has-text-centered pb-3">{props.name}</p>
+                            <p className="subtitle is-6">{props.rescue}</p>
+                            <div className="divider is-danger">about</div>
+                            <p className="subtitle is-6">- {props.age} old</p>
+                            <p className="subtitle is-6">- {props.breed}</p>
+                            <p className="subtitle is-6">- {props.location}</p>
+                            {props.loggedIn ? (
+                                <Button animalInfo={animalInfo} isSavedAnimalsList={props.isSavedAnimalsList} removeAnimal={props.removeAnimal} />
+                            ) :
+                                (<div></div>)
+                            }
+                        </div>
+                    </div>
+                    <div className="content">
+                        <div className="has-text-centered">
+                            <button className="button infobutton" onClick={changeStatus}>{hiddenDescription.button}</button>
+                        </div>
+                        <div className={hiddenDescription.hidden} dangerouslySetInnerHTML={innerHTML} />
                     </div>
                 </div>
-                <div className="content">
-                    <div className="has-text-centered">
-                        <button className="button infobutton" onClick={changeStatus}>{hiddenDescription.button}</button>
-                    </div>
-                    <div className={hiddenDescription.hidden} dangerouslySetInnerHTML={innerHTML} />
-                </div>
             </div>
-        </div>
+        </>
     )
 }
 export default CardContent
