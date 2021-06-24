@@ -9,7 +9,7 @@ function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
 
     useEffect(() => {
-        API.searchAnimals({searchField: "dog", species: "dog"})
+        API.searchAnimals({searchField: "", species: "dog"})
         .then(res=> props.setResults(res.data.data))
     }, [])
 
@@ -75,7 +75,7 @@ function Search(props) {
 
 
             <div className="level-right">
-                <p className="level-item filtertxt"><strong>Quick Filter By:</strong></p>
+                {/* <p className="level-item filtertxt"><strong>Quick Filter By:</strong></p> */}
                 <div style={{width: 130, height: 40}}>
                     <SwitchSelector
                         onChange={onChange}

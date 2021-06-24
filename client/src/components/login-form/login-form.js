@@ -69,7 +69,6 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
-                    <HeaderNav />
                     <div className="login-form">
                         <div className="container login-body">
                             <div className="login-title">

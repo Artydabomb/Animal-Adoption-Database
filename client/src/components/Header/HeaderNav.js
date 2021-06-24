@@ -72,7 +72,7 @@ class HeaderNav extends Component {
                                 {this.props.loggedIn ? (
                                     <section className="navbar-section">
                                         <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
-                                            <button className="text-secondary signupbtn">Logout</button></Link>
+                                            <button className="text-secondary navbar-item signupbtn">Logout</button></Link>
 
                                     </section>
                                 ) : (

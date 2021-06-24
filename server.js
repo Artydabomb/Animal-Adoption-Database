@@ -26,7 +26,6 @@ app.use(
 	})
 )
 app.use(bodyParser.json())
-// We don't know what this does lol
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

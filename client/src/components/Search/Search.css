@@ -68,38 +68,3 @@
 .filtertxt{
   text-shadow: black .5px .5px;
 }
-
-/* Dog filter btn */
-.dogsearch{
-  font-weight: 600;
-  height: 25px;
-  width: 50px;
-  color: black;
-  background-color: lightcoral;
-  border: black 2px solid;
-  border-radius: 5px;
-}
-  .dogsearch:hover{
-    color: lightcoral;
-    background-color: black;
-    border: white 2px solid;
-    
-  }
-
-  /* Cat filter btn */
-.catsearch{
-  font-weight: 600;
-  height: 25px;
-  width: 50px;
-  color: black;
-  background-color: lightcoral;
-  border: black 2px solid;
-  border-radius: 5px;
-}
-  .catsearch:hover{
-    color: lightcoral;
-    background-color: black;
-    border: white 2px solid;
-    
-  }
-  

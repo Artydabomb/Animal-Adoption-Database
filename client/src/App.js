@@ -16,6 +16,8 @@ import 'bulma/css/bulma.min.css';
 import SearchContext from './utils/SearchContext';
 import Mewsletter from './components/Mewsletter/Mewsletter';
 import AnimalTips from './components/AnimalTips/AnimalTips';
+import Profile from './components/Profile/Profile';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 //import {Passport} from '../server/passport/index';
 
 function App() {
@@ -67,13 +69,17 @@ function App() {
     <BrowserRouter>
       <div>
         <Switch>
+          
+          {/* Homepage */}
           <Route exact path="/">
             <SearchContext.Provider value={searchState}>
               <div className="App container">
                 <header className="App-header">
-                  <HeaderNav updateUser={updateUser}
+                  <HeaderNav 
+                    updateUser={updateUser}
                     username={userState.username}
-                    loggedIn={userState.loggedIn} />
+                    loggedIn={userState.loggedIn} 
+                  />
                   <Search setResults={setResults} />
                   <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} />
                   <Footer />
@@ -81,49 +87,92 @@ function App() {
               </div>
             </SearchContext.Provider>
           </Route>
-          <div class="container">
+
+          {/* Saved Animals page */}
+          <Route
+            path="/savedAnimals"
+            render={() =>
+              <div className="App container">
+              <header className="App-header">
+                <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                <SavedAnimals
+                  loggedIn={userState.loggedIn}
+                  username={userState.username}
+                />
+              </header>
+            </div>}
+          />
+          
+            {/* Profile page */}
+          <Route 
+            path="/user"
+            render={() =>      
+              <div className="App container">
+              <header className="App-header">
+                <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                <Profile 
+                  username={userState.username} 
+                  loggedIn={userState.loggedIn} 
+                />
+              </header>
+            </div>}
+          />
+
+            {/* Signup page */}
             <Route
               path="/signup"
               render={() =>
-                <Signup
-                  updateUser={updateUser}
-                  username={userState.username}
-                  loggedIn={userState.loggedIn}
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <Signup
+                    updateUser={updateUser}
+                    username={userState.username}
+                    loggedIn={userState.loggedIn}
+                  />
+                </header>
+              </div>}
             />
+
+            {/* Login page */}
             <Route
               path="/login"
               render={() =>
-                <LoginForm
-                  updateUser={updateUser}
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <LoginForm
+                    updateUser={updateUser}
+                  />
+                </header>
+              </div>}
             />
-            <Route
-              path="/savedAnimals"
-              render={() =>
-                <savedAnimals
-                  loggedIn={userState.loggedIn}
-                />}
-            />
+
+            {/* Mewsletter page */}
             <Route
               path="/mewsletter"
               render={() =>
-                <Mewsletter           
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <Mewsletter />
+                </header>
+              </div>}
             />
+
+            {/* Animal Tips page */}
             <Route
               path="/animaltips"
               render={() =>
-                <AnimalTips          
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <AnimalTips />
+                </header>
+              </div>}
             />
-            <Route
-              path="/savedanimals"
-              render={() =>
-                <SavedAnimals          
-                />}
-            />
-          </div>
+            {/* 404 Not Found page */}
+          <Route path="*" component={PageNotFound}/>
         </Switch>
       </div>
     </BrowserRouter>
