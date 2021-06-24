@@ -6,18 +6,20 @@ import CardContent from "../CardContent/CardContent";
 function SavedAnimals(props) {
 
     const [savedAnimals, setSavedAnimals] = useState([]);
+    const [update, setUpdate] = useState(0);
 
     useEffect(() => {
         api.getSavedAnimals()
         // .then(res=>console.log(JSON.stringify(res.data)))
         .then(res=>setSavedAnimals(res.data))
-    }, [])
+    }, [update])
 
     // Likely to delete this function (use state in App.js instead to re-render on delete)
     function removeAnimal(animal) {
         let newArray = savedAnimals
         newArray.splice(newArray.indexOf(animal), 1)
         setSavedAnimals(newArray)
+        setUpdate(update + 1)
     }
 
     return (
@@ -45,6 +47,7 @@ function SavedAnimals(props) {
                                                 id={animal.id}
                                                 isSavedAnimalsList={true}
                                                 removeAnimal={removeAnimal}
+                                                animal={animal}
                                             />
                                         </div>
                                     ))

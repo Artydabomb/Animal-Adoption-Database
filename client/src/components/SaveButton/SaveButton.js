@@ -13,6 +13,9 @@ function Button(props) {
     function unsaveAnimal() {
         setSaved('Unsaved.')
         api.deleteAnimal(props.animalInfo)
+        if (props.isSavedAnimalsList) {
+            props.removeAnimal(props.animal)
+        }
     }
 
     return (
