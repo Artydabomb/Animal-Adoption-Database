@@ -18,6 +18,7 @@ import Mewsletter from './components/Mewsletter/Mewsletter';
 import AnimalTips from './components/AnimalTips/AnimalTips';
 import Profile from './components/Profile/Profile';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import About from "./components/About/About";
 //import {Passport} from '../server/passport/index';
 
 function App() {
@@ -171,6 +172,19 @@ function App() {
                 </header>
               </div>}
             />
+
+            {/* About Us */}
+            <Route
+              path="/about"
+              render={() =>
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <About />
+                </header>
+              </div>}
+            />
+
             {/* 404 Not Found page */}
           <Route path="*" component={PageNotFound}/>
         </Switch>
