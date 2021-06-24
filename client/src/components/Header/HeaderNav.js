@@ -50,7 +50,7 @@ class HeaderNav extends Component {
                                 More
                             </button>
                             <div className="navbar-dropdown">
-                                <a className="navbar-item dropdown-item" href="test">
+                                <a className="navbar-item dropdown-item" href="about">
                                     About
                                 </a>
                                 <a className="navbar-item dropdown-item" href="test">
