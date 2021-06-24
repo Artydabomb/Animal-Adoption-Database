@@ -4,18 +4,22 @@ import api from "../../utils/API"
 
 function Button(props) {
     const [saved, setSaved] = useState('Unsaved');
+    // disabled state refers to whether the save button should be disabled or not.
+    const [disabled, setDisabled] = useState(false);
 
     function saveAnimal() {
-        setSaved('Saved')
+        setSaved('Saved!')
         api.postAnimal(props.animalInfo)
+        setDisabled(true)
     }
 
     function unsaveAnimal() {
-        setSaved('Unsaved.')
+        setSaved('Unsaved')
         api.deleteAnimal(props.animalInfo)
         if (props.isSavedAnimalsList) {
             props.removeAnimal(props.animal)
         }
+        setDisabled(false)
     }
 
     return (
@@ -23,9 +27,9 @@ function Button(props) {
             {props.isSavedAnimalsList ? 
             <div></div>
             :
-            <><h1>{saved}</h1><button className="button is-danger is-light m-1" onClick={saveAnimal}>💖</button></>
+            <><h1>{saved}</h1><button className="button is-danger is-light m-1" disabled={disabled} onClick={saveAnimal}>💖</button></>
             }
-                <button className="button border is-info is-light m-1" onClick={unsaveAnimal}>💔</button>
+                <button className="button border is-info is-light m-1" disabled={!disabled} onClick={unsaveAnimal}>💔</button>
         </div>
     );
 }
