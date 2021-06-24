@@ -53,9 +53,6 @@ class HeaderNav extends Component {
                                 <a className="navbar-item dropdown-item" href="about">
                                     About
                                 </a>
-                                <a className="navbar-item dropdown-item" href="test">
-                                    Jobs & Volunteering
-                                </a>
                                 <a className="navbar-item dropdown-item" href="https://github.com/Artydabomb/Animal-Adoption-Database">
                                     Contact Us
                                 </a>
