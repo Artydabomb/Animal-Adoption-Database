@@ -19,6 +19,7 @@ import AnimalTips from './components/AnimalTips/AnimalTips';
 import Profile from './components/Profile/Profile';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import About from "./components/About/About";
+import LargeCard from "./components/LargeCard/LargeCard"
 //import {Passport} from '../server/passport/index';
 
 function App() {
@@ -183,6 +184,18 @@ function App() {
                   <About />
                 </header>
               </div>}
+            />
+
+            <Route
+              path="/test"
+              render={() => 
+                <div className="App container">
+                  <header className="App-header">
+                    <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                    <LargeCard image="https://images.pexels.com/photos/733416/pexels-photo-733416.jpeg?auto=compress&cs=tinysrgb&h=350" name="Chewy" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices, lorem in fermentum hendrerit, dolor lacus sollicitudin lacus, eget facilisis odio neque et nulla. Ut venenatis metus nisl, id congue urna posuere egestas. Aliquam in vulputate ipsum, eu placerat turpis. Quisque ullamcorper eleifend metus sit amet lacinia. Vestibulum varius fermentum tellus, eu tincidunt nulla maximus in. Donec malesuada et lectus non pretium. Sed pellentesque varius posuere. Vivamus odio augue, pharetra at ligula fermentum, hendrerit sagittis metus. Pellentesque malesuada faucibus lectus eu scelerisque."/>
+                  </header>
+                </div>
+              }
             />
 
             {/* 404 Not Found page */}

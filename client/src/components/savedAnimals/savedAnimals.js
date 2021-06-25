@@ -26,7 +26,7 @@ function SavedAnimals(props) {
 
         <div className="tile-is-ancestor animals">
             <div className="tile is-parent">
-                <div className="tile is-child box ">
+                <div className="tile is-child box">
                     <div className="columns is-multiline">
                         {props.loggedIn ?
                              <>
