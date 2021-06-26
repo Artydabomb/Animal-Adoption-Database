@@ -28,7 +28,8 @@ function App() {
     species: "",
     zipCode: "",
     searchResults: [],
-    isSearched: false
+    isSearched: false,
+    page: 1
   });
 
   function setResults(data) {

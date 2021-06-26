@@ -2,6 +2,7 @@ import React, { PureComponent, useContext } from "react";
 import CardContent from "../CardContent/CardContent";
 import "./BodyNoLogin.css";
 import SearchContext from "../../utils/SearchContext";
+import PrevNext from "../PrevNext/PrevNext";
 
 function BodyNoLogin(props) {
     const { searchResults, isSearched } = useContext(SearchContext);
@@ -29,6 +30,7 @@ function BodyNoLogin(props) {
                             </div>
                         ))}
                     </div>
+                    {isSearched ? <PrevNext /> : <div></div>}
                 </div>
             </div >
         </div>
