@@ -27,13 +27,15 @@ function App() {
     searchTerm: "",
     species: "",
     zipCode: "",
-    searchResults: []
+    searchResults: [],
+    isSearched: false
   });
 
   function setResults(data) {
     setSearchState({
       ...searchState,
-      searchResults: Object.values(data)
+      searchResults: Object.values(data),
+      isSearched: true
     })
   }
 
