@@ -30,7 +30,7 @@ function BodyNoLogin(props) {
                             </div>
                         ))}
                     </div>
-                    {isSearched ? <PrevNext /> : <div></div>}
+                    {isSearched ? <PrevNext setPage={props.setPage} /> : <div></div>}
                 </div>
             </div >
         </div>

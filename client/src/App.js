@@ -40,6 +40,13 @@ function App() {
     })
   }
 
+  function setPage(page) {
+    setSearchState({
+      ...searchState,
+      page
+    })
+  }
+
   const [userState, setUserState] = useState({
     loggedIn: false,
     username: ""
@@ -86,7 +93,7 @@ function App() {
                     loggedIn={userState.loggedIn} 
                   />
                   <Search setResults={setResults} />
-                  <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} />
+                  <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} setPage={setPage} />
                   <Footer />
                 </header>
               </div>
