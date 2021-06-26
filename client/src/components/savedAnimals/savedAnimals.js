@@ -58,7 +58,7 @@ function SavedAnimals(props) {
                                 }
                              </>
                              : 
-                            <div className="has-text-centered" style={{"width": "100%"}}>
+                            <div className="has-text-centered m-5 subtitle" style={{"width": "100%"}}>
                                 <a href="/login">Log in</a> or <a href="/signup">sign up</a> to begin saving your favorite animals!
                             </div>
                         }
