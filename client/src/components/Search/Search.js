@@ -1,18 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import 'bulma/css/bulma.min.css';
 import API from "../../utils/API";
 import "./Search.css";
 import SwitchSelector from "react-switch-selector";
+import SearchContext from "../../utils/SearchContext";
 
 
 function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
+    const { page } = useContext(SearchContext);
 
     useEffect(() => {
         API.searchAnimals({searchField: "", species: "dog"})
         .then(res=> props.setResults(res.data.data))
     }, [])
 
+    useEffect(() => {
+        API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:page})
+        .then(res=>props.setResults(res.data.data))
+    }, [page])
+    
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value});

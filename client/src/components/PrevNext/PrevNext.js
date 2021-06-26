@@ -4,12 +4,14 @@ import SearchContext from "../../utils/SearchContext";
 function PrevNext(props) {
     const { page } = useContext(SearchContext);
 
-    function nextPage(){
+    function nextPage() {
         props.setPage(page + 1)
     }
 
-    function prevPage(){
-        props.setPage(page - 1)
+    function prevPage() {
+        if (page > 1) {
+            props.setPage(page - 1)
+        }
     }
 
     return(
