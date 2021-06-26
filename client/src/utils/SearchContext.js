@@ -4,7 +4,8 @@ const SearchContext = React.createContext({
   searchTerm: "",
   speciesSearch: "dog",
   zipCode: "",
-  searchResults: []
+  searchResults: [],
+  isSearched: false
 });
 
 export default SearchContext;
