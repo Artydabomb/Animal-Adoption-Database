@@ -10,7 +10,7 @@ function BodyNoLogin(props) {
             <div className="tile is-parent">
                 <div className="tile is-child box ">
                     <div className="columns is-multiline">
-                        {searchResults.length ? (<div></div>):(<div className="column">No Results Found</div>)}
+                        {searchResults.length ? (<div></div>):(<div className="column has-text-centered subtitle m-3">No results found</div>)}
                         {searchResults.map(animal => (
                             <div key={animal.animalID} className="column is-one-quarter">
                                 <CardContent 
