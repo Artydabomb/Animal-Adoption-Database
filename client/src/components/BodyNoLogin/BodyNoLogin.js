@@ -4,10 +4,10 @@ import "./BodyNoLogin.css";
 import SearchContext from "../../utils/SearchContext";
 
 function BodyNoLogin(props) {
-    const { searchTerm, searchResults, isSearched } = useContext(SearchContext);
+    const { searchResults, isSearched } = useContext(SearchContext);
 
     return (
-        <div className="tile is-ancestor parentTile">
+        <div className="tile is-ancestor main">
             <div className="tile is-parent">
                 <div className="tile is-child box ">
                     <div className="columns is-multiline">
