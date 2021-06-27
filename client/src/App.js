@@ -20,6 +20,7 @@ import Profile from './components/Profile/Profile';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import About from "./components/About/About";
 import LargeCard from "./components/LargeCard/LargeCard"
+import { PromiseProvider } from 'mongoose';
 //import {Passport} from '../server/passport/index';
 
 function App() {
@@ -28,14 +29,24 @@ function App() {
     species: "",
     zipCode: "",
     searchResults: [],
-    isSearched: false
+    isSearched: false,
+    page: 1,
+    rows: 0
   });
 
-  function setResults(data) {
+  function setResults(data, rows) {
     setSearchState({
       ...searchState,
       searchResults: Object.values(data),
-      isSearched: true
+      isSearched: true,
+      rows
+    })
+  }
+
+  function setPage(page) {
+    setSearchState({
+      ...searchState,
+      page
     })
   }
 
@@ -84,8 +95,8 @@ function App() {
                     username={userState.username}
                     loggedIn={userState.loggedIn} 
                   />
-                  <Search setResults={setResults} />
-                  <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} />
+                  <Search setResults={setResults} setPage={setPage} />
+                  <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} setPage={setPage} />
                   <Footer />
                 </header>
               </div>

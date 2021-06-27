@@ -2,16 +2,17 @@ import React, { PureComponent, useContext } from "react";
 import CardContent from "../CardContent/CardContent";
 import "./BodyNoLogin.css";
 import SearchContext from "../../utils/SearchContext";
+import PrevNext from "../PrevNext/PrevNext";
 
 function BodyNoLogin(props) {
-    const { searchTerm, searchResults, isSearched } = useContext(SearchContext);
+    const { searchResults, isSearched } = useContext(SearchContext);
 
     return (
-        <div className="tile is-ancestor parentTile">
+        <div className="tile is-ancestor main">
             <div className="tile is-parent">
                 <div className="tile is-child box ">
                     <div className="columns is-multiline">
-                        {searchResults.length || !isSearched ? (<div></div>):(<div className="column has-text-centered subtitle m-3">No results found</div>)}
+                        {searchResults.length || !isSearched ? (<div></div>):(<div className="column has-text-centered subtitle mt-3">No results found</div>)}
                         {searchResults.map(animal => (
                             <div key={animal.animalID} className="column is-one-quarter">
                                 <CardContent 
@@ -29,6 +30,7 @@ function BodyNoLogin(props) {
                             </div>
                         ))}
                     </div>
+                    {isSearched && searchResults.length ? <PrevNext setPage={props.setPage} /> : <div></div>}
                 </div>
             </div >
         </div>

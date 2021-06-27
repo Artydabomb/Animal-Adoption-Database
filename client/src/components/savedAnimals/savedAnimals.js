@@ -52,8 +52,8 @@ function SavedAnimals(props) {
                                         </div>
                                     ))
                                     :
-                                    <div className="container">
-                                        <div style={{"textAlign": "center"}}>No Saved Animals</div>
+                                    <div className="container has-text-centered">
+                                        <div className="subtitle m-3">No Saved Animals</div>
                                     </div>
                                 }
                              </>

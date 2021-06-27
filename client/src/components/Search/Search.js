@@ -1,18 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import 'bulma/css/bulma.min.css';
 import API from "../../utils/API";
 import "./Search.css";
 import SwitchSelector from "react-switch-selector";
+import SearchContext from "../../utils/SearchContext";
 
 
 function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
+    const { page, rows } = useContext(SearchContext);
 
     useEffect(() => {
         API.searchAnimals({searchField: "", species: "dog"})
-        .then(res=> props.setResults(res.data.data))
+        .then(res=>props.setResults(res.data.data, res.data.foundRows))
     }, [])
 
+    useEffect(() => {
+        API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:page})
+        .then(res=> {
+            props.setResults(res.data.data, res.data.foundRows)
+        })
+    }, [page])
+    
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value});
@@ -20,9 +29,15 @@ function Search(props) {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log(formObject)
-        API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode})
-        .then(res => props.setResults(res.data.data))
+        if (page === 1) {
+            API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:1})
+            .then(res=>props.setResults(res.data.data, res.data.foundRows))
+        } else {
+            props.setPage(1)
+        }
+        // console.log(formObject)
+        // API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode})
+        // .then(res => props.setResults(res.data.data))
     };
 
     const options = [
@@ -43,10 +58,16 @@ function Search(props) {
      ];
       
      const onChange = (newValue) => {
-        setFormObject({...formObject, species: newValue});
-        API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode})
-        .then(res => props.setResults(res.data.data))
-     };
+         setFormObject({...formObject, species: newValue});
+        //  API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1})
+        //  .then(res => props.setResults(res.data.data))
+        if (page === 1) {
+            API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1})
+            .then(res => props.setResults(res.data.data, res.data.foundRows))
+        } else {
+            props.setPage(1)
+        }
+        };
       
      const initialSelectedIndex = options.findIndex(({value}) => value === "dog");
 

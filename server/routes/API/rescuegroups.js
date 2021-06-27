@@ -7,12 +7,13 @@ const axios = require('axios');
 router.route("/").post(function(req, res) {
     console.log("Search term in back-end API :" + req.body.searchField);
     console.log("Species to search in back-end API: " + req.body.species)
+    console.log("PAGE: " + req.body.page)
     return axios.post("https://api.rescuegroups.org/http/v2.json", {
         "apikey" : process.env.API_KEY,
         "objectType" : "animals",
         "objectAction" : "publicSearch",
         "search" : {
-            "resultStart" : 0,
+            "resultStart" : (req.body.page-1) * 8 || 0,
             "resultLimit" : 8,
             "resultSort" : "animalID",
             "resultOrder" : "asc",

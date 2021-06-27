@@ -5,7 +5,9 @@ const SearchContext = React.createContext({
   speciesSearch: "dog",
   zipCode: "",
   searchResults: [],
-  isSearched: false
+  isSearched: false,
+  page: 1,
+  rows: 0
 });
 
 export default SearchContext;
