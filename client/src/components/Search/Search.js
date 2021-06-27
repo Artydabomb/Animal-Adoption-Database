@@ -8,16 +8,18 @@ import SearchContext from "../../utils/SearchContext";
 
 function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
-    const { page } = useContext(SearchContext);
+    const { page, rows } = useContext(SearchContext);
 
     useEffect(() => {
         API.searchAnimals({searchField: "", species: "dog"})
-        .then(res=> props.setResults(res.data.data))
+        .then(res=>props.setResults(res.data.data, res.data.foundRows))
     }, [])
 
     useEffect(() => {
         API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:page})
-        .then(res=>props.setResults(res.data.data))
+        .then(res=> {
+            props.setResults(res.data.data, res.data.foundRows)
+        })
     }, [page])
     
     function handleInputChange(event) {
@@ -29,7 +31,7 @@ function Search(props) {
         event.preventDefault();
         if (page === 1) {
             API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:1})
-            .then(res=>props.setResults(res.data.data))
+            .then(res=>props.setResults(res.data.data, res.data.foundRows))
         } else {
             props.setPage(1)
         }
@@ -61,7 +63,7 @@ function Search(props) {
         //  .then(res => props.setResults(res.data.data))
         if (page === 1) {
             API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1})
-            .then(res => props.setResults(res.data.data))
+            .then(res => props.setResults(res.data.data, res.data.foundRows))
         } else {
             props.setPage(1)
         }

@@ -6,7 +6,8 @@ const SearchContext = React.createContext({
   zipCode: "",
   searchResults: [],
   isSearched: false,
-  page: 1
+  page: 1,
+  rows: 0
 });
 
 export default SearchContext;

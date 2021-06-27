@@ -29,14 +29,16 @@ function App() {
     zipCode: "",
     searchResults: [],
     isSearched: false,
-    page: 1
+    page: 1,
+    rows: 0
   });
 
-  function setResults(data) {
+  function setResults(data, rows) {
     setSearchState({
       ...searchState,
       searchResults: Object.values(data),
-      isSearched: true
+      isSearched: true,
+      rows
     })
   }
 

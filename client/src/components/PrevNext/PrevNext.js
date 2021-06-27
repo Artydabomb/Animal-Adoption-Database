@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import SearchContext from "../../utils/SearchContext";
 
 function PrevNext(props) {
-    const { page } = useContext(SearchContext);
+    const { page, rows } = useContext(SearchContext);
 
     function nextPage() {
         props.setPage(page + 1)
@@ -14,15 +14,24 @@ function PrevNext(props) {
         }
     }
 
+    function goToPage(page) {
+        props.setPage(page)
+    }
+
     return(
-        <div className="columns is-centered mt-5 m-3">
-            <div className="column">
-                <nav className="pagination" role="navigation" aria-label="pagination">
+                <nav className="pagination is-centered" role="navigation" aria-label="pagination">
                     <a className="pagination-previous button" onClick={prevPage} href="#">Previous Page</a>
                     <a className="pagination-next button" onClick={nextPage} href="#">Next Page</a>
+                    <ul className="pagination-list">
+                    {page > 4 ? <li><a className="pagination-link button" onClick={prevPage} href="#" aria-label="Goto page 1">1</a></li> : <div></div>}
+                    {page > 4 ? <li><span className="pagination-ellipsis">&hellip;</span></li> : <div></div>}
+                    {page > 1 ? <li><a className="pagination-link">{page - 1}</a></li> : <div></div>}
+                    <li><a className="pagination-link is-current button" aria-current="page">{page}</a></li>
+                    <li><a className="pagination-link">{page + 1}</a></li>
+                    <li><span className="pagination-ellipsis">&hellip;</span></li>
+                    <li><a className="pagination-link" aria-label="Goto page 86">86</a></li>
+                </ul>
                 </nav>
-            </div>
-        </div>
     )
 }
 
