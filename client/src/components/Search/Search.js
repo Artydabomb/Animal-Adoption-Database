@@ -27,7 +27,15 @@ function Search(props) {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        props.setPage(1)
+        if (page === 1) {
+            API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:1})
+            .then(res=>props.setResults(res.data.data))
+        } else {
+            props.setPage(1)
+        }
+        // console.log(formObject)
+        // API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode})
+        // .then(res => props.setResults(res.data.data))
     };
 
     const options = [
@@ -49,8 +57,15 @@ function Search(props) {
       
      const onChange = (newValue) => {
          setFormObject({...formObject, species: newValue});
-         props.setPage(1)
-     };
+        //  API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1})
+        //  .then(res => props.setResults(res.data.data))
+        if (page === 1) {
+            API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1})
+            .then(res => props.setResults(res.data.data))
+        } else {
+            props.setPage(1)
+        }
+        };
       
      const initialSelectedIndex = options.findIndex(({value}) => value === "dog");
 
