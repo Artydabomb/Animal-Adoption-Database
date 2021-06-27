@@ -23,8 +23,8 @@ function PrevNext(props) {
                     <a className="pagination-previous button" onClick={prevPage} href="#">Previous Page</a>
                     <a className="pagination-next button" onClick={nextPage} href="#">Next Page</a>
                     <ul className="pagination-list">
-                    {page > 4 ? <li><a className="pagination-link button" onClick={prevPage} href="#" aria-label="Goto page 1">1</a></li> : <div></div>}
-                    {page > 4 ? <li><span className="pagination-ellipsis">&hellip;</span></li> : <div></div>}
+                    {page > 2 ? <li><a className="pagination-link button" onClick={prevPage} href="#" aria-label="Goto page 1">1</a></li> : <div></div>}
+                    {page > 3 ? <li><span className="pagination-ellipsis">&hellip;</span></li> : <div></div>}
                     {page > 1 ? <li><a className="pagination-link">{page - 1}</a></li> : <div></div>}
                     <li><a className="pagination-link is-current button" aria-current="page">{page}</a></li>
                     <li><a className="pagination-link">{page + 1}</a></li>
