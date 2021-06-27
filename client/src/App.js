@@ -20,6 +20,7 @@ import Profile from './components/Profile/Profile';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import About from "./components/About/About";
 import LargeCard from "./components/LargeCard/LargeCard"
+import { PromiseProvider } from 'mongoose';
 //import {Passport} from '../server/passport/index';
 
 function App() {
