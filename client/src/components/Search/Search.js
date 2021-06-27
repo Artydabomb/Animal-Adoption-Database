@@ -27,9 +27,7 @@ function Search(props) {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log(formObject)
-        API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode})
-        .then(res => props.setResults(res.data.data))
+        props.setPage(1)
     };
 
     const options = [
@@ -50,9 +48,8 @@ function Search(props) {
      ];
       
      const onChange = (newValue) => {
-        setFormObject({...formObject, species: newValue});
-        API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode})
-        .then(res => props.setResults(res.data.data))
+         setFormObject({...formObject, species: newValue});
+         props.setPage(1)
      };
       
      const initialSelectedIndex = options.findIndex(({value}) => value === "dog");

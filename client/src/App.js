@@ -92,7 +92,7 @@ function App() {
                     username={userState.username}
                     loggedIn={userState.loggedIn} 
                   />
-                  <Search setResults={setResults} />
+                  <Search setResults={setResults} setPage={setPage} />
                   <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} setPage={setPage} />
                   <Footer />
                 </header>

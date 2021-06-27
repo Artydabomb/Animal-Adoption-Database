@@ -53,6 +53,7 @@ router.route("/").post(function(req, res) {
             "fields": ["animalID","animalAgeString","animalBreed","animalDescription","animalLocation","animalLocationCitystate","animalName","animalPrimaryBreed","animalSecondaryBreed","animalSex","animalSpecies","animalThumbnailUrl","animalUrl","animalPictures"]
         }
     }).then(response => {
+        console.log(response.data.foundRows)
         res.json(response.data)
     }).catch(err => {
         console.log(err);

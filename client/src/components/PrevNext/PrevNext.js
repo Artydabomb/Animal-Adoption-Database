@@ -18,8 +18,8 @@ function PrevNext(props) {
         <div className="columns is-centered mt-5 m-3">
             <div className="column">
                 <nav className="pagination" role="navigation" aria-label="pagination">
-                    <a className="pagination-previous button" onClick={prevPage}>Previous Page</a>
-                    <a className="pagination-next button" onClick={nextPage}>Next Page</a>
+                    <a className="pagination-previous button" onClick={prevPage} href="#">Previous Page</a>
+                    <a className="pagination-next button" onClick={nextPage} href="#">Next Page</a>
                 </nav>
             </div>
         </div>
