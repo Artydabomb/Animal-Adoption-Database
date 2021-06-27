@@ -14,8 +14,8 @@ function PrevNext(props) {
         }
     }
 
-    function goToPage(page) {
-        props.setPage(page)
+    function goToPage(pageClicked) {
+        props.setPage(pageClicked)
     }
 
     return(
@@ -23,13 +23,13 @@ function PrevNext(props) {
                     <a className="pagination-previous button" onClick={prevPage} href="#">Previous Page</a>
                     <a className="pagination-next button" onClick={nextPage} href="#">Next Page</a>
                     <ul className="pagination-list">
-                    {page > 2 ? <li><a className="pagination-link button" onClick={prevPage} href="#" aria-label="Goto page 1">1</a></li> : <div></div>}
+                    {page > 2 ? <li><a className="pagination-link button" onClick={() => goToPage(1)} href="#" aria-label="Goto page 1">1</a></li> : <div></div>}
                     {page > 3 ? <li><span className="pagination-ellipsis">&hellip;</span></li> : <div></div>}
-                    {page > 1 ? <li><a className="pagination-link">{page - 1}</a></li> : <div></div>}
+                    {page > 1 ? <li><a className="pagination-link button" onClick={prevPage}>{page - 1}</a></li> : <div></div>}
                     <li><a className="pagination-link is-current button" aria-current="page">{page}</a></li>
-                    <li><a className="pagination-link">{page + 1}</a></li>
+                    <li><a className="pagination-link button" onClick={nextPage}>{page + 1}</a></li>
                     <li><span className="pagination-ellipsis">&hellip;</span></li>
-                    <li><a className="pagination-link" aria-label="Goto page 86">86</a></li>
+                    <li><a className="pagination-link button" aria-label="Goto page 86">86</a></li>
                 </ul>
                 </nav>
     )
