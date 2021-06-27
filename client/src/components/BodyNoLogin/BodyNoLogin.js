@@ -12,7 +12,7 @@ function BodyNoLogin(props) {
             <div className="tile is-parent">
                 <div className="tile is-child box ">
                     <div className="columns is-multiline">
-                        {searchResults.length || !isSearched ? (<div></div>):(<div className="column has-text-centered subtitle m-3">No results found</div>)}
+                        {searchResults.length || !isSearched ? (<div></div>):(<div className="column has-text-centered subtitle mt-3">No results found</div>)}
                         {searchResults.map(animal => (
                             <div key={animal.animalID} className="column is-one-quarter">
                                 <CardContent 
@@ -30,7 +30,7 @@ function BodyNoLogin(props) {
                             </div>
                         ))}
                     </div>
-                    {isSearched ? <PrevNext setPage={props.setPage} /> : <div></div>}
+                    {isSearched && searchResults.length ? <PrevNext setPage={props.setPage} /> : <div></div>}
                 </div>
             </div >
         </div>
