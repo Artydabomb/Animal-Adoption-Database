@@ -3,7 +3,7 @@ import "./CardContent.css";
 import Button from "../SaveButton/SaveButton";
 
 function CardContent(props) {
-    const innerHTML = { __html: props.description }
+    const innerHTML = { __html: props.description.replace(/â/g, "'")}
 
     function disableModal() {
         document.getElementById(props.id).className="modal"
@@ -29,7 +29,7 @@ function CardContent(props) {
             <div className="petcard card">
                 <div className="modal" id={props.id}>
                     <div className="modal-background" onClick={disableModal}></div>
-                    <div className="modal-card main" style={{"maxHeight": "93%"}}>
+                    <div className="modal-card main" style={{"maxHeight": "93%", "width": "50%", "minWidth": "450px"}}>
                         <header className="modal-card-head mt-3 mx-3">
                             <p className="modal-card-title has-text-centered mt-2">{props.name}</p>
                             <button onClick={disableModal} className="delete" aria-label="close"></button>

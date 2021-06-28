@@ -41,14 +41,14 @@ function Search(props) {
         {
             label: "Dogs",
             value: "dog",
-            selectedBackgroundColor: "#f08080",
+            selectedBackgroundColor: "#87cdf9",
             fontColor: "white",
             selectedFontColor: "black"
         },
         {
             label: "Cats",
             value: "cat",
-            selectedBackgroundColor: "#f08080",
+            selectedBackgroundColor: "#87cdf9",
             fontColor: "white",
             selectedFontColor: "black"
         }
