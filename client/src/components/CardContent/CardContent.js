@@ -62,9 +62,9 @@ function CardContent(props) {
                             <p className="title is-4 has-text-centered pb-3">{props.name}</p>
                             <p className="subtitle is-6">{props.rescue}</p>
                             <div className="divider is-danger">about</div>
-                            <li className="subtitle is-6">{props.age} old</li>
-                            <li className="subtitle is-6">{props.breed}</li>
-                            <li className="subtitle is-6">{props.location}</li>
+                            {props.age ? <li className="subtitle is-6">{props.age} old</li>:<div></div>} 
+                            {props.breed ? <li className="subtitle is-6">{props.breed}</li>:<div></div>}
+                            {props.location ? <li className="subtitle is-6">{props.location}</li>:<div></div>}
                             {props.loggedIn ? (
                                 <Button animalInfo={animalInfo} isSavedAnimalsList={props.isSavedAnimalsList} removeAnimal={props.removeAnimal} animal={props.animal} />
                             ) :
