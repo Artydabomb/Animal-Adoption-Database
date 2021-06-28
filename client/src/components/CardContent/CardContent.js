@@ -40,12 +40,14 @@ function CardContent(props) {
                     <div className="modal-background"></div>
                     <div className="modal-card">
                         <header className="modal-card-head">
-                            <p className="modal-card-title">{props.name}</p>
+                            <p className="modal-card-title has-text-centered mt-2">{props.name}</p>
                             <button onClick={disableModal} className="delete" aria-label="close"></button>
                         </header>
                         <section className="modal-card-body">
-                            <img className="petimage" src={props.highresimg} alt={props.name} /> 
-                            <div dangerouslySetInnerHTML={innerHTML}></div>
+                            <div className="has-text-centered mb-4">
+                                <img src={props.highresimg} alt={props.name} />
+                            </div>
+                            <div className="subtitle m-3" dangerouslySetInnerHTML={innerHTML}></div>
                         </section>
                         <footer className="modal-card-foot">
                         </footer>

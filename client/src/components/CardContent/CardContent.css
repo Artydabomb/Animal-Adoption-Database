@@ -34,3 +34,8 @@
     background-color: lightcoral;
     border:black 2px solid;
   }
+
+.modal-card-title {
+  font-weight: bolder;
+  font-size:xx-large
+}
