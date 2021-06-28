@@ -1,5 +1,5 @@
 .parentTile{
-  background-color: lightskyblue;
+  background-color: #dbb3ec;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-radius: 5px 5px 5px 5px;

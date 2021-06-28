@@ -1,7 +1,7 @@
 .navbar{
   height: 70px;
   width: auto;
-  background-color: lightskyblue;
+  background-color: #dbb3ec;
   border: black 2px solid;
   border-radius: 10px;
   margin-top: 20px;
@@ -38,7 +38,7 @@
   color: black;
 }
   .dropdown-item:hover{
-    color: lightskyblue;
+    color: #dbb3ec;
     border: black 2px solid;
   }
 
@@ -50,13 +50,13 @@
   border: none;
 }
 .navbar-link:hover {
-    color: lightskyblue;
+    color: #dbb3ec;
     border: black 2px solid;
   }
 
 .navbar-dropdown{
   text-align: center;
-  background-color: lightskyblue;
+  background-color: #dbb3ec;
   border-radius: 5px;
   border: black solid 2px;
 } 
@@ -78,14 +78,14 @@
 }
 
   .loginbtn:hover{
-    color: lightskyblue;
+    color: #dbb3ec;
     background-color: black;
     border: white 2px solid;
     text-decoration: underline 2px solid white;
   }
   .loginbtn:active{
     color: white;
-    background-color: lightskyblue;
+    background-color: #dbb3ec;
     border: white 2px solid;
   }
 
@@ -101,14 +101,14 @@
 }
 
   .signupbtn:hover{
-    color: lightskyblue;
+    color: #dbb3ec;
     background-color: black;
     border: white 2px solid;
     text-decoration: underline 2px solid white;
   }
   .signupbtn:active{
     color: white;
-    background-color: lightskyblue;
+    background-color: #dbb3ec;
     border: white 2px solid;
     
   }
