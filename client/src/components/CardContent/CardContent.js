@@ -17,7 +17,7 @@ function CardContent(props) {
         username: props.username,
         id: props.id,
         name: props.name,
-        age: props.age,
+        generalAge: props.generalAge,
         breed: props.breed,
         image: props.highresimg,
         location: props.location,
@@ -28,7 +28,7 @@ function CardContent(props) {
         <>
             <div className="petcard card">
                 <div className="modal" id={props.id}>
-                    <div className="modal-background"></div>
+                    <div className="modal-background" onClick={disableModal}></div>
                     <div className="modal-card main" style={{"maxHeight": "93%"}}>
                         <header className="modal-card-head mt-3 mx-3">
                             <p className="modal-card-title has-text-centered mt-2">{props.name}</p>

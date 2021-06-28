@@ -38,11 +38,10 @@ function SavedAnimals(props) {
                                                 loggedIn={props.loggedIn}
                                                 highresimg={animal.image ? animal.image : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
                                                 name={animal.name}
-                                                age={animal.age}
+                                                generalAge={animal.generalAge}
                                                 breed={animal.breed}
                                                 location={animal.location}
                                                 img={animal.animalThumbnailUrl ? animal.animalThumbnailUrl : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
-                                                // description={animal.description.replace("<div class=\"rgDescription\">", "").replace("</div>", "")}
                                                 description={animal.description}
                                                 id={animal.id}
                                                 isSavedAnimalsList={true}
