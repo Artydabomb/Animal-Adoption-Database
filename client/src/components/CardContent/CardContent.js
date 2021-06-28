@@ -3,16 +3,7 @@ import "./CardContent.css";
 import Button from "../SaveButton/SaveButton";
 
 function CardContent(props) {
-    const [hiddenDescription, setHiddenDescription] = useState({ hidden: "is-hidden", button: "More Info" })
     const innerHTML = { __html: props.description }
-
-    function changeStatus() {
-        if (hiddenDescription.hidden === "is-hidden") {
-            setHiddenDescription({ hidden: "", button: "Hide" })
-        } else {
-            setHiddenDescription({ hidden: "is-hidden", button: "More Info" })
-        }
-    }
 
     function disableModal() {
         document.getElementById(props.id).className="modal"
@@ -74,9 +65,8 @@ function CardContent(props) {
                     </div>
                     <div className="content">
                         <div className="has-text-centered">
-                            <button className="button infobutton" onClick={enableModal}>{hiddenDescription.button}</button>
+                            <button className="button infobutton" onClick={enableModal}>More Info</button>
                         </div>
-                        <div className={hiddenDescription.hidden} dangerouslySetInnerHTML={innerHTML} />
                     </div>
                 </div>
             </div>
