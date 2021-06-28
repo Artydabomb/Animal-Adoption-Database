@@ -14,6 +14,14 @@ function CardContent(props) {
         }
     }
 
+    function disableModal() {
+        document.getElementById(props.id).className="modal"
+    }
+
+    function enableModal() {
+        document.getElementById(props.id).className="modal is-active"
+    }
+
     let animalInfo = {
         username: props.username,
         id: props.id,
@@ -28,6 +36,21 @@ function CardContent(props) {
     return (
         <>
             <div className="petcard card">
+                <div className="modal" id={props.id}>
+                    <div className="modal-background"></div>
+                    <div className="modal-card">
+                        <header className="modal-card-head">
+                            <p className="modal-card-title">{props.name}</p>
+                            <button onClick={disableModal} className="delete" aria-label="close"></button>
+                        </header>
+                        <section className="modal-card-body">
+                            <img className="petimage" src={props.highresimg} alt={props.name} /> 
+                            <div dangerouslySetInnerHTML={innerHTML}></div>
+                        </section>
+                        <footer className="modal-card-foot">
+                        </footer>
+                    </div>
+                    </div>
                 <div className="card-image">
                     <img className="petimage" src={props.highresimg} alt={props.name} />
                 </div>
@@ -49,7 +72,7 @@ function CardContent(props) {
                     </div>
                     <div className="content">
                         <div className="has-text-centered">
-                            <button className="button infobutton" onClick={changeStatus}>{hiddenDescription.button}</button>
+                            <button className="button infobutton" onClick={enableModal}>{hiddenDescription.button}</button>
                         </div>
                         <div className={hiddenDescription.hidden} dangerouslySetInnerHTML={innerHTML} />
                     </div>

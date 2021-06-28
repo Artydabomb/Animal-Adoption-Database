@@ -35,9 +35,6 @@ function Search(props) {
         } else {
             props.setPage(1)
         }
-        // console.log(formObject)
-        // API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode})
-        // .then(res => props.setResults(res.data.data))
     };
 
     const options = [
@@ -59,8 +56,6 @@ function Search(props) {
       
      const onChange = (newValue) => {
          setFormObject({...formObject, species: newValue});
-        //  API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1})
-        //  .then(res => props.setResults(res.data.data))
         if (page === 1) {
             API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1})
             .then(res => props.setResults(res.data.data, res.data.foundRows))
@@ -96,7 +91,6 @@ function Search(props) {
 
 
             <div className="level-right">
-                {/* <p className="level-item filtertxt"><strong>Quick Filter By:</strong></p> */}
                 <div style={{width: 130, height: 40}}>
                     <SwitchSelector
                         onChange={onChange}

@@ -50,7 +50,7 @@ router.route("/").post(function(req, res) {
                 "criteria" : "available"
                 }
             ],
-            "fields": ["animalID","animalAgeString","animalBreed","animalDescription","animalLocation","animalLocationCitystate","animalName","animalPrimaryBreed","animalSecondaryBreed","animalSex","animalSpecies","animalThumbnailUrl","animalUrl","animalPictures"]
+            "fields": ["animalID","animalAgeString","animalBreed","animalDescription","animalLocationCitystate","animalName","animalPrimaryBreed","animalSpecies","animalThumbnailUrl","animalUrl","animalPictures"]
         }
     }).then(response => {
         res.json(response.data)
