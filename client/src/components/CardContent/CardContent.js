@@ -29,19 +29,17 @@ function CardContent(props) {
             <div className="petcard card">
                 <div className="modal" id={props.id}>
                     <div className="modal-background"></div>
-                    <div className="modal-card">
-                        <header className="modal-card-head">
+                    <div className="modal-card main" style={{"maxHeight": "93%"}}>
+                        <header className="modal-card-head mt-3 mx-3">
                             <p className="modal-card-title has-text-centered mt-2">{props.name}</p>
                             <button onClick={disableModal} className="delete" aria-label="close"></button>
                         </header>
-                        <section className="modal-card-body">
+                        <section className="modal-card-body mx-3 mb-3">
                             <div className="has-text-centered mb-4">
                                 <img src={props.highresimg} alt={props.name} />
                             </div>
                             <div className="subtitle m-3" dangerouslySetInnerHTML={innerHTML}></div>
                         </section>
-                        <footer className="modal-card-foot">
-                        </footer>
                     </div>
                     </div>
                 <div className="card-image">
