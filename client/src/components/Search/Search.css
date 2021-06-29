@@ -6,11 +6,11 @@
 }
   .search-box:hover{
     background-color: whitesmoke;
-    border: lightcoral 2px solid;
+    border: #dbb3ec 2px solid;
   }
   .search-box::placeholder{
     font-weight: 700;
-    color: rgba(240, 128, 128, 0.7);
+    color: rgba(128, 190, 240, 0.7);
     text-shadow: rgba(0, 0, 0, 0.6) 1px 1px;
   }
   .search-box:hover::placeholder{
@@ -29,11 +29,11 @@
   }
     .zip-box:hover{
       background-color: whitesmoke;
-      border: lightcoral 2px solid;
+      border: #dbb3ec 2px solid;
     }
     .zip-box::placeholder{
       font-weight: 700;
-      color: rgba(240, 128, 128, 0.7);
+      color: rgba(128, 190, 240, 0.7);
       text-shadow: rgba(0, 0, 0, 0.6) 1px 1px;
     }
     .zip-box:hover::placeholder{
@@ -50,18 +50,18 @@
 .button{
   color: black;
   font-weight: 620;
-  background-color: lightcoral;
+  background-color: #D9DBF1;
   border: black solid 2px;
   border-radius: 10px;
 }
   .button:hover{
-    color: lightcoral;
-    border: lightcoral solid 2px;
+    color: #D9DBF1;
+    border: #D9DBF1 solid 2px;
     background-color: black;
   }
   .button:active{
     color: white;
-    background-color: lightcoral;
+    background-color: #D9DBF1;
     border:black 2px solid;
   }
 
