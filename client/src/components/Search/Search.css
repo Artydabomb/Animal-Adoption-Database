@@ -50,18 +50,18 @@
 .button{
   color: black;
   font-weight: 620;
-  background-color: #dbb3ec;
+  background-color: #D9DBF1;
   border: black solid 2px;
   border-radius: 10px;
 }
   .button:hover{
-    color: #dbb3ec;
-    border: EBF5EE solid 2px;
+    color: #D9DBF1;
+    border: #D9DBF1 solid 2px;
     background-color: black;
   }
   .button:active{
     color: white;
-    background-color: #dbb3ec;
+    background-color: #D9DBF1;
     border:black 2px solid;
   }
 

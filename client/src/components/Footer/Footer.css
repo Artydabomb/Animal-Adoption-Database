@@ -12,7 +12,7 @@
 }
 
 strong{
-  color: #dbb3ec;
+  color: #D9DBF1;
 }
 
 a {
@@ -22,8 +22,8 @@ a {
 
 a:hover {
   font-weight: 600;
-  color: #dbb3ec;
-  text-decoration: underline solid 1px #dbb3ec;
+  color: #D9DBF1;
+  text-decoration: underline solid 1px #D9DBF1;
 }
 
 .footerMain{

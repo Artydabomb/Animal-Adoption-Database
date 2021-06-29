@@ -19,19 +19,19 @@
 .infobutton{
   color: black;
   font-weight: 620;
-  background-color: #dbb3ec;
+  background-color: #CBC5EA;
   border: black solid 2px;
   border-radius: 10px;
 }
   .infobutton:hover{
-    color: #dbb3ec;
-    border: #dbb3ec solid 2px;
+    color: #CBC5EA;
+    border: #CBC5EA solid 2px;
     background-color: black;
   }
   
   .infobutton:active{
     color: white;
-    background-color: #dbb3ec;
+    background-color: #CBC5EA;
     border:black 2px solid;
   }
 
