@@ -24,8 +24,9 @@ function BodyNoLogin(props) {
                                     breed={animal.animalBreed}
                                     location={animal.animalLocationCitystate}
                                     img={animal.animalThumbnailUrl ? animal.animalThumbnailUrl : "https://newcastlebeach.org/images/dog-and-cat-cartoon-3.jpg"}
-                                    description={animal.animalDescription.replace("<div class=\"rgDescription\">", "").replace("</div>", "")}
+                                    description={animal.animalDescriptionPlain}
                                     id={animal.animalID}
+                                    generalAge={animal.animalGeneralAge}
                                 />
                             </div>
                         ))}

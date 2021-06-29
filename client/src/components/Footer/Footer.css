@@ -12,7 +12,7 @@
 }
 
 strong{
-  color: lightcoral;
+  color: #D9DBF1;
 }
 
 a {
@@ -22,8 +22,8 @@ a {
 
 a:hover {
   font-weight: 600;
-  color: lightcoral;
-  text-decoration: underline solid 1px lightcoral;
+  color: #D9DBF1;
+  text-decoration: underline solid 1px #D9DBF1;
 }
 
 .footerMain{

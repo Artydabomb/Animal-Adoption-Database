@@ -21,7 +21,6 @@ function PrevNext(props) {
     return(
                 <nav className="pagination is-centered" role="navigation" aria-label="pagination">
                     {page !== 1 ? <a className="pagination-previous button" onClick={prevPage} href="#">Previous Page</a> : <div></div>}
-                    {/* This is a weird solution but, hey, it works. Check here if there's an issue with mobile responsiveness (but it shouldn't be a problem) */}
                     {page == 1 ? <div style={{"minWidth" : "220px"}}> </div> : <div></div>}
                     {page !== Math.ceil(rows/8) ? <a className="pagination-next button" onClick={nextPage} href="#">Next Page</a> : <div></div>}
                     <ul className="pagination-list">

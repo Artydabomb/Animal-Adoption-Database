@@ -27,7 +27,10 @@ function Button(props) {
             {props.isSavedAnimalsList ? 
             <div></div>
             :
-            <><h1>{saved}</h1><button className="button is-danger is-light m-1" disabled={disabled} onClick={saveAnimal}>💖</button></>
+            <>
+                <h1 className="subtitle mt-5 m-1 is-6">{saved}</h1>
+                <button className="button is-danger is-light m-1" disabled={disabled} onClick={saveAnimal}>💖</button>
+            </>
             }
                 <button className="button border is-info is-light m-1" disabled={props.isSavedAnimalsList ? false : !disabled} onClick={unsaveAnimal}>💔</button>
         </div>
