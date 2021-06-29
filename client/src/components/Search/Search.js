@@ -10,7 +10,7 @@ import { faSortDown } from '@fortawesome/free-solid-svg-icons'
 
 function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
-    const [advancedSearch, setadvancedSearch] = useState({size: "Size", activity: "Activity level", sex: "Sex"})
+    const [advancedSearch, setadvancedSearch] = useState({size: "Size", activity: "Activity level", sex: "Sex", radius: "Search Radius"})
     const [advancedSearchHidden, setAdvancedSearchHidden] = useState("true")
     const { page, rows } = useContext(SearchContext);
 
@@ -87,6 +87,20 @@ function Search(props) {
         }
         document.getElementById(sex).className = "dropdown-item sex is-active"
         setadvancedSearch({...advancedSearch, sex})
+    }
+
+    function toggleRadiusDropdown() {
+        document.getElementById("radiusDropdown").className === "dropdown is-active m-1" ? document.getElementById("radiusDropdown").className = "dropdown m-1" : document.getElementById("radiusDropdown").className = "dropdown is-active m-1"
+    }
+
+    function selectRadius(radius) {
+        document.getElementById("radiusDropdown").className = "dropdown m-1";
+        let radii = document.getElementsByClassName("radius");
+        for (const c of radii) {
+            c.className="dropdown-item radius"
+        }
+        document.getElementById(radius).className = "dropdown-item radius is-active"
+        setadvancedSearch({...advancedSearch, radius})
     }
 
     const options = [
@@ -239,6 +253,33 @@ function Search(props) {
                                     </div>
                                 </div>
                             </div>
+                        {/* Advanced Search - Radius */}
+                        <div className="dropdown m-1" id="radiusDropdown">
+                            <div className="dropdown-trigger">
+                                <button className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={toggleRadiusDropdown}>
+                                <span>{advancedSearch.radius}</span>
+                                <span className="icon is-small">
+                                    <FontAwesomeIcon icon={faSortDown} />
+                                </span>
+                                </button>
+                            </div>
+                            <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                                <div className="dropdown-content">
+                                <a className="dropdown-item radius" id="10" onClick={() => selectRadius("10")}>
+                                10 miles
+                                </a>
+                                <a className="dropdown-item radius" id="20" onClick={() => selectRadius("20")}>
+                                20 miles
+                                </a>
+                                <a className="dropdown-item radius" id="50" onClick={() => selectRadius("50")}>
+                                50 miles
+                                </a>
+                                <a className="dropdown-item radius" id="100" onClick={() => selectRadius("100")}>
+                                100 miles
+                                </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
