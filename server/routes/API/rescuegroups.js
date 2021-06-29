@@ -35,7 +35,7 @@ router.route("/").post(function(req, res) {
         "criteria" : "available"
         }
     ]
-    if (req.body.activity) {
+    if (req.body.activity !== "Activity level") {
         filters.push(
             {
                 "fieldName": "animalActivityLevel",
@@ -44,7 +44,7 @@ router.route("/").post(function(req, res) {
             }
         )
     }
-    if (req.body.size) {
+    if (req.body.size !== "Size") {
         filters.push(
             {
                 "fieldName": "animalGeneralSizePotential",
@@ -53,7 +53,7 @@ router.route("/").post(function(req, res) {
             }
         )
     }
-    if (req.body.sex) {
+    if (req.body.sex !== "Sex") {
         filters.push(
             {
                 "fieldName": "animalSex",
