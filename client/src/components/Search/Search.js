@@ -43,7 +43,6 @@ function Search(props) {
 
     function toggleAdvancedSearch() { 
         setAdvancedSearchHidden(!advancedSearchHidden)
-        console.log(advancedSearchHidden)
     }
 
     function toggleSizeDropdown() {
@@ -88,7 +87,6 @@ function Search(props) {
         }
         document.getElementById(sex).className = "dropdown-item sex is-active"
         setadvancedSearch({...advancedSearch, sex})
-        console.log(advancedSearch)
     }
 
     const options = [
@@ -140,7 +138,7 @@ function Search(props) {
                             </button>
                         </p>
                         <p className="control">
-                            <a className="button" onClick={toggleAdvancedSearch}></a>
+                            <a className="button" onClick={toggleAdvancedSearch}><FontAwesomeIcon icon={faSortDown} /></a>
                         </p>
                     </form>
                 </div>
