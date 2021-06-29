@@ -82,8 +82,6 @@ router.route("/").post(function(req, res) {
             "fields": ["animalID","animalAgeString", "animalGeneralAge", "animalBreed","animalDescriptionPlain","animalLocationCitystate","animalName","animalPrimaryBreed","animalSpecies","animalThumbnailUrl","animalUrl","animalPictures"]
         }
     }).then(response => {
-        console.log(response.config.data)
-        console.log(response.data.messages.generalMessages)
         res.json(response.data)
     }).catch(err => {
         console.log(err);

@@ -280,6 +280,7 @@ function Search(props) {
                                 </div>
                             </div>
                         </div>
+                        <div className="button m-1" style={{"float": "right"}} onClick={handleFormSubmit}>Search</div>
                     </div>
                 </div>
             </div>
