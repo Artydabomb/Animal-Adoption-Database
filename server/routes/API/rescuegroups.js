@@ -8,6 +8,12 @@ router.route("/").post(function(req, res) {
     console.log("Search term in back-end API :" + req.body.searchField);
     console.log("Species to search in back-end API: " + req.body.species)
     console.log("PAGE: " + req.body.page)
+    let radius;
+    if (req.body.radius !== "Search Radius") {
+        radius = req.body.radius
+    } else {
+        radius=40
+    }
     let filters=[
         {
         "fieldName" : "animalBreed",
@@ -17,7 +23,7 @@ router.route("/").post(function(req, res) {
         {
         "fieldName" : "animalLocationDistance",
         "operation" : "radius",
-        "criteria" : "40"
+        "criteria" : radius
         },
         {
         "fieldName" : "animalSpecies",

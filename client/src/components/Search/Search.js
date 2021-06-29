@@ -20,7 +20,7 @@ function Search(props) {
     }, [])
 
     useEffect(() => {
-        API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:page, size: advancedSearch.size, activity: advancedSearch.activity, sex: advancedSearch.sex})
+        API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:page, size: advancedSearch.size, activity: advancedSearch.activity, sex: advancedSearch.sex, radius: advancedSearch.radius})
         .then(res=> {
             props.setResults(res.data.data, res.data.foundRows)
         })
@@ -34,7 +34,7 @@ function Search(props) {
     function handleFormSubmit(event) {
         event.preventDefault();
         if (page === 1) {
-            API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:1, size: advancedSearch.size, activity: advancedSearch.activity, sex: advancedSearch.sex})
+            API.searchAnimals({searchField:formObject.searchField, species: formObject.species, zipCode: formObject.zipCode, page:1, size: advancedSearch.size, activity: advancedSearch.activity, sex: advancedSearch.sex, radius: advancedSearch.radius})
             .then(res=>props.setResults(res.data.data, res.data.foundRows))
         } else {
             props.setPage(1)
@@ -123,7 +123,7 @@ function Search(props) {
      const onChange = (newValue) => {
          setFormObject({...formObject, species: newValue});
         if (page === 1) {
-            API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1, size: advancedSearch.size, activity: advancedSearch.activity, sex: advancedSearch.sex})
+            API.searchAnimals({searchField:formObject.searchField, species: newValue, zipCode: formObject.zipCode, page: 1, size: advancedSearch.size, activity: advancedSearch.activity, sex: advancedSearch.sex, radius: advancedSearch.radius})
             .then(res => props.setResults(res.data.data, res.data.foundRows))
         } else {
             props.setPage(1)
