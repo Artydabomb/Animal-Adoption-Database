@@ -1,0 +1,31 @@
+.footer{
+  color: black;
+  background: transparent;
+  font-size: larger;
+  font-weight: 500;
+  width: 100%;
+  max-height: 2.5rem; 
+}
+
+.content{
+  text-align: center;
+}
+
+strong{
+  color: lightcoral;
+}
+
+a {
+  color: darkgray;
+  text-decoration: underline solid 1px;
+}
+
+a:hover {
+  font-weight: 600;
+  color: lightcoral;
+  text-decoration: underline solid 1px lightcoral;
+}
+
+.footerMain{
+  opacity: 90%;
+}

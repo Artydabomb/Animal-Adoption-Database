@@ -1,0 +1,70 @@
+  /* animal searchbar */
+ .search-box{
+  background-color: lightgrey;
+  border: black solid 2px;
+  border-radius: 10px;
+}
+  .search-box:hover{
+    background-color: whitesmoke;
+    border: lightcoral 2px solid;
+  }
+  .search-box::placeholder{
+    font-weight: 700;
+    color: rgba(240, 128, 128, 0.7);
+    text-shadow: rgba(0, 0, 0, 0.6) 1px 1px;
+  }
+  .search-box:hover::placeholder{
+    color: rgba(0, 0, 0, 0.55);
+    text-shadow: none;
+  }
+  .search-box:focus::placeholder{
+    color: transparent;
+    text-shadow: none;
+  }
+
+  /* zip searchbar */
+  .zip-box{
+    background-color: lightgrey;
+    border: black solid 2px;
+  }
+    .zip-box:hover{
+      background-color: whitesmoke;
+      border: lightcoral 2px solid;
+    }
+    .zip-box::placeholder{
+      font-weight: 700;
+      color: rgba(240, 128, 128, 0.7);
+      text-shadow: rgba(0, 0, 0, 0.6) 1px 1px;
+    }
+    .zip-box:hover::placeholder{
+      color: rgba(0, 0, 0, 0.55);
+      text-shadow: none;
+    }
+    .zip-box:focus::placeholder{
+      color: transparent;
+      text-shadow: none;
+    }
+
+
+  /* search btn */
+.button{
+  color: black;
+  font-weight: 620;
+  background-color: lightcoral;
+  border: black solid 2px;
+  border-radius: 10px;
+}
+  .button:hover{
+    color: lightcoral;
+    border: lightcoral solid 2px;
+    background-color: black;
+  }
+  .button:active{
+    color: white;
+    background-color: lightcoral;
+    border:black 2px solid;
+  }
+
+.filtertxt{
+  text-shadow: black .5px .5px;
+}
