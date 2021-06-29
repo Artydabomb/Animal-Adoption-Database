@@ -10,7 +10,8 @@ import { faSortDown } from '@fortawesome/free-solid-svg-icons'
 
 function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
-    const [advancedSearch, setAdvancedSearch] = useState("true")
+    const [advancedSearch, setadvancedSearch] = useState({size: "Size"})
+    const [advancedSearchHidden, setAdvancedSearchHidden] = useState("true")
     const { page, rows } = useContext(SearchContext);
 
     useEffect(() => {
@@ -41,12 +42,18 @@ function Search(props) {
     };
 
     function toggleAdvancedSearch() { 
-        setAdvancedSearch(!advancedSearch)
-        console.log(advancedSearch)
+        setAdvancedSearchHidden(!advancedSearchHidden)
+        console.log(advancedSearchHidden)
     }
 
     function toggleSizeDropdown() {
         document.getElementById("sizeDropdown").className === "dropdown is-active" ? document.getElementById("sizeDropdown").className = "dropdown" : document.getElementById("sizeDropdown").className = "dropdown is-active"
+    }
+
+    function selectSize(size) {
+        document.getElementById("sizeDropdown").className = "dropdown";
+        document.getElementById(size).className = "dropdown-item is-active"
+        setadvancedSearch({...advancedSearch, size})
     }
 
     const options = [
@@ -117,17 +124,18 @@ function Search(props) {
                 </div>
             </div>
         </nav >
-        <div hidden={advancedSearch} >
+        <div hidden={advancedSearchHidden} >
             <div className="box mb-5 main">
                 <div className="columns">
                     <div className="column is-one-fifth has-text-centered mt-2">
                         <p className="title is-5">Advanced Search:</p>
                     </div>
+                    {/* Advanced Search - Size */}
                     <div className="column">
-                        <div className="dropdown is-active" id="sizeDropdown">
+                        <div className="dropdown" id="sizeDropdown">
                             <div className="dropdown-trigger">
                                 <button className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={toggleSizeDropdown}>
-                                <span>Size</span>
+                                <span>{advancedSearch.size}</span>
                                 <span className="icon is-small">
                                     <FontAwesomeIcon icon={faSortDown} />
                                 </span>
@@ -135,16 +143,16 @@ function Search(props) {
                             </div>
                             <div className="dropdown-menu" id="dropdown-menu" role="menu">
                                 <div className="dropdown-content">
-                                <a href="#" className="dropdown-item">
+                                <a className="dropdown-item" id="Small" onClick={() => selectSize("Small")}>
                                     Small
                                 </a>
-                                <a className="dropdown-item">
+                                <a className="dropdown-item" id="Medium" onClick={() => selectSize("Medium")}>
                                     Medium
                                 </a>
-                                <a href="#" className="dropdown-item">
+                                <a className="dropdown-item" id="Large" onClick={() => selectSize("Large")}>
                                     Large
                                 </a>
-                                <a href="#" className="dropdown-item">
+                                <a className="dropdown-item" id="X-Large" onClick={() => selectSize("X-Large")}>
                                     X-Large
                                 </a>
                                 </div>
