@@ -10,11 +10,9 @@ function SavedAnimals(props) {
 
     useEffect(() => {
         api.getSavedAnimals()
-        // .then(res=>console.log(JSON.stringify(res.data)))
         .then(res=>setSavedAnimals(res.data))
     }, [update])
 
-    // Likely to delete this function (use state in App.js instead to re-render on delete)
     function removeAnimal(animal) {
         let newArray = savedAnimals
         newArray.splice(newArray.indexOf(animal), 1)
