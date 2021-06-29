@@ -4,10 +4,13 @@ import API from "../../utils/API";
 import "./Search.css";
 import SwitchSelector from "react-switch-selector";
 import SearchContext from "../../utils/SearchContext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSortDown } from '@fortawesome/free-solid-svg-icons'
 
 
 function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
+    const [advancedSearch, setAdvancedSearch] = useState("true")
     const { page, rows } = useContext(SearchContext);
 
     useEffect(() => {
@@ -36,6 +39,15 @@ function Search(props) {
             props.setPage(1)
         }
     };
+
+    function toggleAdvancedSearch() { 
+        setAdvancedSearch(!advancedSearch)
+        console.log(advancedSearch)
+    }
+
+    function toggleSizeDropdown() {
+        document.getElementById("sizeDropdown").className === "dropdown is-active" ? document.getElementById("sizeDropdown").className = "dropdown" : document.getElementById("sizeDropdown").className = "dropdown is-active"
+    }
 
     const options = [
         {
@@ -67,7 +79,7 @@ function Search(props) {
      const initialSelectedIndex = options.findIndex(({value}) => value === "dog");
 
     return (
-
+        <>
         <nav className="level">
             <div className="level-left">
                 <div className="level-item">
@@ -84,6 +96,9 @@ function Search(props) {
                             <button className="button" onClick={handleFormSubmit}>
                                 Search
                             </button>
+                        </p>
+                        <p className="control">
+                            <a className="button" onClick={toggleAdvancedSearch}></a>
                         </p>
                     </form>
                 </div>
@@ -102,7 +117,44 @@ function Search(props) {
                 </div>
             </div>
         </nav >
-
+        <div hidden={advancedSearch} >
+            <div className="box mb-5 main">
+                <div className="columns">
+                    <div className="column is-one-fifth has-text-centered mt-2">
+                        <p className="title is-5">Advanced Search:</p>
+                    </div>
+                    <div className="column">
+                        <div className="dropdown is-active" id="sizeDropdown">
+                            <div className="dropdown-trigger">
+                                <button className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={toggleSizeDropdown}>
+                                <span>Size</span>
+                                <span className="icon is-small">
+                                    <FontAwesomeIcon icon={faSortDown} />
+                                </span>
+                                </button>
+                            </div>
+                            <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                                <div className="dropdown-content">
+                                <a href="#" className="dropdown-item">
+                                    Small
+                                </a>
+                                <a className="dropdown-item">
+                                    Medium
+                                </a>
+                                <a href="#" className="dropdown-item">
+                                    Large
+                                </a>
+                                <a href="#" className="dropdown-item">
+                                    X-Large
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </>
     );
 
 }
