@@ -6,8 +6,13 @@
   border-radius: 10px;
   margin-top: 20px;
 }
+
+.navbar-burger{
+background: transparent;
+padding-top: 60px;
+}
   
-.navbar-brand{
+.cosmoLogo{
     /* Navbar Logo */
   background-color: transparent;
   background-image: url(../../images/Animal_Database_Logo.jpeg);
