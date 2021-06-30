@@ -1,13 +1,18 @@
 .navbar{
   height: 70px;
   width: auto;
-  background-color: lightcoral;
+  background-color: #D9DBF1;
   border: black 2px solid;
   border-radius: 10px;
   margin-top: 20px;
 }
+
+.navbar-burger{
+background: transparent;
+padding-top: 60px;
+}
   
-.navbar-brand{
+.cosmoLogo{
     /* Navbar Logo */
   background-color: transparent;
   background-image: url(../../images/Animal_Database_Logo.jpeg);
@@ -38,7 +43,7 @@
   color: black;
 }
   .dropdown-item:hover{
-    color: lightcoral;
+    color: #D9DBF1;
     border: black 2px solid;
   }
 
@@ -50,13 +55,13 @@
   border: none;
 }
 .navbar-link:hover {
-    color: lightcoral;
+    color: #D9DBF1;
     border: black 2px solid;
   }
 
 .navbar-dropdown{
   text-align: center;
-  background-color: lightcoral;
+  background-color: #D9DBF1;
   border-radius: 5px;
   border: black solid 2px;
 } 
@@ -78,14 +83,14 @@
 }
 
   .loginbtn:hover{
-    color: lightcoral;
+    color: #D9DBF1;
     background-color: black;
     border: white 2px solid;
     text-decoration: underline 2px solid white;
   }
   .loginbtn:active{
     color: white;
-    background-color: lightcoral;
+    background-color: #D9DBF1;
     border: white 2px solid;
   }
 
@@ -101,14 +106,14 @@
 }
 
   .signupbtn:hover{
-    color: lightcoral;
+    color: #D9DBF1;
     background-color: black;
     border: white 2px solid;
     text-decoration: underline 2px solid white;
   }
   .signupbtn:active{
     color: white;
-    background-color: lightcoral;
+    background-color: #D9DBF1;
     border: white 2px solid;
     
   }

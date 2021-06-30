@@ -16,41 +16,43 @@ import 'bulma/css/bulma.min.css';
 import SearchContext from './utils/SearchContext';
 import Mewsletter from './components/Mewsletter/Mewsletter';
 import AnimalTips from './components/AnimalTips/AnimalTips';
+import Profile from './components/Profile/Profile';
+import PageNotFound from './components/PageNotFound/PageNotFound';
+import About from "./components/About/About";
+import LargeCard from "./components/LargeCard/LargeCard"
+import { PromiseProvider } from 'mongoose';
 //import {Passport} from '../server/passport/index';
 
 function App() {
   const [searchState, setSearchState] = useState({
     searchTerm: "",
-    speciesSearch: "dog",
+    species: "",
     zipCode: "",
-    searchResults: []
+    searchResults: [],
+    isSearched: false,
+    page: 1,
+    rows: 0
   });
 
-  function setResults(data) {
+  function setResults(data, rows) {
     setSearchState({
       ...searchState,
-      searchResults: Object.values(data)
-    })
-    console.log(data)
-  }
-
-  function setSearchSpeciesCat() {
-    setSearchState({
-      ...searchState,
-      speciesSearch: "cat"
+      searchResults: Object.values(data),
+      isSearched: true,
+      rows
     })
   }
 
-  function setSearchSpeciesDog() {
+  function setPage(page) {
     setSearchState({
       ...searchState,
-      speciesSearch: "dog"
+      page
     })
   }
 
   const [userState, setUserState] = useState({
     loggedIn: false,
-    username: "test"
+    username: ""
   });
 
   useEffect(() => {
@@ -58,26 +60,18 @@ function App() {
   }, []);
 
   function updateUser(userObject) {
-    console.log(userObject);
-    setUserState({
-      loggedIn: false,
-      username: ""
-    })
+    setUserState(userObject)
   }
 
   function getUser() {
     axios.get('api/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
       if (response.data.user) {
-        console.log('Get User: There is a user saved in the server session: ')
 
         setUserState({
           loggedIn: true,
           username: response.data.user.username
         })
       } else {
-        console.log('Get user: no user');
         setUserState({
           loggedIn: false,
           username: null
@@ -90,63 +84,135 @@ function App() {
     <BrowserRouter>
       <div>
         <Switch>
+          
+          {/* Homepage */}
           <Route exact path="/">
             <SearchContext.Provider value={searchState}>
               <div className="App container">
                 <header className="App-header">
-                  <HeaderNav updateUser={updateUser}
+                  <HeaderNav 
+                    updateUser={updateUser}
                     username={userState.username}
-                    loggedIn={userState.loggedIn} />
-                  <Search setResults={setResults} setSearchSpeciesCat={setSearchSpeciesCat} setSearchSpeciesDog={setSearchSpeciesDog} />
-                  <BodyNoLogin loggedIn={userState.loggedIn} />
+                    loggedIn={userState.loggedIn} 
+                  />
+                  <Search setResults={setResults} setPage={setPage} />
+                  <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} setPage={setPage} />
                   <Footer />
                 </header>
               </div>
             </SearchContext.Provider>
           </Route>
-          <div class="container">
+
+          {/* Saved Animals page */}
+          <Route
+            path="/savedAnimals"
+            render={() =>
+              <div className="App container">
+              <header className="App-header">
+                <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                <SavedAnimals
+                  loggedIn={userState.loggedIn}
+                  username={userState.username}
+                />
+              </header>
+            </div>}
+          />
+          
+            {/* Profile page */}
+          <Route 
+            path="/user"
+            render={() =>      
+              <div className="App container">
+              <header className="App-header">
+                <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                <Profile 
+                  username={userState.username} 
+                  loggedIn={userState.loggedIn} 
+                />
+              </header>
+            </div>}
+          />
+
+            {/* Signup page */}
             <Route
               path="/signup"
               render={() =>
-                <Signup
-                  updateUser={updateUser}
-                  username={userState.username}
-                  loggedIn={userState.loggedIn}
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <Signup
+                    updateUser={updateUser}
+                    username={userState.username}
+                    loggedIn={userState.loggedIn}
+                  />
+                </header>
+              </div>}
             />
+
+            {/* Login page */}
             <Route
               path="/login"
               render={() =>
-                <LoginForm
-                  updateUser={updateUser}
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <LoginForm
+                    updateUser={updateUser}
+                  />
+                </header>
+              </div>}
             />
-            <Route
-              path="/savedAnimals"
-              render={() =>
-                <savedAnimals
-                  loggedIn={userState.loggedIn}
-                />}
-            />
+
+            {/* Mewsletter page */}
             <Route
               path="/mewsletter"
               render={() =>
-                <Mewsletter           
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <Mewsletter />
+                </header>
+              </div>}
             />
+
+            {/* Animal Tips page */}
             <Route
               path="/animaltips"
               render={() =>
-                <AnimalTips          
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <AnimalTips />
+                </header>
+              </div>}
             />
+
+            {/* About Us */}
             <Route
-              path="/savedanimals"
+              path="/about"
               render={() =>
-                <SavedAnimals          
-                />}
+                <div className="App container">
+                <header className="App-header">
+                  <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                  <About />
+                </header>
+              </div>}
             />
-          </div>
+
+            <Route
+              path="/test"
+              render={() => 
+                <div className="App container">
+                  <header className="App-header">
+                    <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
+                    <LargeCard image="https://images.pexels.com/photos/733416/pexels-photo-733416.jpeg?auto=compress&cs=tinysrgb&h=350" name="Chewy" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices, lorem in fermentum hendrerit, dolor lacus sollicitudin lacus, eget facilisis odio neque et nulla. Ut venenatis metus nisl, id congue urna posuere egestas. Aliquam in vulputate ipsum, eu placerat turpis. Quisque ullamcorper eleifend metus sit amet lacinia. Vestibulum varius fermentum tellus, eu tincidunt nulla maximus in. Donec malesuada et lectus non pretium. Sed pellentesque varius posuere. Vivamus odio augue, pharetra at ligula fermentum, hendrerit sagittis metus. Pellentesque malesuada faucibus lectus eu scelerisque."/>
+                  </header>
+                </div>
+              }
+            />
+
+            {/* 404 Not Found page */}
+          <Route path="*" component={PageNotFound}/>
         </Switch>
       </div>
     </BrowserRouter>

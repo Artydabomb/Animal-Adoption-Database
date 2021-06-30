@@ -4,8 +4,6 @@ const User = require('../../database/models/user')
 const passport = require('../../passport')
 
 router.post('/', (req, res) => {
-    console.log('user signup');
-
     const { username, password, email } = req.body
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
@@ -33,13 +31,11 @@ router.post('/', (req, res) => {
 router.post(
     '/login',
     function (req, res, next) {
-        console.log('routes/user.js, login, req.body: ');
-        console.log(req.body)
         next()
     },
     passport.authenticate('local'),
     (req, res) => {
-        console.log('logged in', req.user);
+        console.log('Login successful, logging in as: ', req.user);
         var userInfo = {
             username: req.user.username
         };
@@ -49,8 +45,7 @@ router.post(
 )
 
 router.get('/', (req, res, next) => {
-    console.log('===== user!!======')
-    console.log(req.user)
+    console.log("User: " + req.user)
     if (req.user) {
         res.json({ user: req.user })
     } else {
@@ -65,6 +60,67 @@ router.post('/logout', (req, res) => {
     } else {
         res.send({ msg: 'no user to log out' })
     }
+})
+
+router.put('/saveAnimal', (req, res) => {
+    console.log(req.body)
+    User.updateOne(
+        { username: req.body.username },
+        { $push: { saved_animals: req.body } }
+        // I'm removing this callback function for now, since it seems to be executing the query twice. I think this has something to do with the API call being a promise, but I don't know why. 
+        // Another option would be to change the $push modifier to $addToSet, but I would prefer to prevent the query from being executed twice even if the end result looks the same.
+        // I'm leaving these comments and the callback function below in case removing it causes any issues down the line. 
+        
+        // function (err, docs) {
+        //     if (err) {
+        //         console.log(err)
+        //     }
+        //     else {
+        //         return docs
+        //     }
+        // }
+    )
+    .then(response => {
+        res.json(response)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
+
+router.put('/unsaveAnimal', (req, res) => {
+    console.log(req.body)
+    User.updateOne(
+        { username: req.body.username },
+        { $pull: { saved_animals: req.body } },
+        function (err, docs) {
+            if (err) {
+                console.log(err)
+            }
+            else {
+                return docs
+            }
+        }
+    )
+    .then(response => {
+        res.json(response)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
+
+router.get("/getSavedAnimals", (req, res) => {
+    User.findOne(
+        {username: req.user.username},
+        (err, user) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.json(user.saved_animals)
+            }
+        }
+    )
 })
 
 module.exports = router
