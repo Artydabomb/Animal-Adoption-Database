@@ -41,8 +41,8 @@
   },
   "scripts": {
     "start": "node ./server.js",
-    "client": "npm run start",
-    "build": "npm run build",
+    "client": "cd client && npm run start",
+    "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
     "connect-mongo": "^4.4.1",
     "express": "^4.16.2",
