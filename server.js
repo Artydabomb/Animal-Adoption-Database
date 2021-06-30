@@ -34,7 +34,7 @@ app.use(
 	 session({
 		secret: 'bananna-pancakes', //pick a random string to make the hash that is generated secure
 		store: MongoStore.create({
-            mongoUrl: "mongodb://localhost:27017/animal-db"
+            mongoUrl: process.env.MONGODB_URI || "mongodb://localhost:27017/animal-db"
         }),
 		resave: false, //required
 		saveUninitialized: false //required
