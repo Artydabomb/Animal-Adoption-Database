@@ -5,6 +5,9 @@
   "dependencies": {
     "@creativebulma/bulma-collapsible": "^1.0.4",
     "@creativebulma/bulma-divider": "^1.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -27,8 +30,10 @@
     "passport-local": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-fontawesome": "^1.7.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "4.0.3",
+    "react-switch-selector": "^1.2.1",
     "spectre.css": "^0.5.0",
     "validator": "^13.6.0",
     "web-vitals": "^1.1.2"
