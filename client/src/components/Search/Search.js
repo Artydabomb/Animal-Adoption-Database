@@ -175,7 +175,7 @@ function Search(props) {
             <div className="box mb-5 main">
                 <div className="columns">
                     <div className="column is-one-fifth has-text-centered mt-3">
-                        <p className="title is-5">Advanced Search:</p>
+                        <p className="title is-5">Additional Fields:</p>
                     </div>
                     <div className="column is-four-fifths">
                         {/* Advanced Search - Size */}
@@ -201,6 +201,9 @@ function Search(props) {
                                     </a>
                                     <a className="dropdown-item size" id="X-Large" onClick={() => selectSize("X-Large")}>
                                         X-Large
+                                    </a>
+                                    <a className="dropdown-item size" id="Any Size" onClick={() => selectSize("Any Size")}>
+                                        Any Size
                                     </a>
                                     </div>
                                 </div>
@@ -229,6 +232,9 @@ function Search(props) {
                                     <a className="dropdown-item activity" id="Highly Active" onClick={() => selectActivity("Highly Active")}>
                                     Highly Active
                                     </a>
+                                    <a className="dropdown-item activity" id="Any Activity Level" onClick={() => selectActivity("Any Activity Level")}>
+                                    Any Activity Level
+                                    </a>
                                     </div>
                                 </div>
                             </div>
@@ -249,6 +255,9 @@ function Search(props) {
                                     </a>
                                     <a className="dropdown-item sex" id="Female" onClick={() => selectSex("Female")}>
                                     Female
+                                    </a>
+                                    <a className="dropdown-item sex" id="Any Sex" onClick={() => selectSex("Any Sex")}>
+                                    Any Sex
                                     </a>
                                     </div>
                                 </div>
