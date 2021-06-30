@@ -28,13 +28,49 @@ class HeaderNav extends Component {
         })
     }
 
+  
 
     render() {
+        
+        document.addEventListener('DOMContentLoaded', () => {
+
+            
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+          
+            if ($navbarBurgers.length > 0) {
+           
+              $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+          
+                  const target = el.dataset.target;
+                  const $target = document.getElementById(target);
+         
+                  el.classList.toggle('is-active');
+                  $target.classList.toggle('is-active');
+          
+                });
+              });
+            }
+          
+          });
+
+        
+          
 
         return (
             <nav className="navbar" role="navigation" aria-label="main navigation">
-                <a className="navbar-brand" href="/"></a>
-                <div id="navbarBasicExample" className="navbar-menu">
+                <div class="navbar-brand">
+                    <a class="navbar-item cosmoLogo" href="/">
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div id="navMenu" className="navbar-menu">
                     <div className="navbar-start">
                         <a className="navbar-item main-button" href="/savedanimals">
                             Your ❤ Animals
@@ -62,6 +98,7 @@ class HeaderNav extends Component {
                                 </a>
                             </div>
                         </div>
+
                     </div>
                     <div className="navbar-end">
                         <div className="navbar-item">
