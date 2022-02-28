@@ -12,7 +12,7 @@ function Search(props) {
     const [formObject, setFormObject] = useState({searchField: ""})
     const [advancedSearch, setadvancedSearch] = useState({size: "Size", activity: "Activity level", sex: "Sex", radius: "Search Radius"})
     const [advancedSearchHidden, setAdvancedSearchHidden] = useState("true")
-    const { page, rows } = useContext(SearchContext);
+    const { page } = useContext(SearchContext);
 
     useEffect(() => {
         API.searchAnimals({searchField: "", species: "dog"})

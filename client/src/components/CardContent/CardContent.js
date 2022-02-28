@@ -36,7 +36,7 @@ function CardContent(props) {
                         </header>
                         <section className="modal-card-body mx-3 mb-3">
                             <div className="has-text-centered mb-4">
-                                <img src={props.highresimg} alt={props.name} />
+                                <img src={props.highresimg} alt={props.name} style={{"borderRadius": "25px", "border": "2px solid", "borderColor": "#dbb3ec"}}/>
                             </div>
                             <div className="subtitle m-3" dangerouslySetInnerHTML={innerHTML}></div>
                         </section>
