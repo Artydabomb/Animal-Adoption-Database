@@ -1,31 +1,17 @@
-.footer{
+.footerElement{
   color: black;
-  background: transparent;
+  background: var(--light-primary);
   font-size: larger;
   font-weight: 500;
   width: 100%;
-  max-height: 2.5rem; 
+  border-radius: 10px;
 }
 
 .content{
   text-align: center;
+  background: var(--light-primary);
 }
 
-strong{
-  color: #D9DBF1;
-}
-
-a {
-  color: darkgray;
-  text-decoration: underline solid 1px;
-}
-
-a:hover {
-  font-weight: 600;
-  color: #D9DBF1;
-  text-decoration: underline solid 1px #D9DBF1;
-}
-
-.footerMain{
-  opacity: 90%;
+.contributorName {
+  color: var(--primary)
 }

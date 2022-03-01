@@ -1,12 +1,18 @@
+:root {
+  --primary: #5aa7a7;
+  --dark-primary: #387474;
+  --light-primary: #c7dbdb;
+}
+
 html, body{
-  height: 100vh;
+  min-height: 100vh;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: var(--primary);
 }
 
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

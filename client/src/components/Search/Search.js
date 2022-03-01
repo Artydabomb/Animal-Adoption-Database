@@ -107,16 +107,16 @@ function Search(props) {
         {
             label: "Dogs",
             value: "dog",
-            selectedBackgroundColor: "#D9DBF1",
-            fontColor: "white",
-            selectedFontColor: "black"
+            selectedBackgroundColor: "#5aa7a7",
+            fontColor: "black",
+            selectedFontColor: "white"
         },
         {
             label: "Cats",
             value: "cat",
-            selectedBackgroundColor: "#D9DBF1",
-            fontColor: "white",
-            selectedFontColor: "black"
+            selectedBackgroundColor: "#5aa7a7",
+            fontColor: "black",
+            selectedFontColor: "white"
         }
      ];
       
@@ -139,11 +139,11 @@ function Search(props) {
                 <div className="level-item">
                     <form className="field has-addons">
                         <p className="control">
-                            <input className="input search-box" type="text" placeholder="Search by breed" onChange={handleInputChange} name="searchField">
+                            <input className="input search-box" type="text" placeholder="Breed" onChange={handleInputChange} name="searchField">
                             </input>
                         </p>
                         <p className="control">
-                            <input className="input zip-box" type="text" placeholder="Zipcode" onChange={handleInputChange} name="zipCode">
+                            <input className="input zip-box" type="text" placeholder="Zip" onChange={handleInputChange} name="zipCode">
                             </input>
                         </p>
                         <p className="control">
@@ -160,12 +160,12 @@ function Search(props) {
 
 
             <div className="level-right">
-                <div style={{width: 130, height: 40}}>
+                <div className="switchSelector">
                     <SwitchSelector
                         onChange={onChange}
                         options={options}
                         initialSelectedIndex={initialSelectedIndex}
-                        backgroundColor={"#353b48"}
+                        backgroundColor={"white"}
                         fontColor={"#f5f6fa"}
                     />
                 </div>

@@ -1,19 +1,29 @@
 
-  
-.App-header{
-  background-color: transparent;
-  margin-top: 30px;
+.App {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .level{
   margin-top: 20px;
   margin-bottom: 20px;
+  padding-left: 20px;
 }
   
 .main {
-  background-color:#dbb3ec;
   grid-template-columns: repeat(4, 1fr);
   border-radius: 5px 5px 5px 5px;
-  border: black 2px solid;
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: none;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: underline solid 1px;
 }

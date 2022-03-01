@@ -89,7 +89,7 @@ function App() {
           <Route exact path="/">
             <SearchContext.Provider value={searchState}>
               <div className="App container">
-                <header className="App-header">
+                <div className="box">
                   <HeaderNav 
                     updateUser={updateUser}
                     username={userState.username}
@@ -98,7 +98,7 @@ function App() {
                   <Search setResults={setResults} setPage={setPage} />
                   <BodyNoLogin loggedIn={userState.loggedIn} username={userState.username} setPage={setPage} />
                   <Footer />
-                </header>
+                </div>
               </div>
             </SearchContext.Provider>
           </Route>
@@ -108,7 +108,7 @@ function App() {
             path="/savedAnimals"
             render={() =>
               <div className="App container">
-              <header className="App-header">
+              <header className="box">
                 <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                 <SavedAnimals
                   loggedIn={userState.loggedIn}
@@ -123,7 +123,7 @@ function App() {
             path="/user"
             render={() =>      
               <div className="App container">
-              <header className="App-header">
+              <header className="box">
                 <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                 <Profile 
                   username={userState.username} 
@@ -138,7 +138,7 @@ function App() {
               path="/signup"
               render={() =>
                 <div className="App container">
-                <header className="App-header">
+                <header className="box">
                   <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                   <Signup
                     updateUser={updateUser}
@@ -154,7 +154,7 @@ function App() {
               path="/login"
               render={() =>
                 <div className="App container">
-                <header className="App-header">
+                <header className="box">
                   <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                   <LoginForm
                     updateUser={updateUser}
@@ -168,7 +168,7 @@ function App() {
               path="/mewsletter"
               render={() =>
                 <div className="App container">
-                <header className="App-header">
+                <header className="box">
                   <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                   <Mewsletter />
                 </header>
@@ -180,7 +180,7 @@ function App() {
               path="/animaltips"
               render={() =>
                 <div className="App container">
-                <header className="App-header">
+                <header className="box">
                   <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                   <AnimalTips />
                 </header>
@@ -192,7 +192,7 @@ function App() {
               path="/about"
               render={() =>
                 <div className="App container">
-                <header className="App-header">
+                <header className="box">
                   <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                   <About />
                 </header>
@@ -203,7 +203,7 @@ function App() {
               path="/test"
               render={() => 
                 <div className="App container">
-                  <header className="App-header">
+                  <header className="box">
                     <HeaderNav updateUser={updateUser} username={userState.username} loggedIn={userState.loggedIn} />
                     <LargeCard image="https://images.pexels.com/photos/733416/pexels-photo-733416.jpeg?auto=compress&cs=tinysrgb&h=350" name="Chewy" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices, lorem in fermentum hendrerit, dolor lacus sollicitudin lacus, eget facilisis odio neque et nulla. Ut venenatis metus nisl, id congue urna posuere egestas. Aliquam in vulputate ipsum, eu placerat turpis. Quisque ullamcorper eleifend metus sit amet lacinia. Vestibulum varius fermentum tellus, eu tincidunt nulla maximus in. Donec malesuada et lectus non pretium. Sed pellentesque varius posuere. Vivamus odio augue, pharetra at ligula fermentum, hendrerit sagittis metus. Pellentesque malesuada faucibus lectus eu scelerisque."/>
                   </header>

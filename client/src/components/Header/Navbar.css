@@ -1,10 +1,6 @@
 .navbar{
-  height: 70px;
   width: auto;
-  background-color: #D9DBF1;
-  border: black 2px solid;
   border-radius: 10px;
-  margin-top: 20px;
 }
 
 .navbar-burger{
@@ -31,21 +27,26 @@ padding-top: 60px;
   color: black;
   background: transparent;
 }
-  .main-button:hover{
-    color: black;
-    background-color: black;
-    border: black 2px solid;
-  }
+
+a.navbar-item:hover {
+  background-color: white;
+  color: var(--primary);
+}
+
+.navbar-item.has-dropdown:hover .navbar-link {
+  background-color: white;
+  color: var(--primary);
+}
+
+.navbar-item:hover .dropdown-item:hover  {
+  color: var(--primary);
+}
 
 .dropdown-item{
   font-size: medium;
   font-weight: 600;
   color: black;
 }
-  .dropdown-item:hover{
-    color: #D9DBF1;
-    border: black 2px solid;
-  }
 
 .navbar-link{ 
   font-size: medium;
@@ -54,66 +55,51 @@ padding-top: 60px;
   background: transparent;
   border: none;
 }
-.navbar-link:hover {
-    color: #D9DBF1;
-    border: black 2px solid;
-  }
 
 .navbar-dropdown{
   text-align: center;
-  background-color: #D9DBF1;
   border-radius: 5px;
-  border: black solid 2px;
 } 
-
-.report-button:hover{
-  text-decoration: underline 2px solid red;
-  border: black 2px solid;
-}
-
   
   /* Login btn */
 .loginbtn{
+  border: none;
   font-weight: 700;
-  border: black 2px solid;
-  border-radius: 5px;
+  border-radius: 50px;
   margin-right: 10px;
   color: black;
   background-color: transparent;
 }
 
   .loginbtn:hover{
-    color: #D9DBF1;
-    background-color: black;
-    border: white 2px solid;
+    color: white;
+    background-color: var(--primary);
     text-decoration: underline 2px solid white;
+    cursor: pointer;
   }
   .loginbtn:active{
     color: white;
-    background-color: #D9DBF1;
-    border: white 2px solid;
+    background-color: var(--primary);
   }
 
 
   /* Signup btn */
 .signupbtn{
+  border: none;
   font-weight: 700;
-  border: black 2px solid;
-  border-radius: 5px;
+  border-radius: 50px;
   margin-right: 10px;
   color: black;
   background-color: transparent;
 }
 
   .signupbtn:hover{
-    color: #D9DBF1;
-    background-color: black;
-    border: white 2px solid;
+    color: white;
+    background-color: var(--primary);
     text-decoration: underline 2px solid white;
+    cursor: pointer;
   }
   .signupbtn:active{
     color: white;
-    background-color: #D9DBF1;
-    border: white 2px solid;
-    
+    background-color: var(--primary);
   }

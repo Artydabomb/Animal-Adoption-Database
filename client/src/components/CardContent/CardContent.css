@@ -10,32 +10,54 @@
     width: 310px;
     overflow: hidden;
     height: 300px;
+    cursor: pointer;
 }
+
+.modal-card {
+  width: 80%;
+}
+
+.modal
 
 .card-image{
   min-height: 300px;
 }
 
 .infobutton{
-  color: black;
+  color: white;
   font-weight: 620;
-  background-color: #CBC5EA;
-  border: black solid 2px;
-  border-radius: 10px;
+  background-color: var(--primary);
+  border-radius: 25px;
+  border: none;
 }
   .infobutton:hover{
-    color: #CBC5EA;
-    border: #f8f8f8 solid 2px;
-    background-color: black;
+    background-color: var(--dark-primary);
   }
   
   .infobutton:active{
-    color: white;
-    background-color: #CBC5EA;
     border:black 2px solid;
   }
 
 .modal-card-title {
   font-weight: bolder;
-  font-size:xx-large
+  color: white;
+  font-size:xx-large;
+}
+
+.modal-card-head {
+  background-color: var(--primary);
+}
+
+.buttonContainer {
+  position: absolute;
+  bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.title {
+  cursor: pointer;
 }

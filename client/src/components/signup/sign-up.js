@@ -25,8 +25,7 @@ class Signup extends Component {
 		})
 	}
 	handleSubmit(event) {
-		console.log('sign-up handleSubmit, username: ')
-		console.log(this.state.username)
+		console.log(`sign-up handleSubmit, username: ` + this.state.username)
 		event.preventDefault()
 
 		//request to server to add a new username/password/email
@@ -38,7 +37,7 @@ class Signup extends Component {
 			.then(response => {
 				console.log(response)
 				if (!response.data.errmsg) {
-					console.log('successful signup')
+					console.log('No error messages detected')
 					this.setState({ //redirect to login page
 						redirectTo: '/login'
 					})

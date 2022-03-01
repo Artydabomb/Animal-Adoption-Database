@@ -4,20 +4,10 @@
   border: black 3px solid;
   border-radius: 10px;
   text-align: center;
-  margin-top: 85px;
-  margin-bottom: 18rem;
-  margin-left: 50px;
-  margin-right: 50px;
-  background: #dbb3ecc0;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  background: var(--light-primary);
   display: block;
-  transition-duration: 1.2s;
-}
-
-.signup-form:hover{
-  padding-top: 40px;
-  border: 3px white solid;
-  height: 500px;
-  transition-duration: .8s;
 }
 
 .signup-body{
@@ -57,7 +47,6 @@ h4{
 }
 
 .form-input:hover{
-  border: black 3px solid;
   background: white;
 }
 
@@ -78,12 +67,10 @@ h4{
 }
 
 .signup-btn:hover {
-
   font-weight: 600;
-  text-shadow: black 2px 2px;
   color: white;
   margin-top: 12px;
-  background: transparent;
-  border: 2px white solid;
+  background: var(--primary);
   border-radius: 10px;
+  cursor:pointer;
 }

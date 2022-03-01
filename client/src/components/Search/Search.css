@@ -1,70 +1,69 @@
   /* animal searchbar */
  .search-box{
-  background-color: lightgrey;
-  border: black solid 2px;
+  border: black solid 1px;
   border-radius: 10px;
 }
-  .search-box:hover{
-    background-color: whitesmoke;
-    border: #dbb3ec 2px solid;
-  }
-  .search-box::placeholder{
-    font-weight: 700;
-    color: rgba(128, 190, 240, 0.7);
-    text-shadow: rgba(0, 0, 0, 0.6) 1px 1px;
-  }
-  .search-box:hover::placeholder{
-    color: rgba(0, 0, 0, 0.55);
-    text-shadow: none;
-  }
-  .search-box:focus::placeholder{
-    color: transparent;
-    text-shadow: none;
-  }
+.search-box:hover{
+  background-color: rgb(251, 251, 251);
+  border: var(--primary) 1px solid;
+}
+.search-box::placeholder{
+  font-weight: 700;
+  color: var(--primary);
+}
+.search-box:hover::placeholder{
+  text-shadow: none;
+}
+.search-box:focus::placeholder{
+  color: transparent;
+  text-shadow: none;
+}
 
   /* zip searchbar */
-  .zip-box{
-    background-color: lightgrey;
-    border: black solid 2px;
-  }
-    .zip-box:hover{
-      background-color: whitesmoke;
-      border: #dbb3ec 2px solid;
-    }
-    .zip-box::placeholder{
-      font-weight: 700;
-      color: rgba(128, 190, 240, 0.7);
-      text-shadow: rgba(0, 0, 0, 0.6) 1px 1px;
-    }
-    .zip-box:hover::placeholder{
-      color: rgba(0, 0, 0, 0.55);
-      text-shadow: none;
-    }
-    .zip-box:focus::placeholder{
-      color: transparent;
-      text-shadow: none;
-    }
-
+.zip-box{
+  border: black solid 1px;
+}
+.zip-box:hover{
+  background-color: rgb(253, 253, 253);
+  border: var(--primary) 1px solid;
+}
+.zip-box::placeholder{
+  font-weight: 700;
+  color: var(--primary);
+}
+.zip-box:hover::placeholder{
+  text-shadow: none;
+}
+.zip-box:focus::placeholder{
+  color: transparent;
+  text-shadow: none;
+}
 
   /* search btn */
 .button{
-  color: black;
+  color: white;
   font-weight: 620;
-  background-color: #D9DBF1;
-  border: black solid 2px;
+  background-color: var(--primary);
+  border: 1px solid black;
   border-radius: 10px;
 }
-  .button:hover{
-    color: #D9DBF1;
-    border: #D9DBF1 solid 2px;
-    background-color: black;
-  }
-  .button:active{
-    color: white;
-    background-color: #D9DBF1;
-    border:black 2px solid;
-  }
+.button:hover{
+  color: white;
+  background-color: var(--dark-primary);
+}
+.button:active{
+  color: white;
+  background-color: var(--dark-primary);
+}
 
 .filtertxt{
   text-shadow: black .5px .5px;
+}
+
+.switchSelector {
+  width: 130px;
+  height: 40px;
+  margin-right: 30px;
+  border: 2px solid #5aa7a7;
+  border-radius: 50px;
 }

@@ -1,0 +1,12 @@
+.pagination-link.is-current {
+    background-color: var(--dark-primary)
+}
+
+.pagination-link:focus {
+    color: white;
+}
+
+.paginationBtn {
+    border-radius: 50px;
+    border: none;
+}
